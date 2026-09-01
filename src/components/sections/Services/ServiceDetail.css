@@ -510,10 +510,13 @@
    4. CANLI SİNEMATİK SAHNE
 ========================================= */
 .sd-pure-live-showcase-section {
+    display: block !important;
     margin-top: 20px;
     margin-bottom: 90px;
     padding-bottom: 50px;
     border-bottom: 1px solid var(--hexa-card-border);
+    position: relative;
+    z-index: 10;
 }
 
 .sd-showcase-top-header {
@@ -627,16 +630,16 @@
     transform: scale(0.7);
     pointer-events: none;
     z-index: 0;
-    transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.3s ease;
     filter: blur(40px);
 }
 
 .sd-cinema-energy-bloom.active {
     opacity: 1;
-    transform: scale(1.2);
+    transform: scale(1.15);
 }
 
-/* SAYFA İÇİNDEKİ CANLI MORPHING PENCERE */
+/* SAYFA İÇİNDEKİ CANLI PENCERE */
 .sd-live-morphing-window {
     position: relative;
     width: 100%;
@@ -646,7 +649,8 @@
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
     background: #080c14;
     cursor: pointer;
-    transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    touch-action: manipulation;
 }
 
 .sd-live-morphing-window:hover {
@@ -656,8 +660,7 @@
 
 .sd-live-morphing-window.is-focusing {
     border-color: var(--hexa-accent);
-    box-shadow: 0 0 60px rgba(0, 255, 209, 0.6);
-    transform: scale(1.02);
+    box-shadow: 0 0 40px rgba(0, 255, 209, 0.5);
 }
 
 .sd-browser-bar {
@@ -756,7 +759,7 @@
 .sd-morph-iframe-holder {
     position: relative;
     width: 100%;
-    height: 500px;
+    height: 480px;
     background: #0f172a;
     overflow: hidden;
 }
@@ -766,23 +769,25 @@
     height: 100%;
     border: none;
     display: block;
+    pointer-events: none;
+    /* Arka plandaki karttayken kaydırmayı engellemez */
 }
 
 .sd-in-place-trigger-overlay {
     position: absolute;
     inset: 0;
     z-index: 5;
-    background: rgba(10, 14, 23, 0.25);
-    backdrop-filter: blur(1px);
+    background: rgba(10, 14, 23, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.2s ease;
+    touch-action: manipulation;
 }
 
 .sd-in-place-trigger-overlay:hover {
-    background: rgba(10, 14, 23, 0.1);
+    background: rgba(10, 14, 23, 0.05);
 }
 
 .sd-interactive-trigger-pill {
@@ -797,7 +802,7 @@
     font-size: 1rem;
     font-weight: 600;
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .mobile-pill-icon {
@@ -809,7 +814,7 @@
 }
 
 .sd-live-morphing-window:hover .sd-interactive-trigger-pill {
-    transform: scale(1.06);
+    transform: scale(1.04);
     box-shadow: 0 15px 40px rgba(0, 255, 209, 0.25);
 }
 
@@ -844,7 +849,7 @@
 }
 
 /* =========================================
-   5. SİNEMATİK TAM EKRAN MODAL
+   5. SİNEMATİK TAM EKRAN MODAL (GPU ACCELERATED)
 ========================================= */
 .sd-fullscreen-demo-overlay {
     position: fixed;
@@ -854,14 +859,15 @@
     align-items: center;
     justify-content: center;
     padding: 30px;
+    will-change: opacity;
 }
 
 .sd-cinema-backdrop-overlay {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at center, rgba(15, 23, 42, 0.94) 0%, rgba(5, 8, 15, 0.98) 100%);
-    backdrop-filter: blur(28px);
-    -webkit-backdrop-filter: blur(28px);
+    background: rgba(5, 8, 15, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     z-index: 1;
 }
 
@@ -878,7 +884,8 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 50px 140px rgba(0, 0, 0, 0.95), 0 0 50px rgba(0, 255, 209, 0.2);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.95);
+    will-change: transform, opacity;
 }
 
 .sd-fullscreen-modal-header {
@@ -949,7 +956,7 @@
     font-size: 0.9rem;
     font-weight: 700;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     box-shadow: 0 4px 18px rgba(0, 255, 209, 0.35);
 }
 
@@ -973,6 +980,8 @@
     height: 100%;
     border: none;
     display: block;
+    pointer-events: auto;
+    /* Tam ekranda serbestçe dokunup gezinilir */
 }
 
 /* =========================================
@@ -1172,7 +1181,7 @@
 }
 
 /* =========================================
-   7. MOBİL & TABLET UYUMU (ÖZEL TELEFON OPTİMİZASYONU)
+   7. MOBİL & TABLET UYUMU (SIFIR KASMA)
 ========================================= */
 @media (max-width: 1024px) {
     .hexa-sd-conversion-grid {
@@ -1191,80 +1200,11 @@
         gap: 12px;
     }
 
-    .sd-morph-iframe-holder {
-        height: 380px;
+    /* Mobilde GPU'yu yormaması için arka plan enerji patlamasını kapatıyoruz */
+    .sd-cinema-energy-bloom {
+        display: none !important;
     }
 
-    .sd-fullscreen-demo-overlay {
-        padding: 16px;
-    }
-
-    .sd-fullscreen-modal-window {
-        max-height: 96vh;
-    }
-}
-
-@media (max-width: 768px) {
-    .hexa-sd-hero-section {
-        min-height: 420px;
-        padding-top: 110px;
-        padding-bottom: 40px;
-        margin-bottom: 40px;
-    }
-
-    .pain-consequences {
-        grid-template-columns: 1fr;
-    }
-
-    .sidebar-action-buttons-inline {
-        grid-template-columns: 1fr;
-    }
-
-    .mobile-pill-icon {
-        display: inline-block;
-    }
-
-    .desktop-pill-icon {
-        display: none;
-    }
-
-    /* Mobilde kart yüksekliğini başparmakla kaydırmaya uygun hale getirdik */
-    .sd-morph-iframe-holder {
-        height: 340px;
-    }
-
-    .sd-interactive-trigger-pill {
-        padding: 14px 22px;
-        font-size: 0.9rem;
-    }
-
-    .sd-viewport-caption-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        padding: 12px 16px;
-    }
-
-    .sd-browser-address-bar {
-        display: none;
-    }
-
-    .sd-logos-podium-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .sd-projects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .sd-deliverables-box,
-    .sd-comparison-box,
-    .sd-pain-box,
-    .sidebar-sticky-box {
-        padding: 24px;
-    }
-
-    /* MOBİLDE TAM EKRAN: KENAR BOŞLUKSUZ VE TAM APP HİSSİ (100dvh) */
     .sd-fullscreen-demo-overlay {
         padding: 0;
     }
@@ -1297,5 +1237,65 @@
     .sd-modal-close-btn {
         padding: 8px 16px;
         font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hexa-sd-hero-section {
+        min-height: 420px;
+        padding-top: 110px;
+        padding-bottom: 40px;
+        margin-bottom: 40px;
+    }
+
+    .pain-consequences {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar-action-buttons-inline {
+        grid-template-columns: 1fr;
+    }
+
+    .mobile-pill-icon {
+        display: inline-block;
+    }
+
+    .desktop-pill-icon {
+        display: none;
+    }
+
+    .sd-morph-iframe-holder {
+        height: 320px;
+    }
+
+    .sd-interactive-trigger-pill {
+        padding: 14px 22px;
+        font-size: 0.9rem;
+    }
+
+    .sd-viewport-caption-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 12px 16px;
+    }
+
+    .sd-browser-address-bar {
+        display: none;
+    }
+
+    .sd-logos-podium-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sd-projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sd-deliverables-box,
+    .sd-comparison-box,
+    .sd-pain-box,
+    .sidebar-sticky-box {
+        padding: 24px;
     }
 }

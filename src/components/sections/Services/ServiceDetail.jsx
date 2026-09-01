@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa6";
 import { projectsData } from "@/data/projectsData";
+import { assetUrl } from "@/utils/formatters";
 import CtaSection from "@/components/ui/CtaSection";
 import SectoralPanel from "@/components/sections/Home/SectoralPanel";
 import "./ServiceDetail.css";
@@ -36,17 +37,15 @@ const ServiceDetail = ({
 }) => {
   const [openFaq, setOpenFaq] = useState(0);
   const [activeDemoTab, setActiveDemoTab] = useState(0);
-
-  // Sinematik Aşama: 'idle' | 'focusing' | 'blooming' | 'expanded'
   const [cinemaStage, setCinemaStage] = useState("idle");
   const cardContainerRef = useRef(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     setCinemaStage("idle");
+    setActiveDemoTab(0);
   }, [currentService?.slug]);
 
-  // ESC tuşuna basıldığında ve mobilde geri dönüldüğünde scroll akışını serbest bırakma
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape" && cinemaStage === "expanded") {
@@ -86,11 +85,24 @@ const ServiceDetail = ({
       ? currentService.liveDemos[activeDemoTab]
       : null;
 
-  // MOBİL VE MASAÜSTÜ İÇİN ORTAK SİNEMATİK MERKEZLEME
+  // MOBİLDE KASMAYI ÖNLEYEN HIZLI TETİKLEME
   const handleCinemaTrigger = () => {
-    if (cinemaStage !== "idle") return;
+    if (cinemaStage === "expanded") return;
 
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 1024;
+
+    // Mobilde ağır animasyonları atlayıp direkt 60fps açılış yapıyoruz
+    if (isMobile) {
+      setCinemaStage("expanded");
+      return;
+    }
+
+    // Masaüstünde sinematik akış
     setCinemaStage("focusing");
+
+    let safetyTimer = setTimeout(() => {
+      setCinemaStage("expanded");
+    }, 500);
 
     if (cardContainerRef.current) {
       const rect = cardContainerRef.current.getBoundingClientRect();
@@ -100,28 +112,27 @@ const ServiceDetail = ({
       if (window.lenis) {
         window.lenis.scrollTo(cardContainerRef.current, {
           offset: targetOffset,
-          duration: 0.6,
-          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          duration: 0.4,
           onComplete: () => {
+            clearTimeout(safetyTimer);
             setCinemaStage("blooming");
             setTimeout(() => {
               setCinemaStage("expanded");
-            }, 280);
+            }, 180);
           },
         });
       } else {
-        const currentScroll = window.scrollY || window.pageYOffset;
         window.scrollTo({
-          top: currentScroll + rect.top + targetOffset,
+          top: window.scrollY + rect.top + targetOffset,
           behavior: "smooth",
         });
-
+        clearTimeout(safetyTimer);
         setTimeout(() => {
           setCinemaStage("blooming");
           setTimeout(() => {
             setCinemaStage("expanded");
-          }, 280);
-        }, 450);
+          }, 180);
+        }, 250);
       }
     }
   };
@@ -132,11 +143,11 @@ const ServiceDetail = ({
       <section className="hexa-sd-hero-section">
         <div className="hexa-sd-hero-bg">
           <img
-            src={
+            src={assetUrl(
               currentService.image ||
-              category?.bgImage ||
-              "/assets/servicess/web.webp"
-            }
+                category?.bgImage ||
+                "/assets/servicess/web.webp",
+            )}
             alt={currentService.name}
           />
           <div className="hexa-sd-hero-overlay" />
@@ -266,7 +277,9 @@ const ServiceDetail = ({
                 ).map((faq, fIdx) => (
                   <div
                     key={fIdx}
-                    className={`faq-item global-glass-card ${openFaq === fIdx ? "open" : ""}`}
+                    className={`faq-item global-glass-card ${
+                      openFaq === fIdx ? "open" : ""
+                    }`}
                     onClick={() => setOpenFaq(openFaq === fIdx ? -1 : fIdx)}
                   >
                     <div className="faq-question">
@@ -336,7 +349,7 @@ const ServiceDetail = ({
         </div>
       </div>
 
-      {/* 3. CANLI SİNEMATİK SAHNE: MOBİL & MASAÜSTÜ BÜYÜME DENEYİMİ */}
+      {/* 3. CANLI SİNEMATİK SAHNE: MOBİLDE SIFIR KASMA, MASAÜSTÜNDE SİNEMATİK */}
       {activeLiveDemo && (
         <section className="sd-pure-live-showcase-section">
           <div className="container">
@@ -371,7 +384,9 @@ const ServiceDetail = ({
                   <button
                     key={idx}
                     type="button"
-                    className={`sd-demo-tab-btn ${activeDemoTab === idx ? "active" : ""}`}
+                    className={`sd-demo-tab-btn ${
+                      activeDemoTab === idx ? "active" : ""
+                    }`}
                     onClick={() => {
                       setActiveDemoTab(idx);
                       setCinemaStage("idle");
@@ -386,7 +401,6 @@ const ServiceDetail = ({
 
             {/* SİNEMA ÇAPASI */}
             <div ref={cardContainerRef} className="sd-cinema-anchor-box">
-              {/* ARKA PLANDA PATLAYAN NEON ENERJİ HALKASI */}
               <div
                 className={`sd-cinema-energy-bloom ${
                   cinemaStage === "blooming" || cinemaStage === "focusing"
@@ -396,114 +410,96 @@ const ServiceDetail = ({
               />
 
               {/* SAYFA İÇİNDEKİ CANLI PENCERE */}
-              {cinemaStage !== "expanded" && (
-                <motion.div
-                  layoutId="live-browser-cinema-morph"
-                  className={`sd-live-morphing-window global-glass-card ${
-                    cinemaStage === "focusing" ? "is-focusing" : ""
-                  }`}
-                  onClick={handleCinemaTrigger}
-                  transition={{
-                    duration: 0.65,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
-                >
-                  {/* TARAYICI ÜST ÇUBUĞU */}
-                  <div className="sd-browser-bar">
-                    <div className="sd-browser-dots">
-                      <span className="dot dot-red" />
-                      <span className="dot dot-yellow" />
-                      <span className="dot dot-green" />
-                    </div>
-
-                    <div className="sd-browser-address-bar">
-                      <Lock size={12} className="sd-lock-icon" />
-                      <span className="sd-address-url">
-                        https://{activeLiveDemo.domain || "hexadijital.com"}
-                      </span>
-                    </div>
-
-                    <div className="sd-browser-right-actions">
-                      <div className="sd-browser-open-prompt">
-                        <Maximize2 size={13} />
-                        <span>
-                          {cinemaStage === "focusing"
-                            ? "Kilitleniyor..."
-                            : "Tam Ekranda Büyüt"}
-                        </span>
-                      </div>
-                    </div>
+              <div
+                className={`sd-live-morphing-window global-glass-card ${
+                  cinemaStage === "focusing" ? "is-focusing" : ""
+                }`}
+                onClick={handleCinemaTrigger}
+              >
+                {/* TARAYICI ÜST ÇUBUĞU */}
+                <div className="sd-browser-bar">
+                  <div className="sd-browser-dots">
+                    <span className="dot dot-red" />
+                    <span className="dot dot-yellow" />
+                    <span className="dot dot-green" />
                   </div>
 
-                  {/* BİZZAT CANLI ÇALIŞAN GERÇEK SİTE GÖVDESİ */}
-                  <div className="sd-morph-iframe-holder">
-                    <div className="sd-in-place-trigger-overlay">
-                      <motion.div
-                        className="sd-interactive-trigger-pill"
-                        whileHover={{ scale: 1.05 }}
-                      >
-                        <Smartphone
-                          size={18}
-                          className="text-cyan mobile-pill-icon"
-                        />
-                        <Maximize2
-                          size={18}
-                          className="text-cyan desktop-pill-icon"
-                        />
-                        <span>Siteyi Canlı Gezin & Test Edin</span>
-                      </motion.div>
-                    </div>
-
-                    <iframe
-                      src={activeLiveDemo.url}
-                      title={activeLiveDemo.title}
-                      className="sd-morph-live-iframe"
-                      loading="lazy"
-                      sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals"
-                    />
-                  </div>
-
-                  {/* ALT BİLGİ ŞERİDİ */}
-                  <div className="sd-viewport-caption-bar">
-                    <div className="caption-text-block">
-                      <strong>{activeLiveDemo.title}:</strong>{" "}
-                      {activeLiveDemo.caption}
-                    </div>
-                    <span className="caption-direct-btn">
-                      Deneyimi Başlat <ArrowUpRight size={15} />
+                  <div className="sd-browser-address-bar">
+                    <Lock size={12} className="sd-lock-icon" />
+                    <span className="sd-address-url">
+                      https://{activeLiveDemo.domain || "hexadijital.com"}
                     </span>
                   </div>
-                </motion.div>
-              )}
+
+                  <div className="sd-browser-right-actions">
+                    <div className="sd-browser-open-prompt">
+                      <Maximize2 size={13} />
+                      <span>Tam Ekranda Gezin</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* BİZZAT CANLI ÇALIŞAN GERÇEK SİTE GÖVDESİ */}
+                <div className="sd-morph-iframe-holder">
+                  <div className="sd-in-place-trigger-overlay">
+                    <div className="sd-interactive-trigger-pill">
+                      <Smartphone
+                        size={18}
+                        className="text-cyan mobile-pill-icon"
+                      />
+                      <Maximize2
+                        size={18}
+                        className="text-cyan desktop-pill-icon"
+                      />
+                      <span>Siteyi Canlı Gezin & Test Edin</span>
+                    </div>
+                  </div>
+
+                  <iframe
+                    src={activeLiveDemo.url}
+                    title={activeLiveDemo.title}
+                    className="sd-morph-live-iframe"
+                    loading="lazy"
+                    sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals"
+                  />
+                </div>
+
+                {/* ALT BİLGİ ŞERİDİ */}
+                <div className="sd-viewport-caption-bar">
+                  <div className="caption-text-block">
+                    <strong>{activeLiveDemo.title}:</strong>{" "}
+                    {activeLiveDemo.caption}
+                  </div>
+                  <span className="caption-direct-btn">
+                    Deneyimi Başlat <ArrowUpRight size={15} />
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
       )}
 
-      {/* 4. SİNEMATİK TAM EKRAN (MOBİLDE 100% EKRANI KAPLAYAN UYGULAMA MODU) */}
+      {/* 4. SİNEMATİK TAM EKRAN (MOBİLDE SIFIR KASMA DONANIM HIZLANDIRMASI) */}
       <AnimatePresence>
         {cinemaStage === "expanded" && activeLiveDemo && (
           <div className="sd-fullscreen-demo-overlay">
-            {/* SİNEMA ARKA PLAN FLULUĞU */}
             <motion.div
               className="sd-cinema-backdrop-overlay"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.4 }}
+              transition={{ duration: 0.2 }}
               onClick={() => setCinemaStage("idle")}
             />
 
-            {/* BİZZAT AYNI PENCERENİN TAM EKRANA DÖNÜŞMÜŞ HALİ */}
             <motion.div
-              layoutId="live-browser-cinema-morph"
               className="sd-fullscreen-modal-window"
-              transition={{
-                duration: 0.65,
-                ease: [0.16, 1, 0.3, 1],
-              }}
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
             >
-              {/* MODAL ÜST TARAYICI ÇUBUĞU */}
               <div className="sd-fullscreen-modal-header">
                 <div className="sd-modal-left-info">
                   <div className="sd-browser-dots">
@@ -535,15 +531,14 @@ const ServiceDetail = ({
                     type="button"
                     className="sd-modal-close-btn"
                     onClick={() => setCinemaStage("idle")}
-                    aria-label="Geri Dön"
+                    aria-label="Kapat"
                   >
                     <X size={18} />
-                    <span>Geri Dön</span>
+                    <span>Kapat</span>
                   </button>
                 </div>
               </div>
 
-              {/* SAF CANLI SİTE (TAM EKRANDA TAMAMEN SERBEST GEZİNME) */}
               <div
                 className="sd-fullscreen-iframe-container"
                 data-lenis-prevent="true"
@@ -563,7 +558,6 @@ const ServiceDetail = ({
 
       {/* 5. LOGO & PROJELER & DİĞER HİZMETLER */}
       <div className="container">
-        {/* LOGO ÇALIŞMALARI */}
         {currentService.showcaseLogos &&
           currentService.showcaseLogos.length > 0 && (
             <section className="sd-showcase-section">
@@ -582,7 +576,7 @@ const ServiceDetail = ({
                     className="sd-logo-podium-card global-glass-card"
                   >
                     <div className="podium-logo-wrap">
-                      <img src={item.logo} alt={item.name} />
+                      <img src={assetUrl(item.logo)} alt={item.name} />
                     </div>
                     <div className="podium-info">
                       <span className="podium-brand-name">{item.name}</span>
@@ -594,7 +588,6 @@ const ServiceDetail = ({
             </section>
           )}
 
-        {/* MÜŞTERİ VAKA ANALİZLERİ */}
         {relatedProjects.length > 0 && (
           <section className="sd-related-projects-section">
             <div className="sd-section-header">
@@ -613,7 +606,7 @@ const ServiceDetail = ({
                   className="sd-project-card global-glass-card"
                 >
                   <div className="sd-project-img">
-                    <img src={project.image} alt={project.title} />
+                    <img src={assetUrl(project.image)} alt={project.title} />
                   </div>
                   <div className="sd-project-info">
                     <div>
@@ -630,7 +623,6 @@ const ServiceDetail = ({
           </section>
         )}
 
-        {/* İLGİLİ DİĞER HİZMETLER */}
         {relatedServices.length > 0 && (
           <div className="hexa-sd-related-section">
             <h4 className="related-section-title">
