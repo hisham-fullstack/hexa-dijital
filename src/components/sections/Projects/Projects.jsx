@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "next-view-transitions";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Cpu } from "lucide-react";
-import { projectsData } from "../../../data/projectsData"; // Yeni mimariye göre import yolu
+import { projectsData } from "@/data/projectsData";
 import "./Projects.css";
 
 const Projects = () => {
@@ -20,7 +20,6 @@ const Projects = () => {
     return true;
   });
 
-  // Filtre değiştiğinde sağdaki görseli ilk projeye eşitle
   useEffect(() => {
     if (filteredProjects.length > 0) {
       setHoveredProject(filteredProjects[0]);
@@ -32,7 +31,6 @@ const Projects = () => {
   return (
     <div className="global-section projects-page">
       <div className="container">
-        {/* HERO */}
         <div className="approach-content projects-hero-margin">
           <div className="approach-label">
             <p>PORTFOLYO & ÜRÜNLER</p>
@@ -49,11 +47,11 @@ const Projects = () => {
           </div>
         </div>
 
-        {/* FİLTRELEME ÇUBUĞU */}
         <div className="projects-filter-wrapper">
           {filters.map((filter) => (
             <button
               key={filter}
+              type="button"
               className={`filter-pill ${activeFilter === filter ? "active" : ""}`}
               onClick={() => setActiveFilter(filter)}
             >
@@ -62,9 +60,7 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* YENİ AWWWARDS YERLEŞİMİ: INTERACTIVE TYPOGRAPHIC LIST */}
         <div className="projects-interactive-layout">
-          {/* SOL TARAF: LİSTE */}
           <div className="projects-list-column">
             <AnimatePresence mode="popLayout">
               {filteredProjects.map((project, index) => (
@@ -100,7 +96,6 @@ const Projects = () => {
                       </div>
                     </div>
 
-                    {/* MOBİL İÇİN GÖRSEL (Sadece mobilde görünür) */}
                     <div className="mobile-project-image">
                       <img src={project.image} alt={project.title} />
                     </div>
@@ -110,7 +105,6 @@ const Projects = () => {
             </AnimatePresence>
           </div>
 
-          {/* SAĞ TARAF: STICKY GÖRSEL (Masaüstü için) */}
           <div className="projects-image-column">
             <div className="sticky-image-container global-glass-card">
               <AnimatePresence mode="wait">

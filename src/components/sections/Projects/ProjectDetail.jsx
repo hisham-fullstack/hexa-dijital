@@ -1,15 +1,11 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { useParams } from "next/navigation";
 import { Link } from "next-view-transitions";
 import { motion } from "framer-motion";
 import { ChevronLeft, ArrowRight, Cpu, Check } from "lucide-react";
-import { projectsData } from "../../../data/projectsData";
-
-import LightRays from "../Home/Hero/LightRays";
+import LightRays from "@/components/ui/LightRays";
 import ProjectLogo3D from "./ProjectLogo3D";
-
 import "./ProjectDetail.css";
 
 const fadeUp = {
@@ -26,24 +22,17 @@ const staggerContainer = {
   visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
 };
 
-const ProjectDetail = () => {
-  const params = useParams();
-  const slug = params?.slug;
-
-  const project = projectsData.find((p) => p.slug === slug);
-  const currentIndex = projectsData.findIndex((p) => p.slug === slug);
-
+const ProjectDetail = ({ project, nextProject }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [slug]);
+  }, [project?.slug]);
 
-  if (!project) return <div className="hx-pd-error">Proje bulunamadı.</div>;
-
-  const nextProject = projectsData[(currentIndex + 1) % projectsData.length];
+  if (!project) {
+    return <div className="hx-pd-error">Proje bulunamadı.</div>;
+  }
 
   return (
     <div className="hx-project-detail-page">
-      {/* 1. 60VH ZARİF HERO BÖLÜMÜ */}
       <div className="hx-pd-webgl-hero">
         <div className="hx-pd-rays-bg">
           <LightRays
@@ -56,7 +45,6 @@ const ProjectDetail = () => {
         <div className="hx-pd-3d-center">
           <div className="hx-pd-logo-wrapper">
             <ProjectLogo3D
-              // VİTE KALINTISI TEMİZLENDİ, NEXT.JS PUBLIC YAPISINA UYARLANDI
               logoUrl={project.clientLogoSvg || "/assets/logos/hexa_logo.svg"}
             />
           </div>
@@ -64,7 +52,6 @@ const ProjectDetail = () => {
 
         <div className="container hx-pd-hero-content">
           <div className="hx-pd-top-nav">
-            {/* to yerine href kullanıldı */}
             <Link href="/projeler" className="hx-pd-back-link">
               <ChevronLeft size={16} strokeWidth={1.5} /> Projeler
             </Link>
@@ -82,7 +69,6 @@ const ProjectDetail = () => {
         </div>
       </div>
 
-      {/* 2. GİRİŞ ALANI (SOL: BİLGİ, SAĞ: YATAY METRİKLER) */}
       <section className="hx-pd-intro-flex container">
         <div className="hx-pd-intro-left">
           <motion.div
@@ -129,9 +115,7 @@ const ProjectDetail = () => {
         </div>
       </section>
 
-      {/* 3. MEYDAN OKUMA VE ÇÖZÜM (SOL: STICKY, SAĞ: KAYAR YAPI) */}
       <section className="hx-pd-approach-section container">
-        {/* Sol Taraf - Ekranda Asılı Kalır (Sticky komutu direkt bu div'de) */}
         <div className="hx-pd-approach-left">
           <motion.div
             initial="hidden"
@@ -147,7 +131,6 @@ const ProjectDetail = () => {
           </motion.div>
         </div>
 
-        {/* Sağ Taraf - Sayfayla Beraber Aşağı Kayar */}
         <div className="hx-pd-approach-right">
           <motion.div
             initial="hidden"
@@ -197,7 +180,6 @@ const ProjectDetail = () => {
         </div>
       </section>
 
-      {/* 4. MİNİMAL BENTO GALERİ */}
       {project.gallery && project.gallery.length > 0 && (
         <section className="hx-pd-gallery-section container">
           <motion.div
@@ -238,23 +220,24 @@ const ProjectDetail = () => {
         </section>
       )}
 
-      {/* 5. SONRAKİ PROJEYE ESTETİK GEÇİŞ */}
-      <Link
-        href={`/projeler/${nextProject.slug}`}
-        className="hx-pd-next-project"
-      >
-        <div className="hx-pd-next-bg">
-          <img src={nextProject.image} alt={nextProject.title} />
-          <div className="hx-pd-next-overlay"></div>
-        </div>
-        <div className="hx-pd-next-content container">
-          <span className="next-kicker">Sıradaki Keşif</span>
-          <h2 className="next-title">{nextProject.title}</h2>
-          <div className="next-action">
-            Projeyi İncele <ArrowRight size={20} strokeWidth={1.5} />
+      {nextProject && (
+        <Link
+          href={`/projeler/${nextProject.slug}`}
+          className="hx-pd-next-project"
+        >
+          <div className="hx-pd-next-bg">
+            <img src={nextProject.image} alt={nextProject.title} />
+            <div className="hx-pd-next-overlay" />
           </div>
-        </div>
-      </Link>
+          <div className="hx-pd-next-content container">
+            <span className="next-kicker">Sıradaki Keşif</span>
+            <h2 className="next-title">{nextProject.title}</h2>
+            <div className="next-action">
+              Projeyi İncele <ArrowRight size={20} strokeWidth={1.5} />
+            </div>
+          </div>
+        </Link>
+      )}
     </div>
   );
 };

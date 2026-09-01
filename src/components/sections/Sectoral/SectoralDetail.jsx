@@ -1,10 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { useParams } from "next/navigation";
 import Link from "next/link";
-import { sectoralData } from "../../../data/sectoralData";
-import { projectsData } from "../../../data/projectsData";
 import {
   ChevronLeft,
   ArrowRight,
@@ -12,28 +9,20 @@ import {
   CheckCircle,
   ArrowUpRight,
 } from "lucide-react";
+import HomeServices from "@/components/sections/Home/HomeServices";
 import "./SectoralDetail.css";
-import Servicess from "../Home/Servicess/Servicess";
-const SectoralDetail = () => {
-  const params = useParams();
-  const id = params?.id;
-  const currentSector = sectoralData.find((s) => s.id === id);
 
+const SectoralDetail = ({ currentSector, relatedProjects = [] }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [id]);
+  }, [currentSector?.id]);
 
-  if (!currentSector)
+  if (!currentSector) {
     return <div className="error-screen">Sektör bulunamadı.</div>;
-
-  // SEKTÖRE ÖZEL PROJELERİ FİLTRELEME
-  const relatedProjects = projectsData.filter(
-    (p) => p.relatedSectors && p.relatedSectors.includes(id),
-  );
+  }
 
   return (
     <div className="hexa-sd-page">
-      {/* SECTION 1: HERO */}
       <div className="hexa-sd-hero-block">
         <div className="hexa-sd-image-wrapper">
           <img src={currentSector.bgImage} alt={currentSector.title} />
@@ -56,9 +45,7 @@ const SectoralDetail = () => {
       </div>
 
       <div className="container">
-        {/* Z-PATTERN ADIM 1: SOL MAKALE, SAĞ PROBLEMLER */}
         <section className="hexa-split-section">
-          {/* Sol Taraf - Makale (Sticky) */}
           <div className="split-text-panel sticky-panel">
             <span className="section-kicker danger">MEVCUT DURUM ANALİZİ</span>
             <h2 className="split-title">
@@ -74,7 +61,6 @@ const SectoralDetail = () => {
             </div>
           </div>
 
-          {/* Sağ Taraf - Problem Kartları (Kaydırılabilir) */}
           <div className="split-cards-panel">
             {currentSector.painPoints.map((point, idx) => (
               <div key={idx} className="hexa-glass-card problem-card">
@@ -89,9 +75,7 @@ const SectoralDetail = () => {
           </div>
         </section>
 
-        {/* Z-PATTERN ADIM 2: SOL ÇÖZÜMLER, SAĞ MAKALE (Reverse Layout) */}
         <section className="hexa-split-section reverse-layout">
-          {/* Sağ Taraf (Flex Reverse ile) - Makale (Sticky) */}
           <div className="split-text-panel sticky-panel">
             <span className="section-kicker success">
               HEXA DÖNÜŞÜM MİMARİSİ
@@ -113,7 +97,6 @@ const SectoralDetail = () => {
             </div>
           </div>
 
-          {/* Sol Taraf - Çözüm/Süreç Kartları (Kaydırılabilir) */}
           <div className="split-cards-panel">
             {currentSector.workflowSteps.map((step, index) => (
               <div key={index} className="hexa-glass-card solution-card">
@@ -128,7 +111,6 @@ const SectoralDetail = () => {
           </div>
         </section>
 
-        {/* YENİ EKLENEN BÖLÜM: SEKTÖREL BAŞARI HİKAYELERİ */}
         {relatedProjects.length > 0 && (
           <section className="hexa-related-projects-section">
             <div className="related-header">
@@ -169,9 +151,8 @@ const SectoralDetail = () => {
           </section>
         )}
 
-        <Servicess />
+        <HomeServices />
 
-        {/* CTA BÖLÜMÜ */}
         <section className="hexa-final-cta">
           <div className="cta-inner-glass">
             <h2>

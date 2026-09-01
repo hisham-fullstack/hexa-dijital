@@ -2,15 +2,14 @@
 
 import React, { useEffect, useRef } from "react";
 import { ThemeProvider } from "next-themes";
-import { CartProvider } from "../context/CartContext";
-import Lenis from "@studio-freight/lenis";
-import { usePathname } from "next/navigation"; // 1. Yönlendirmeyi dinlemek için ekledik
+import { CartProvider } from "@/context/CartContext";
+import Lenis from "lenis";
+import { usePathname } from "next/navigation";
 
 export default function Providers({ children }) {
-  const lenisRef = useRef(null); // 2. Lenis motorunu hafızada tutmak için Referans oluşturduk
-  const pathname = usePathname(); // 3. Mevcut sayfa yolunu alıyoruz
+  const lenisRef = useRef(null);
+  const pathname = usePathname();
 
-  // Lenis Başlatma Motoru
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -18,7 +17,11 @@ export default function Providers({ children }) {
       smooth: true,
     });
 
-    lenisRef.current = lenis; // Lenis'i referansa kaydet
+    lenisRef.current = lenis;
+    // Sayfa genelinde sinematik merkezleme yapabilmek için Lenis nesnesi kaydedilir
+    if (typeof window !== "undefined") {
+      window.lenis = lenis;
+    }
 
     function raf(time) {
       lenis.raf(time);
@@ -29,10 +32,12 @@ export default function Providers({ children }) {
     return () => {
       lenis.destroy();
       lenisRef.current = null;
+      if (typeof window !== "undefined") {
+        window.lenis = null;
+      }
     };
   }, []);
 
-  // 4. ASIL ÇÖZÜM: URL (pathname) her değiştiğinde Lenis'e "hemen en üste çık" diyoruz
   useEffect(() => {
     if (lenisRef.current) {
       lenisRef.current.scrollTo(0, { immediate: true });

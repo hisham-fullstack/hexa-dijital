@@ -1,25 +1,14 @@
 /* 1. KÜRESEL DEĞİŞKENLER (CSS Variables) */
 :root {
   /* --- 1. PERDE: SİBER VE TEKNOLOJİK (Premium Midnight Blue) --- */
-
-  /* Derin uzay/gece yarısı mavisi. Siyahın o ağır karanlığını alır, arayüze nefes aldırır. */
   --hexa-bg: #0A0E17;
-
-  /* Lacivert zemin üzerinde Glassmorphism (cam) efektinin en temiz durduğu şeffaflık oranı */
   --hexa-card-bg: rgba(255, 255, 255, 0.02);
   --hexa-card-border: rgba(255, 255, 255, 0.06);
-
-  /* İmza neon rengin. Koyu mavi üzerinde siyah kadar sert bir kontrast yaratmaz, göz yormadan parlar */
   --hexa-accent: #00ffd1;
 
-  /* Metin renklerini düz gri yerine "Slate" (mavi alt tonlu gri) skalasına çekiyoruz */
   --hexa-font-main: #F8FAFC;
-  /* Slate 50 - Çiğ beyaz yerine lüks bir buz beyazı */
   --hexa-font-dim: #94A3B8;
-  /* Slate 400 - Koyu mavi arka planla kusursuz uyum sağlayan soğuk metin rengi */
   --hexa-font-dim-hover: #E2E8F0;
-  /* Slate 200 */
-
   --hexa-gradient-mid: #ffffff;
 
   /* Sık Kullanılan Değerler */
@@ -35,18 +24,12 @@
 
 /* --- 2. PERDE: MİNAMALİST VE LÜKS (Açık Tema / Inverted) --- */
 .theme-inverted {
-  /* Çiğ beyaz (#FFF) yerine, lüks ve göz yormayan Apple grisi */
   --hexa-bg: #F5F5F7;
-
-  /* Açık temada Glassmorphism kartlarının gölgeleri ve arka planı */
   --hexa-card-bg: rgba(0, 0, 0, 0.02);
   --hexa-card-border: rgba(0, 0, 0, 0.06);
-
-  /* DİKKAT: Açık temada neon cyan okunmaz. Onu lüks bir zümrüt/turkuaz tonuna çekiyoruz. */
   --hexa-accent: #00b994;
 
   --hexa-font-main: #1A1A1A;
-  /* Tam siyah değil, tok bir füme */
   --hexa-font-dim: #6E6E73;
   --hexa-font-dim-hover: #1A1A1A;
   --hexa-gradient-mid: #888888;
@@ -80,7 +63,7 @@ html.lenis body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter', var(--font-space), -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -156,18 +139,22 @@ body {
 }
 
 /* --- TÜM TARAYICILARDA SCROLL BAR'I GİZLE --- */
-
-/* Chrome, Edge ve Safari için */
 ::-webkit-scrollbar {
   display: none;
 }
 
-/* Firefox için */
 * {
   scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-/* Internet Explorer ve Edge (eski sürümler) için */
-* {
-  -ms-overflow-style: none;
+.error-screen {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: var(--hexa-font-dim);
+  font-size: 1.2rem;
 }

@@ -1,5 +1,6 @@
-/* --- SAYFA YERLEŞİMİ --- */
-@import url('../Home/Approach/Approach.css');
+/* ==========================================================================
+   HİZMETLER - ORİJİNAL AWWARDS STICKY SPLIT CSS (Services.css)
+   ========================================================================== */
 
 .services-page {
     padding-top: 150px;
@@ -27,21 +28,17 @@
 .category-image-sticky-wrapper {
     position: sticky;
     top: 100px;
-    /* Ekranın üstünden bırakılacak şık boşluk */
     height: max-content;
-    /* Sadece içindeki yazı ve görsel kadar yer kaplar */
 }
 
-/* --- GÖRSELİN TAM TEPESİNDE DURAN BAŞLIK (image_de99dc.jpg ile birebir) --- */
+/* GÖRSELİN TEPESİNDEKİ DEVASA BAŞLIK */
 .category-bg-title {
     font-size: 6rem;
     color: var(--hexa-card-bg);
-    /* Yarı şeffaf premium doku */
     display: flex;
     align-items: center;
     gap: 1.5rem;
     margin-bottom: 24px;
-    /* Yazı ile görselin tavanı arasındaki kusursuz mesafe */
     letter-spacing: -3px;
     user-select: none;
     line-height: 0.9;
@@ -88,7 +85,6 @@
 .list-main-header {
     margin-bottom: 20px;
     padding-top: 10px;
-    /* Sol taraftaki yazı hizasıyla dengelemek için */
 }
 
 .list-main-header h3 {
@@ -112,11 +108,9 @@
     justify-content: center;
     margin-right: 12px;
     color: var(--hexa-accent);
-    /* Neon renginiz */
     transition: color 0.3s ease;
 }
 
-/* Hover olduğunda ikonun renginin başlık yazısıyla uyumlu olması için */
 .sub-category-title-link:hover .sub-category-icon {
     color: var(--hexa-bg);
 }
@@ -161,11 +155,6 @@
     transition: color var(--transition-fast);
 }
 
-.sub-arrow {
-    color: var(--hexa-accent);
-    transition: transform var(--transition-fast), color var(--transition-fast);
-}
-
 .sub-category-title-link:hover::before {
     height: 100%;
 }
@@ -174,9 +163,8 @@
     color: var(--hexa-bg);
 }
 
-.sub-category-title-link:hover .sub-arrow {
+.sub-category-title-link:hover .group-explore-text {
     color: var(--hexa-bg);
-    transform: translateX(4px);
 }
 
 /* --- LİNKLER VE HOVER DOLGU EFEKTİ --- */
@@ -224,6 +212,15 @@
     transition: transform var(--transition-fast), color var(--transition-fast);
 }
 
+.service-inspect-tag {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--hexa-font-dim);
+    position: relative;
+    z-index: 2;
+    transition: color var(--transition-fast);
+}
+
 .service-list-item:hover::before {
     height: 100%;
 }
@@ -232,112 +229,13 @@
     color: var(--hexa-bg);
 }
 
-.service-list-item:hover .item-arrow {
+.service-list-item:hover .item-arrow,
+.service-list-item:hover .service-inspect-tag {
     color: var(--hexa-bg);
-    transform: translateX(8px);
-}
-
-/* --- YENİ: EKLE/ÇIKAR BUTONU ÖZEL TASARIMI --- */
-.service-add-btn {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(0, 255, 209, 0.08);
-    /* Hafif neon cam dokusu */
-    border: 1px solid rgba(0, 255, 209, 0.35);
-    /* Çerçeveyi belirginleştirdik */
-    color: var(--hexa-font-main);
-    /* Silik renk yerine ana parlak renk */
-    padding: 6px 16px;
-    border-radius: 50px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    /* Daha kalın ve tok bir görünüm */
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    backdrop-filter: blur(4px);
-}
-
-/* Butonun kendi hover durumu */
-.service-add-btn:hover {
-    background: var(--hexa-accent);
-    color: var(--hexa-bg);
-    border-color: var(--hexa-accent);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 255, 209, 0.25);
-}
-
-/* Sepetteyken (Çıkar) Görünümü */
-.service-add-btn.in-cart {
-    background: rgba(255, 77, 77, 0.08);
-    border: 1px solid rgba(255, 77, 77, 0.4);
-    color: #ff4d4d;
-}
-
-.service-add-btn.in-cart:hover {
-    background: #ff4d4d;
-    color: #ffffff;
-    border-color: #ff4d4d;
-    box-shadow: 0 4px 12px rgba(255, 77, 77, 0.25);
-}
-
-/* AKILLI KONTRAST: Satır üzerine gelindiğinde satır neon yeşile döndüğü için, 
-   butonun içinde kaybolmaması adına renklerini tersine çeviriyoruz */
-.service-list-item:hover .service-add-btn:not(.in-cart) {
-    background: var(--hexa-bg);
-    color: var(--hexa-accent);
-    border-color: transparent;
-}
-
-.service-list-item:hover .service-add-btn.in-cart {
-    background: var(--hexa-bg);
-    color: #ff4d4d;
-    border-color: transparent;
-}
-
-/* Satır hover modundayken butonun üstüne gidilirse */
-.service-list-item:hover .service-add-btn:not(.in-cart):hover {
-    background: var(--hexa-font-main);
-    color: var(--hexa-bg);
-    transform: scale(1.05);
-}
-
-.sub-category-group-link {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-decoration: none;
-    color: inherit;
-    margin-bottom: 24px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    transition: border-color 0.3s ease;
-}
-
-.sub-category-group-link:hover {
-    border-color: var(--hexa-accent);
-}
-
-.sub-category-group-link h3 {
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin: 0;
-}
-
-.group-explore-text {
-    font-size: 0.9rem;
-    color: var(--hexa-font-dim);
-    transition: color 0.3s ease;
-}
-
-.sub-category-group-link:hover .group-explore-text {
-    color: var(--hexa-accent);
+    transform: translateX(4px);
 }
 
 /* --- RESPONSIVE AYARLAR --- */
-/* =========================================
-   MOBİL VE TABLET UYARLAMASI (Services.css)
-========================================= */
 @media (max-width: 1024px) {
     .services-category-wrapper {
         margin-bottom: 120px;
@@ -385,25 +283,13 @@
     }
 
     .service-list-item {
-        /* Mobilde yan yana sığmayacağı için alt alta dizilim */
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-        padding: 20px 0;
-    }
-
-    .service-list-item>div {
-        /* Fiyat ve Ekle butonu grubunu tam genişliğe yay */
-        width: 100%;
+        flex-direction: row;
+        align-items: center;
         justify-content: space-between;
+        padding: 16px 0;
     }
 
     .item-text {
-        font-size: 1.05rem;
-        font-weight: 500;
-    }
-
-    .service-add-btn {
-        padding: 8px 20px;
+        font-size: 1rem;
     }
 }

@@ -4,10 +4,10 @@ import React, { useState, useRef } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { sectoralData } from "../../../data/sectoralData";
+import { sectoralData } from "@/data/sectoralData";
+import HomeServices from "@/components/sections/Home/HomeServices";
 import "./SectoralSolutions.css";
-import Servicess from "../Home/Servicess/Servicess";
-// Mouse takibi için her karta özel bileşen oluşturuyoruz
+
 const SectorCard = ({ sector }) => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const cardRef = useRef(null);
@@ -15,7 +15,6 @@ const SectorCard = ({ sector }) => {
   const handleMouseMove = (e) => {
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
-    // Mouse'un kart içindeki x ve y koordinatlarını hesaplıyoruz
     setMousePos({
       x: e.clientX - rect.left,
       y: e.clientY - rect.top,
@@ -31,12 +30,11 @@ const SectorCard = ({ sector }) => {
       >
         <img src={sector.bgImage} alt={sector.title} />
 
-        {/* Framer Motion ile Pürüzsüz Mouse Takip Eden Buton */}
         <motion.div
           className="portfolio-hover-btn"
           animate={{
-            x: mousePos.x - 90, // Butonu tam imlecin ortasına almak için x ofseti
-            y: mousePos.y - 25, // Butonu tam imlecin ortasına almak için y ofseti
+            x: mousePos.x - 90,
+            y: mousePos.y - 25,
           }}
           transition={{
             type: "spring",
@@ -64,7 +62,6 @@ const SectoralSolutions = () => {
   return (
     <div className="global-section sectoral-page">
       <div className="container">
-        {/* HERO ALANI */}
         <div className="approach-content sectoral-hero-margin">
           <div className="approach-label">
             <p>SEKTÖREL ÇÖZÜMLER</p>
@@ -82,14 +79,13 @@ const SectoralSolutions = () => {
           </div>
         </div>
 
-        {/* YENİ PORTFOLYO GRID YAPISI */}
         <div className="portfolio-grid">
           {sectoralData.map((sector) => (
             <SectorCard key={sector.id} sector={sector} />
           ))}
         </div>
       </div>
-      <Servicess />
+      <HomeServices />
     </div>
   );
 };

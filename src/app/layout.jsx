@@ -1,14 +1,13 @@
 import { ViewTransitions } from "next-view-transitions";
-import Script from "next/script"; // Google Analytics için Script bileşeni
-import { Space_Grotesk } from "next/font/google"; // EKSİK GİDERİLDİ: Font import edildi
+import Script from "next/script";
+import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import Providers from "../components/Providers";
-import Header from "../components/layout/Header/Header";
-import Footer from "../components/layout/Footer/Footer";
-import CartBar from "../components/layout/CartBar/CartBar";
-import Preloader from "../components/layout/Preloader/Preloader";
+import Providers from "@/components/Providers";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import Preloader from "@/components/layout/Preloader";
+import WhatsAppButton from "@/components/layout/WhatsAppButton";
 
-// Next.js Font Optimizasyonu
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
@@ -17,9 +16,9 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata = {
-  title: "Hexa Dijital | Bursa Tasarım, Yazılım ve Reklam Ajansı",
+  title: "Hexa Dijital | Bursa Web Tasarım, Yazılım ve Reklam Ajansı",
   description:
-    "Bursa'nın fütüristik tasarım, yazılım ve reklam ajansı Hexa Dijital. Web tasarım, mobil uygulama ve premium marka çözümleriyle dijitalde zirveye oynayın.",
+    "Müşteri kaybettiren eski sitelere son. Telefonda saniyesinde açılan web siteleri, akılda kalıcı logolar ve restoran otomasyonları inşa ediyoruz.",
   verification: {
     other: {
       "p:domain_verify": "ffb3a15647d59f50d37e03043eb6217a",
@@ -36,7 +35,7 @@ const jsonLd = {
   logo: "https://hexadijital.com/assets/logos/hexa_logo.svg",
   image: "https://hexadijital.com/assets/logos/hexa_logo.svg",
   description:
-    "Bursa merkezli fütüristik web, mobil ve marka çözümleri üreten yeni nesil dijital ajans.",
+    "Bursa merkezli işletmelere doğrudan müşteri kazandıran web, yazılım ve marka çözümleri üreten yeni nesil ajans.",
   telephone: "+905537161958",
   priceRange: "$$",
   address: {
@@ -57,7 +56,6 @@ const jsonLd = {
 export default function RootLayout({ children }) {
   return (
     <ViewTransitions>
-      {/* EKSİK GİDERİLDİ: next-themes için html etiketine suppressHydrationWarning eklendi */}
       <html lang="tr" suppressHydrationWarning>
         <head>
           <script
@@ -65,12 +63,10 @@ export default function RootLayout({ children }) {
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
           />
         </head>
-        {/* EKSİK GİDERİLDİ: spaceGrotesk fontu className olarak body'ye eklendi */}
         <body
           className={`${spaceGrotesk.className} ${spaceGrotesk.variable}`}
           suppressHydrationWarning
         >
-          {/* Google Analytics Entegrasyonu */}
           <Script
             src="https://www.googletagmanager.com/gtag/js?id=G-2C1CWMLDYY"
             strategy="afterInteractive"
@@ -88,8 +84,8 @@ export default function RootLayout({ children }) {
             <Preloader />
             <div className="app-container">
               <Header />
-              <CartBar />
               <main>{children}</main>
+              <WhatsAppButton />
               <Footer />
             </div>
           </Providers>

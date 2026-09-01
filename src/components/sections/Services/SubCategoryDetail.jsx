@@ -1,61 +1,22 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { useTransitionRouter } from "next-view-transitions";
 import {
-  ChevronLeft,
-  ArrowRight,
-  Plus,
-  Minus,
   Sparkles,
-  CheckCircle,
+  CheckCircle2,
+  ArrowRight,
+  ShieldCheck,
+  ChevronLeft,
 } from "lucide-react";
-import { servicesData } from "../../../data/servicesData";
-import { useCart } from "../../../context/CartContext";
-import CtaSection from "../../ui/CtaSection/CtaSection";
+import { FaWhatsapp } from "react-icons/fa6";
+import CtaSection from "@/components/ui/CtaSection";
+import SectoralPanel from "@/components/sections/Home/SectoralPanel";
 import "./SubCategoryDetail.css";
-import SectoralPanel from "../Home/SectoralPanel/SectoralPanel";
 
-const slugify = (text) => {
-  return text
-    .toString()
-    .toLowerCase()
-    .trim()
-    .replace(/\s+/g, "-")
-    .replace(/[ğĞ]/g, "g")
-    .replace(/[üÜ]/g, "u")
-    .replace(/[şŞ]/g, "s")
-    .replace(/[ıİ]/g, "i")
-    .replace(/[öÖ]/g, "o")
-    .replace(/[çÇ]/g, "c")
-    .replace(/[^a-z0-9-]/g, "")
-    .replace(/--+/g, "-");
-};
-
-const SubCategoryDetail = () => {
-  // ARTIK SADECE KISA URL'Yİ (subCategorySlug) ALIYORUZ
-  const params = useParams();
-  const subCategorySlug = params?.subCategorySlug;
-
-  const { cartItems, addToCart, removeFromCart } = useCart();
-  const router = useRouter();
-
-  // KATEGORİYİ VE ALT KATEGORİYİ BULMA MANTIĞI GÜNCELLENDİ
-  let category = null;
-  let subCategory = null;
-
-  for (const cat of servicesData) {
-    const foundSub = cat.subCategories.find(
-      (sub) => slugify(sub.title) === subCategorySlug,
-    );
-    if (foundSub) {
-      category = cat;
-      subCategory = foundSub;
-      break;
-    }
-  }
+const SubCategoryDetail = ({ subCategory, category, subCategorySlug }) => {
+  const router = useTransitionRouter();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -74,166 +35,154 @@ const SubCategoryDetail = () => {
   const heroTitle1 = titleParts[0];
   const heroTitle2 = titleParts.slice(1).join(" ") || "Çözümleri";
 
-  // Fiyat formatlama fonksiyonu eklendi
-  const formatPrice = (price) => {
-    if (!price || price === "Fiyat Alın") return "Fiyat Alın";
-    return (
-      new Intl.NumberFormat("tr-TR").format(price.replace(/\./g, "")) + " ₺"
-    );
-  };
+  const whatsappMessage = encodeURIComponent(
+    `Merhaba Hexa Dijital, "${subCategory.title}" hizmetleriniz hakkında bilgi ve işletmeme özel teklif almak istiyorum.`,
+  );
+  const whatsappUrl = `https://wa.me/905537161958?text=${whatsappMessage}`;
 
   return (
     <div className="hexa-sd-page">
-      <div className="hexa-sd-hero-block">
-        <div className="hexa-sd-image-wrapper">
+      {/* HERO ALANI */}
+      <section className="subcat-hero-section">
+        <div className="subcat-hero-bg">
           <img src={subCategory.image} alt={subCategory.title} />
+          <div className="subcat-hero-overlay" />
         </div>
 
-        <h1 className="hexa-sd-hero-title">
-          <span className="title-line">{heroTitle1}</span>
-          <span className="title-line">{heroTitle2}</span>
-        </h1>
-      </div>
+        <div className="container subcat-hero-container">
+          <div className="subcat-top-nav">
+            <Link href="/hizmetler" className="subcat-back-btn">
+              <ChevronLeft size={16} /> Tüm Hizmetler
+            </Link>
+            <span className="subcat-hero-badge">
+              <Sparkles size={13} /> {category.title}
+            </span>
+          </div>
+
+          <div className="subcat-hero-text">
+            <h1 className="subcat-hero-heading">
+              <span>{heroTitle1}</span> <span>{heroTitle2}</span>
+            </h1>
+            {subCategory.introText && (
+              <p className="subcat-hero-subtext">{subCategory.introText}</p>
+            )}
+          </div>
+        </div>
+      </section>
 
       <div className="container">
         <div className="subcat-article-layout">
           <aside className="subcat-article-sidebar">
-            <div className="sidebar-sticky-box">
-              <h2>
+            <div className="sidebar-sticky-box global-glass-card">
+              <div className="subcat-guarantee-tag">
+                <ShieldCheck size={16} /> Şeffaf Fiyat & Anahtar Teslim
+              </div>
+              <h2 className="sidebar-action-title">
                 {subCategory.sloganMain || heroTitle1}{" "}
                 <span className="global-text-dimmed">
                   {subCategory.sloganHighlight || heroTitle2}
                 </span>
               </h2>
-              {subCategory.metaTags && subCategory.metaTags.length > 0 && (
-                <div className="article-meta-tags">
-                  {subCategory.metaTags.map((tag, idx) => (
-                    <span key={idx} className="meta-tag">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
+              <p className="subcat-side-desc">
+                İşletmenizin ihtiyacına en uygun çözümü birlikte belirleyelim.
+              </p>
+
+              <div className="subcat-action-buttons-inline">
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="subcat-btn-primary"
+                >
+                  <FaWhatsapp size={17} />
+                  <span>WhatsApp'tan Yazın</span>
+                </a>
+
+                <Link href="/iletisim" className="subcat-btn-secondary">
+                  <span>Teklif Alın</span>
+                  <ArrowRight size={14} />
+                </Link>
+              </div>
             </div>
           </aside>
 
           <article className="subcat-article-body">
-            {subCategory.introText && (
-              <p className="article-lead">{subCategory.introText}</p>
-            )}
-
             {subCategory.description && (
               <>
-                <h3>
+                <h3 className="subcat-content-heading">
                   {subCategory.descriptionTitle ||
                     `Neden ${subCategory.title} Önemli?`}
                 </h3>
-                <p>{subCategory.description}</p>
+                <p className="subcat-content-text">{subCategory.description}</p>
               </>
             )}
 
             {subCategory.blockquote && (
-              <blockquote>"{subCategory.blockquote}"</blockquote>
-            )}
-
-            {subCategory.process && (
-              <>
-                <h3>
-                  {subCategory.processTitle || "Sürecimiz Nasıl İşliyor?"}
-                </h3>
-                <p>{subCategory.process}</p>
-              </>
+              <blockquote className="subcat-quote">
+                "{subCategory.blockquote}"
+              </blockquote>
             )}
 
             {subCategory.processSteps &&
               subCategory.processSteps.length > 0 && (
-                <ul className="article-list">
-                  {subCategory.processSteps.map((step, idx) => (
-                    <li key={idx}>
-                      <CheckCircle size={18} className="list-icon" />
-                      <span>
-                        <strong>{step.title}:</strong> {step.text}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="subcat-process-box">
+                  <h3 className="subcat-content-heading">
+                    {subCategory.processTitle || "Nasıl Çalışıyoruz?"}
+                  </h3>
+                  <ul className="article-list">
+                    {subCategory.processSteps.map((step, idx) => (
+                      <li key={idx}>
+                        <CheckCircle2 size={18} className="list-icon" />
+                        <span>
+                          <strong>{step.title}:</strong> {step.text}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               )}
           </article>
         </div>
 
-        {/* 3. MİNİMALİST SATIR LİSTESİ VE FİYAT GÖSTERİMİ */}
+        {/* HİZMET LİSTESİ */}
         <div className="subcat-services-section">
           <div className="subcat-list-header">
             <Sparkles size={18} color="var(--hexa-accent)" />
             <span>
-              {subCategory.listTitle ||
-                "Paket İçeriği ve Profesyonel Çözümlerimiz"}
+              Bu Kategorideki Hizmetlerimiz ({subCategory.items.length})
             </span>
           </div>
 
           <div className="subcat-sleek-list">
-            {subCategory.items.map((item, index) => {
-              const isInCart = cartItems.some((c) => c.slug === item.slug);
-
-              return (
-                <div
-                  key={item.slug}
-                  className="sleek-list-row"
-                  onClick={() =>
-                    router.push(`/hizmetler/${subCategorySlug}/${item.slug}`)
-                  }
-                >
-                  {" "}
-                  <div className="sleek-row-left">
-                    <span className="sleek-row-index">
-                      {(index + 1).toString().padStart(2, "0")}
-                    </span>
-                    <div className="sleek-row-texts">
-                      <h3>{item.name}</h3>
-                      <p>{item.introText || item.description}</p>
-                    </div>
-                  </div>
-                  <div className="sleek-row-right">
-                    {/* YENİ EKLENEN FİYAT ALANI */}
-                    <div className="sleek-row-price">
-                      <span className="sleek-price-val">
-                        {formatPrice(item.price)}
-                      </span>
-                      {item.note && (
-                        <span className="sleek-price-note">/{item.note}</span>
-                      )}
-                    </div>
-
-                    <span className="sleek-view-link">
-                      İncele <ArrowRight size={14} />
-                    </span>
-
-                    <button
-                      className={`sleek-action-btn ${isInCart ? "in-cart" : ""}`}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        isInCart ? removeFromCart(item.slug) : addToCart(item);
-                      }}
-                    >
-                      {isInCart ? (
-                        <>
-                          <Minus size={14} strokeWidth={2.5} />
-                          <span>Çıkar</span>
-                        </>
-                      ) : (
-                        <>
-                          <Plus size={14} strokeWidth={2.5} />
-                          <span>Ekle</span>
-                        </>
-                      )}
-                    </button>
+            {subCategory.items.map((item, index) => (
+              <div
+                key={item.slug}
+                className="sleek-list-row"
+                onClick={() =>
+                  router.push(`/hizmetler/${subCategorySlug}/${item.slug}`)
+                }
+              >
+                <div className="sleek-row-left">
+                  <span className="sleek-row-index">
+                    {(index + 1).toString().padStart(2, "0")}
+                  </span>
+                  <div className="sleek-row-texts">
+                    <h3>{item.name}</h3>
+                    <p>{item.introText || item.description}</p>
                   </div>
                 </div>
-              );
-            })}
+
+                <div className="sleek-row-right">
+                  <span className="sleek-view-link">
+                    İncele <ArrowRight size={15} />
+                  </span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
+
       <CtaSection />
       <SectoralPanel />
     </div>

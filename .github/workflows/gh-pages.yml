@@ -19,14 +19,22 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+          cache: "npm"
+
       - name: Install dependencies
-        run: npm install
+        run: npm ci || npm install
+
       - name: Build with Next.js
         run: npm run build
+
+      - name: Prevent Jekyll from ignoring _next folder
+        run: touch ./out/.nojekyll
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

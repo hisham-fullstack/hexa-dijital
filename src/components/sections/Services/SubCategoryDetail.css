@@ -1,184 +1,250 @@
-/* =========================================
-   1. HERO BLOK (Tam Genişlik)
-========================================= */
-.hexa-sd-hero-block {
+/* ==========================================================================
+   ALT KATEGORİ DETAY - MİMARİ (SubCategoryDetail.css)
+   ========================================================================== */
+
+.subcat-hero-section {
     position: relative;
     width: 100%;
-    height: 70vh;
-    margin-bottom: 100px;
+    min-height: 440px;
+    padding-top: 130px;
+    padding-bottom: 50px;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 70px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--hexa-card-border);
 }
 
-.hexa-sd-image-wrapper {
-    width: 100%;
-    height: 100%;
-    position: relative;
+.subcat-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
 }
 
-.hexa-sd-image-wrapper img {
+.subcat-hero-bg img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.65);
-    border-radius: 0;
-    border: none;
+    filter: brightness(0.28);
 }
 
-.hexa-sd-top-action {
+.subcat-hero-overlay {
     position: absolute;
-    bottom: 40px;
-    left: 40px;
-    z-index: 20;
+    inset: 0;
+    background: linear-gradient(180deg,
+            rgba(10, 14, 23, 0.4) 0%,
+            rgba(10, 14, 23, 0.85) 70%,
+            var(--hexa-bg) 100%);
 }
 
-.hexa-sd-back-btn {
+.subcat-hero-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.subcat-top-nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.subcat-back-btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 12px 24px;
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 18px;
+    background-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 50px;
-    color: #ffffff;
-    font-size: 0.95rem;
+    color: var(--hexa-font-main);
+    font-size: 0.85rem;
     font-weight: 500;
-    cursor: pointer;
-    transition: all var(--transition-fast);
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
-.hexa-sd-back-btn:hover {
+.subcat-back-btn:hover {
     background-color: var(--hexa-accent);
+    color: var(--hexa-bg);
     border-color: var(--hexa-accent);
-    color: #000000;
 }
 
-.hexa-sd-hero-title {
-    position: absolute;
-    bottom: 40px;
-    right: 40px;
+.subcat-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0, 255, 209, 0.1);
+    color: var(--hexa-accent);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(0, 255, 209, 0.25);
+}
+
+.subcat-hero-text {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    z-index: 10;
-    pointer-events: none;
+    gap: 12px;
+    max-width: 860px;
 }
 
-.hexa-sd-hero-title .title-line {
-    font-size: clamp(2.5rem, 9vw, 10rem);
-    font-weight: 500;
-    line-height: 0.85;
-    letter-spacing: -3px;
-    color: #ffffff;
-    white-space: normal;
-    /* Mobilde ve masaüstünde taşmayı engellemek için nowrap kaldırıldı */
-    word-wrap: break-word;
-    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+.subcat-hero-heading {
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -1px;
+    color: var(--hexa-font-main);
+    margin: 0;
+}
+
+.subcat-hero-subtext {
+    font-size: clamp(1rem, 1.3vw, 1.2rem);
+    color: var(--hexa-font-dim-hover);
+    line-height: 1.65;
+    margin: 0;
 }
 
 /* =========================================
-   2. SEO ODAKLI MAKALE TASARIMI
+   MAKALE & SIDEBAR YERLEŞİMİ
 ========================================= */
 .subcat-article-layout {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 80px;
-    padding-bottom: 80px;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 60px;
+    padding-bottom: 70px;
     border-bottom: 1px solid var(--hexa-card-border);
     margin-bottom: 60px;
     align-items: start;
 }
 
 .subcat-article-sidebar {
-    position: -webkit-sticky;
     position: sticky;
-    top: 15vh;
+    top: 130px;
 }
 
-.sidebar-sticky-box h2 {
-    font-size: clamp(2.2rem, 3vw, 3.5rem);
+.subcat-guarantee-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--hexa-accent);
+    font-size: 0.82rem;
     font-weight: 600;
-    line-height: 1.1;
-    letter-spacing: -1px;
-    margin-bottom: 24px;
+    margin-bottom: 8px;
 }
 
-.article-meta-tags {
-    display: flex;
-    flex-wrap: wrap;
+.subcat-side-desc {
+    font-size: 0.92rem;
+    color: var(--hexa-font-dim);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.subcat-action-buttons-inline {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
     gap: 10px;
+    align-items: center;
+    margin-top: 8px;
 }
 
-.meta-tag {
-    background: rgba(255, 255, 255, 0.03);
+.subcat-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--hexa-accent);
+    color: var(--hexa-bg);
+    padding: 13px 16px;
+    border-radius: 50px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    box-shadow: 0 6px 16px rgba(0, 255, 209, 0.2);
+}
+
+.subcat-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(0, 255, 209, 0.35);
+}
+
+.subcat-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.04);
     border: 1px solid var(--hexa-card-border);
-    padding: 6px 14px;
+    color: var(--hexa-font-dim-hover);
+    padding: 13px 16px;
     border-radius: 50px;
     font-size: 0.85rem;
-    color: var(--hexa-font-dim);
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.subcat-btn-secondary:hover {
+    border-color: var(--hexa-accent);
+    color: var(--hexa-accent);
 }
 
 .subcat-article-body {
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    padding-top: 10px;
+    gap: 24px;
 }
 
-.subcat-article-body p {
-    font-size: 1.15rem;
-    line-height: 1.8;
+.subcat-content-heading {
+    font-size: 1.55rem;
+    font-weight: 600;
     color: var(--hexa-font-main);
+    letter-spacing: -0.5px;
     margin: 0;
 }
 
-.subcat-article-body p strong {
-    color: var(--hexa-accent);
-    font-weight: 600;
+.subcat-content-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--hexa-font-dim-hover);
+    margin: 0;
 }
 
-.article-lead {
-    font-size: 1.3rem !important;
-    color: var(--hexa-font-dim-hover) !important;
-    font-weight: 400;
-    margin-bottom: 10px !important;
-}
-
-.subcat-article-body h3 {
-    font-size: 1.8rem;
-    font-weight: 500;
-    color: var(--hexa-font-main);
-    margin: 20px 0 0 0;
-    letter-spacing: -0.5px;
-}
-
-.subcat-article-body blockquote {
-    font-size: 1.3rem;
+.subcat-quote {
+    font-size: 1.15rem;
     font-style: italic;
     line-height: 1.6;
     color: var(--hexa-font-main);
-    margin: 20px 0;
-    padding: 24px 32px;
+    margin: 10px 0;
+    padding: 18px 24px;
     background: linear-gradient(to right, rgba(0, 255, 209, 0.05), transparent);
     border-left: 4px solid var(--hexa-accent);
-    border-radius: 0 12px 12px 0;
+    border-radius: 0 14px 14px 0;
 }
 
 .article-list {
     list-style: none;
     padding: 0;
-    margin: 10px 0 0 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
 }
 
 .article-list li {
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 1rem;
     color: var(--hexa-font-dim-hover);
 }
 
@@ -189,7 +255,7 @@
 }
 
 /* =========================================
-   3. MİNİMALİST SATIR LİSTESİ (KARTSIZ)
+   HİZMET LİSTESİ SATIRLARI
 ========================================= */
 .subcat-services-section {
     padding-top: 20px;
@@ -198,11 +264,11 @@
 .subcat-list-header {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 40px;
-    font-size: 1.2rem;
+    gap: 10px;
+    font-size: 1.25rem;
+    font-weight: 600;
     color: var(--hexa-font-main);
-    font-weight: 500;
+    margin-bottom: 24px;
 }
 
 .subcat-sleek-list {
@@ -215,22 +281,22 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px 20px;
+    padding: 28px 16px;
     border-bottom: 1px solid var(--hexa-card-border);
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    background: transparent;
+    transition: all 0.3s ease;
 }
 
 .sleek-list-row:hover {
     background: rgba(255, 255, 255, 0.02);
+    border-bottom-color: var(--hexa-accent);
 }
 
 .sleek-row-left {
     display: flex;
     align-items: flex-start;
-    gap: 40px;
-    max-width: 70%;
+    gap: 28px;
+    max-width: 75%;
 }
 
 .sleek-row-index {
@@ -242,16 +308,16 @@
 }
 
 .sleek-row-texts h3 {
-    font-size: 1.8rem;
-    font-weight: 400;
+    font-size: 1.45rem;
+    font-weight: 600;
     color: var(--hexa-font-main);
-    margin: 0 0 12px 0;
+    margin: 0 0 6px 0;
     letter-spacing: -0.5px;
     transition: color 0.3s ease;
 }
 
 .sleek-row-texts p {
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     color: var(--hexa-font-dim);
     line-height: 1.6;
     margin: 0;
@@ -262,104 +328,25 @@
     color: var(--hexa-accent);
 }
 
-.sleek-row-right {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
 .sleek-view-link {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     color: var(--hexa-font-dim);
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: 0.9rem;
+    font-weight: 600;
     transition: all 0.3s ease;
-    opacity: 0;
-    transform: translateX(-10px);
 }
 
 .sleek-list-row:hover .sleek-view-link {
-    color: var(--hexa-font-main);
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.sleek-action-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: transparent;
-    border: 1px solid var(--hexa-card-border);
-    color: var(--hexa-font-main);
-    padding: 10px 20px;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.sleek-action-btn:hover {
-    background: var(--hexa-accent);
-    color: var(--hexa-bg);
-    border-color: var(--hexa-accent);
-}
-
-.sleek-action-btn.in-cart {
-    background: rgba(255, 77, 77, 0.05);
-    border-color: rgba(255, 77, 77, 0.3);
-    color: #ff4d4d;
-}
-
-.sleek-action-btn.in-cart:hover {
-    background: #ff4d4d;
-    color: #fff;
-    border-color: #ff4d4d;
-}
-
-/* YENİ EKLENEN FİYAT KISMI STİLLERİ */
-.sleek-row-price {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    /* Fiyatları sağa yaslar */
-    min-width: 120px;
-    /* Butonların kaymasını engeller */
-}
-
-.sleek-price-val {
-    font-size: 1.25rem;
-    font-weight: 600;
     color: var(--hexa-accent);
-    line-height: 1;
+    transform: translateX(4px);
 }
 
-.sleek-price-note {
-    font-size: 0.85rem;
-    color: var(--hexa-font-dim);
-    margin-top: 4px;
-}
-
-/* =========================================
-   MOBİL VE TABLET UYARLAMASI (1024px)
-========================================= */
 @media (max-width: 1024px) {
-    .hexa-sd-hero-block {
-        height: 50vh;
-        margin-bottom: 60px;
-    }
-
-    .hexa-sd-hero-title {
-        right: 20px;
-        bottom: 140px;
-    }
-
     .subcat-article-layout {
         grid-template-columns: 1fr;
         gap: 40px;
-        padding-bottom: 40px;
     }
 
     .subcat-article-sidebar {
@@ -367,103 +354,28 @@
         top: 0;
     }
 
-    .sidebar-sticky-box h2 {
-        font-size: clamp(2rem, 5vw, 2.8rem);
-    }
-
     .sleek-list-row {
         flex-direction: column;
         align-items: flex-start;
-        gap: 24px;
-        padding: 30px 0;
+        gap: 16px;
+        padding: 22px 0;
     }
 
     .sleek-row-left {
         max-width: 100%;
         gap: 16px;
-        flex-direction: column;
-        /* Numara ve metni alt alta alır */
-    }
-
-    .sleek-row-texts h3 {
-        font-size: 1.6rem;
-    }
-
-    .sleek-row-right {
-        width: 100%;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-    }
-
-    .sleek-row-price {
-        align-items: flex-start;
-        /* Fiyatı mobilde sola yaslar */
-    }
-
-    .sleek-view-link {
-        display: none;
-        /* Tıklanabilir alan zaten tüm satır olduğu için mobilde yer kazanmak adına bu metni gizliyoruz */
-    }
-
-    .sleek-action-btn {
-        width: 100%;
-        /* Buton mobilde baş parmakla kolay tıklansın diye tam genişlikte */
-        justify-content: center;
-        padding: 14px;
-        font-size: 1rem;
     }
 }
 
-/* =========================================
-   SADECE TELEFONLAR İÇİN YENİ TASARIM (768px)
-========================================= */
 @media (max-width: 768px) {
-    .hexa-sd-hero-block {
-        height: 55vh;
+    .subcat-hero-section {
+        min-height: 380px;
+        padding-top: 110px;
+        padding-bottom: 35px;
+        margin-bottom: 40px;
     }
 
-    /* Yazı arkasında jilet gibi kontrast sağlayan degrade maske */
-    .hexa-sd-image-wrapper::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.3) 50%, transparent 100%);
-        pointer-events: none;
-    }
-
-    .hexa-sd-top-action {
-        top: 110px;
-    }
-
-    /* Sola yaslı, güvenli ve premium yeni mobil düzen */
-    .hexa-sd-hero-title {
-        left: 16px;
-        right: 16px;
-        bottom: 24px;
-        width: auto;
-        align-items: flex-start;
-        z-index: 30;
-    }
-
-    .hexa-sd-hero-title .title-line {
-        white-space: normal;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        text-align: left;
-        letter-spacing: -1px;
-        line-height: 1.2;
-        padding-bottom: 0;
-        display: block;
-        width: 100%;
-    }
-
-    .subcat-article-body h3 {
-        font-size: 1.5rem;
-    }
-
-    .subcat-article-body blockquote {
-        font-size: 1.15rem;
-        padding: 20px;
+    .subcat-action-buttons-inline {
+        grid-template-columns: 1fr;
     }
 }

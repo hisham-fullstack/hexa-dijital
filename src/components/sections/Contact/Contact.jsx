@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useCart } from "../../../context/CartContext"; // Import yolu güncellendi
+import { useCart } from "@/context/CartContext";
 import {
   Send,
   Headphones,
@@ -24,8 +24,7 @@ const Contact = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
 
-  // GÖNDERİM DURUMUNU TAKİP ETMEK İÇİN STATE EKLENDİ
-  const [formStatus, setFormStatus] = useState("idle"); // idle, submitting, success, error
+  const [formStatus, setFormStatus] = useState("idle");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -34,7 +33,6 @@ const Contact = () => {
   const formatPrice = (price) =>
     new Intl.NumberFormat("tr-TR").format(price) + " ₺";
 
-  // ÖNÜMÜZDEKİ 14 GÜNÜ HESAPLAYAN ÖZEL FONKSİYON
   const upcomingDays = useMemo(() => {
     const days = [];
     let currentDate = new Date();
@@ -59,14 +57,11 @@ const Contact = () => {
 
   const timeSlots = ["10:00", "11:30", "13:00", "14:30", "16:00", "17:30"];
 
-  // --- FORMU FORMSPREE'YE GÖNDEREN FONKSİYON ---
   const handleSubmit = async (e) => {
     e.preventDefault();
     setFormStatus("submitting");
 
     const formData = new FormData(e.target);
-
-    // React state'inden gelen özel verileri forma manuel olarak ekliyoruz
     formData.append("Konu", activeTab);
 
     if (activeTab === "toplanti") {
@@ -80,7 +75,6 @@ const Contact = () => {
       formData.append("Saat", selectedTime || "Seçilmedi");
     }
 
-    // Eğer sepette ürün/hizmet varsa, bunları da mailde görebilmen için ekliyoruz
     if (cartItems.length > 0) {
       const services = cartItems.map((item) => item.name).join(", ");
       formData.append("Secilen_Hizmetler", services);
@@ -88,7 +82,6 @@ const Contact = () => {
     }
 
     try {
-      // SENİN FORMSPREE URL'N
       const response = await fetch("https://formspree.io/f/meerqrga", {
         method: "POST",
         body: formData,
@@ -99,8 +92,7 @@ const Contact = () => {
 
       if (response.ok) {
         setFormStatus("success");
-        e.target.reset(); // Formu temizle
-        // 3 saniye sonra butonu eski haline (idle) getir
+        e.target.reset();
         setTimeout(() => setFormStatus("idle"), 3000);
       } else {
         setFormStatus("error");
@@ -124,7 +116,6 @@ const Contact = () => {
         </div>
 
         <div className="hx-contact-grid">
-          {/* SOL: ZARİF FORM ALANI */}
           <div className="hx-contact-form-wrapper">
             <div className="hx-form-tabs-minimal">
               <button
@@ -150,11 +141,9 @@ const Contact = () => {
               </button>
             </div>
 
-            {/* FORM: onSubmit EKLENDİ */}
             <form className="hx-form-minimal" onSubmit={handleSubmit}>
               <div className="hx-input-row-minimal">
                 <div className="hx-input-float">
-                  {/* name="" etiketleri Formspree'nin veriyi okuyabilmesi için zorunludur */}
                   <input type="text" name="ad_soyad" placeholder=" " required />
                   <label>Adınız Soyadınız</label>
                 </div>
@@ -175,7 +164,6 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* TOPLANTI PLANI ÖZEL ARAYÜZÜ */}
               {activeTab === "toplanti" && (
                 <div className="hx-meeting-section">
                   <div className="hx-meeting-type-selector">
@@ -283,7 +271,6 @@ const Contact = () => {
                 </div>
               )}
 
-              {/* DİĞER SEKMELER */}
               {activeTab === "proje" && (
                 <div className="hx-input-float" style={{ marginTop: "16px" }}>
                   <textarea
@@ -307,7 +294,6 @@ const Contact = () => {
                 </div>
               )}
 
-              {/* BUTON DURUMA GÖRE TEPKİ VERİR */}
               <button
                 className="hx-submit-minimal-btn"
                 disabled={formStatus === "submitting"}
@@ -347,7 +333,6 @@ const Contact = () => {
             </form>
           </div>
 
-          {/* SAĞ: ÖZET VE İLETİŞİM */}
           <div className="hx-contact-sidebar">
             <AnimatePresence mode="wait">
               {cartItems.length > 0 &&

@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useMemo, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Center, Environment, Float } from "@react-three/drei";
@@ -16,7 +18,6 @@ const SvgModel = ({ url }) => {
     }));
   }, [svg]);
 
-  // Kalınlık (depth) değerini buradan sildik, aşağıda dinamik hesaplayacağız
   const baseExtrudeSettings = useMemo(
     () => ({
       bevelEnabled: false,
@@ -44,18 +45,11 @@ const SvgModel = ({ url }) => {
       >
         <group>
           {pathData.map((data, index) => {
-            // --- SİHİRLİ MATEMATİK BURADA ---
-            // Her üst katman bir öncekinden 0.1 birim daha kalın (depth) olacak.
-            // Örn: Altıgen = 8, Tavuk = 8.1
             const layerDepth = 8 + index * 0.1;
-
-            // Kalınlaşan bu katmanın sadece öne değil, arkaya da eşit taşması için
-            // Z ekseninde (geriye doğru) kalınlık farkının yarısı kadar çekiyoruz.
             const zOffset = -(index * 0.05);
 
             return data.shapes.map((shape, i) => (
               <mesh key={`${index}-${i}`} position={[0, 0, zOffset]}>
-                {/* Ayarları birleştirip dinamik kalınlığı uyguluyoruz */}
                 <extrudeGeometry
                   args={[shape, { ...baseExtrudeSettings, depth: layerDepth }]}
                 />
@@ -76,15 +70,11 @@ const SvgModel = ({ url }) => {
   );
 };
 
-// ... ProjectLogo3D ana fonksiyonu (Canvas kısmı) aynı kalacak ...
-
 export default function ProjectLogo3D({ logoUrl }) {
   if (!logoUrl) return null;
 
   return (
-    <div
-      style={{ width: "100%", height: "100%", position: "absolute", zIndex: 1 }}
-    >
+    <div className="project-logo-canvas-container">
       <Canvas camera={{ position: [0, 0, 120], fov: 45 }} dpr={[1, 2]}>
         <ambientLight intensity={0.6} />
         <directionalLight position={[10, 10, 10]} intensity={2.5} />

@@ -1,13 +1,15 @@
-import Home from "../components/sections/Home/Home";
+import Hero from "@/components/sections/Home/Hero";
+import HomeServices from "@/components/sections/Home/HomeServices";
+import Approach from "@/components/sections/Home/Approach";
+import SectoralPanel from "@/components/sections/Home/SectoralPanel";
+import LatestWork from "@/components/sections/Home/LatestWork";
+import AboutUs from "@/components/sections/Home/AboutUs";
+import Testimonials from "@/components/sections/Home/Testimonials";
 
 export const metadata = {
-  // 1. Arama Sonuçlarında Doğrudan Bursa Piyasasını Bloke Eden Öldürücü Başlık
   title: "Hexa Dijital | Bursa Tasarım, Yazılım ve Reklam Ajansı",
-
-  // 2. Tıklama Oranını (CTR) Uçuracak, Bol Aksiyon Kelimeli Meta Açıklaması
   description:
     "Bursa'nın fütüristik tasarım, yazılım ve reklam ajansı Hexa Dijital. Web tasarım, mobil uygulama, SEO ve premium dijital marka çözümleriyle zirveye oynayın.",
-
   keywords: [
     "bursa web tasarım",
     "bursa yazılım şirketi",
@@ -18,13 +20,9 @@ export const metadata = {
     "web tasarım bursa",
     "hexa dijital",
   ],
-
-  // 4. Yinelenen İçerik (Duplicate Content) Hatalarını Önleyen Yapı
   alternates: {
     canonical: "https://hexadijital.com",
   },
-
-  // 5. Sosyal Medyada (LinkedIn, Instagram, WhatsApp) Paylaşıldığında Premium Görünüm Sağlayan Grafik Kartı
   openGraph: {
     title: "Hexa Dijital | Bursa Tasarım, Yazılım ve Reklam Ajansı",
     description:
@@ -33,7 +31,7 @@ export const metadata = {
     siteName: "Hexa Dijital",
     images: [
       {
-        url: "https://hexadijital.com/assets/logos/hexa_logo.svg", // Paylaşımlarda görünecek logo/görsel yolu
+        url: "https://hexadijital.com/assets/logos/hexa_logo.svg",
         width: 1200,
         height: 630,
         alt: "Hexa Dijital",
@@ -42,8 +40,6 @@ export const metadata = {
     locale: "tr_TR",
     type: "website",
   },
-
-  // 6. Google ve Diğer Arama Motoru Botlarına Agresif Tarama İzinleri
   robots: {
     index: true,
     follow: true,
@@ -58,5 +54,15 @@ export const metadata = {
 };
 
 export default function HomePage() {
-  return <Home />;
+  return (
+    <div className="home-page">
+      <Hero />
+      <HomeServices />
+      <Approach />
+      <SectoralPanel />
+      <LatestWork />
+      <AboutUs />
+      <Testimonials />
+    </div>
+  );
 }
