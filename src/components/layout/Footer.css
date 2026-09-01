@@ -4,6 +4,7 @@
     padding-top: 5vw;
     position: relative;
     overflow: hidden;
+    width: 100%;
     transition: background-color var(--transition-theme), border-color var(--transition-theme), color var(--transition-theme);
 }
 
@@ -12,35 +13,35 @@
     padding: 0 5%;
     display: flex;
     flex-direction: column;
-    gap: 5vw;
+    gap: 4vw;
 }
 
 .footer-row {
     display: grid;
     grid-template-columns: 2fr 8fr;
-    gap: 5vw;
+    gap: 4vw;
     align-items: flex-start;
 }
 
 .footer-row-title h3 {
     font-size: 0.95rem;
-    font-weight: 400;
+    font-weight: 500;
     color: var(--hexa-font-main);
-    letter-spacing: 0.5px;
-    transition: background-color var(--transition-theme), border-color var(--transition-theme), color var(--transition-theme);
+    letter-spacing: 1px;
+    transition: color var(--transition-theme);
 }
 
 .footer-row-links {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
+    gap: 32px;
 }
 
 .footer-col h4 {
     font-size: 1.05rem;
-    font-weight: 400;
+    font-weight: 500;
     color: var(--hexa-font-main);
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     transition: color var(--transition-fast);
 }
 
@@ -71,13 +72,13 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 14px;
 }
 
 .footer-col a {
     text-decoration: none;
     color: var(--hexa-font-dim);
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     transition: color var(--transition-fast);
 }
 
@@ -91,8 +92,9 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding-bottom: 120px;
-    margin-top: 40px;
+    padding-bottom: 100px;
+    margin-top: 30px;
+    overflow: hidden;
 }
 
 .footer-massive-text {
@@ -103,13 +105,14 @@
     justify-content: center;
     align-items: flex-end;
     overflow: hidden;
+    pointer-events: none;
 }
 
 .footer-massive-text span {
     display: block;
     width: 100%;
     text-align: center;
-    font-size: 30vw;
+    font-size: clamp(3.5rem, 24vw, 28vw);
     font-weight: 700;
     color: var(--hexa-card-bg);
     text-transform: uppercase;
@@ -119,7 +122,7 @@
 
 .footer-social-row {
     position: absolute;
-    bottom: 40px;
+    bottom: 24px;
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
@@ -128,42 +131,41 @@
     align-items: center;
     z-index: 2;
     border-top: 1px solid var(--hexa-card-border);
-    padding-top: 25px;
+    padding-top: 20px;
 }
 
 .copyright-text {
     color: var(--hexa-font-dim);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     letter-spacing: 0.5px;
 }
 
 .social-links {
     display: flex;
-    gap: 32px;
+    gap: 24px;
 }
 
 .social-link {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     color: var(--hexa-font-dim);
     text-decoration: none;
-    font-size: 0.85rem;
-    letter-spacing: 1px;
+    font-size: 0.82rem;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
     transition: all var(--transition-fast);
 }
 
 .social-link:hover {
     color: var(--hexa-accent);
-    transform: translateY(-3px);
-    text-shadow: 0 0 12px rgba(0, 255, 209, 0.25);
+    transform: translateY(-2px);
 }
 
 @media (max-width: 1200px) {
     .footer-row {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 24px;
     }
 
     .footer-row-links {
@@ -172,22 +174,33 @@
 }
 
 @media (max-width: 768px) {
+    .footer-grid-container {
+        padding: 0 16px;
+        gap: 32px;
+    }
+
     .footer-row-links {
         grid-template-columns: 1fr;
-        gap: 36px;
+        gap: 28px;
+    }
+
+    .footer-bottom-container {
+        padding-bottom: 120px;
     }
 
     .footer-social-row {
         flex-direction: column-reverse;
-        gap: 24px;
-        bottom: 30px;
-        padding-top: 20px;
+        gap: 18px;
+        bottom: 20px;
+        width: 100%;
+        padding: 16px 16px 0 16px;
+        text-align: center;
     }
 
     .social-links {
         width: 100%;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 20px;
+        gap: 14px 20px;
     }
 }

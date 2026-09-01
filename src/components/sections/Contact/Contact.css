@@ -1,20 +1,24 @@
+/* ==========================================================================
+   İLETİŞİM SAYFASI - MİMARİ & MOBİL HİZALAMALAR (Contact.css)
+   ========================================================================== */
+
 .hx-contact-page {
-    padding-top: 150px;
-    padding-bottom: 120px;
+    padding-top: 130px;
+    padding-bottom: 80px;
 }
 
 .hx-contact-header {
-    max-width: 700px;
-    margin-bottom: 60px;
+    max-width: 720px;
+    margin-bottom: 40px;
 }
 
 .hx-contact-title {
-    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-size: clamp(2.2rem, 5vw, 4.2rem);
     font-weight: 700;
     color: var(--hexa-font-main);
     line-height: 1.1;
     letter-spacing: -1.5px;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 .text-glow {
@@ -23,7 +27,7 @@
 }
 
 .hx-contact-subtitle {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     color: var(--hexa-font-dim);
     line-height: 1.6;
 }
@@ -31,27 +35,26 @@
 .hx-contact-grid {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
-    gap: 50px;
+    gap: 40px;
     align-items: start;
 }
 
 /* =========================================
-   SOL: MİNİMALİST FORM ALANI
+   SOL: FORM ALANI
 ========================================= */
 .hx-contact-form-wrapper {
-    padding: 40px;
-    border-radius: 24px;
-    /* Orijinal renk korundu */
-    /* Genişleme hatasını (Overflow) önleyen kilit kod */
+    padding: 36px;
+    border-radius: var(--radius-card);
     min-width: 0;
 }
 
-/* Sekmeler (Tabs) */
 .hx-form-tabs-minimal {
     display: flex;
     gap: 8px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     flex-wrap: wrap;
+    border-bottom: 1px solid var(--hexa-card-border);
+    padding-bottom: 10px;
 }
 
 .hx-tab-minimal-btn {
@@ -63,10 +66,11 @@
     color: var(--hexa-font-dim);
     padding: 10px 16px;
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     cursor: pointer;
     transition: all 0.3s ease;
     border-bottom: 2px solid transparent;
+    margin-bottom: -11px;
 }
 
 .hx-tab-minimal-btn:hover {
@@ -78,20 +82,18 @@
     border-bottom-color: var(--hexa-accent);
 }
 
-/* Form Yapısı */
 .hx-form-minimal {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 26px;
 }
 
 .hx-input-row-minimal {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    gap: 24px;
 }
 
-/* Floating Label (Uçan Etiket) Tasarımı */
 .hx-input-float {
     position: relative;
     display: flex;
@@ -102,10 +104,10 @@
 .hx-input-float textarea {
     background: transparent;
     border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    border-bottom: 1px solid var(--hexa-card-border);
     padding: 12px 0;
     color: var(--hexa-font-main);
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-family: inherit;
     transition: all 0.3s ease;
     resize: vertical;
@@ -119,9 +121,9 @@
 
 .hx-input-float label {
     position: absolute;
-    top: 14px;
+    top: 12px;
     left: 0;
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     color: var(--hexa-font-dim);
     pointer-events: none;
     transition: all 0.3s ease;
@@ -132,32 +134,31 @@
 .hx-input-float textarea:focus~label,
 .hx-input-float textarea:not(:placeholder-shown)~label {
     top: -12px;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--hexa-accent);
 }
 
 /* =========================================
-   ÖZEL TOPLANTI TASARIMLARI (Custom Selectors)
+   TOPLANTI & SEÇİCİLER
 ========================================= */
 .hx-meeting-section {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 24px;
 }
 
 .section-mini-label {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--hexa-font-dim);
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     display: block;
 }
 
-/* Tercih Hapları */
 .hx-type-pills {
     display: flex;
-    gap: 12px;
+    gap: 10px;
     flex-wrap: wrap;
 }
 
@@ -166,11 +167,11 @@
     align-items: center;
     gap: 8px;
     background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--hexa-card-border);
     color: var(--hexa-font-dim);
-    padding: 10px 18px;
+    padding: 9px 16px;
     border-radius: 50px;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -186,120 +187,86 @@
     color: var(--hexa-accent);
 }
 
-/* Özel Takvim (Yatay Kaydırma Sınırlandırıldı) */
 .hx-custom-datetime-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 22px;
     overflow: hidden;
-}
-
-.hx-custom-date-picker {
-    width: 100%;
 }
 
 .hx-date-scroll-container {
     width: 100%;
     overflow: hidden;
-    padding: 4px;
-    /* Kesilmeyi engellemek için dışa doğru nefes alanı */
+    padding: 2px 0;
 }
 
-/* Kaydırılabilir alan */
 .hx-date-scroll-area {
     display: flex;
-    gap: 12px;
+    gap: 10px;
     overflow-x: auto;
-    padding: 10px 4px;
+    padding: 6px 2px 10px 2px;
     scroll-behavior: smooth;
-
-    /* İŞTE SİHİRLİ KOD: Lenis'in bu alana karışmasını engeller */
     touch-action: pan-x;
     -webkit-overflow-scrolling: touch;
 }
 
-.hx-date-scroll-area::-webkit-scrollbar {
-    height: 4px;
-}
-
-.hx-date-scroll-area::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-}
-
 .hx-date-card {
-    min-width: 80px;
-    /* Kart boyutunu bir tık genişlettik */
+    min-width: 72px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 4px;
+    gap: 3px;
     background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 16px 12px;
-    /* İç boşluğu artırarak daha zarif durmasını sağladık */
-    border-radius: 16px;
+    border: 1px solid var(--hexa-card-border);
+    padding: 12px 8px;
+    border-radius: 14px;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-
-    /* Kartların sağ ve solunun kesilmemesi için shadow/border alanı */
-    box-shadow: 0 0 0 0 rgba(0, 255, 209, 0);
+    transition: all 0.25s ease;
 }
 
 .hx-date-card .d-month {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: var(--hexa-font-dim);
     text-transform: uppercase;
 }
 
 .hx-date-card .d-num {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     font-weight: 600;
     color: var(--hexa-font-main);
 }
 
 .hx-date-card .d-day {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--hexa-font-dim);
-}
-
-.hx-date-card:hover {
-    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .hx-date-card.active {
     background: var(--hexa-accent);
     border-color: var(--hexa-accent);
-    transform: translateY(-4px);
-    /* Seçili kartı vurguluyoruz */
-    box-shadow: 0 8px 16px rgba(0, 255, 209, 0.2);
+    transform: translateY(-2px);
 }
 
 .hx-date-card.active span {
     color: var(--hexa-bg);
 }
 
-/* Özel Saat Grid */
 .hx-time-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+    gap: 10px;
 }
 
 .hx-time-pill {
     background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--hexa-card-border);
     color: var(--hexa-font-main);
-    padding: 12px 0;
-    border-radius: 12px;
-    font-size: 0.95rem;
+    padding: 10px 0;
+    border-radius: 10px;
+    font-size: 0.9rem;
     cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.hx-time-pill:hover {
-    border-color: rgba(255, 255, 255, 0.3);
+    transition: all 0.25s ease;
 }
 
 .hx-time-pill.active {
@@ -308,7 +275,6 @@
     color: var(--hexa-accent);
 }
 
-/* Gönder Butonu */
 .hx-submit-minimal-btn {
     display: inline-flex;
     align-items: center;
@@ -317,24 +283,24 @@
     background: var(--hexa-font-main);
     color: var(--hexa-bg);
     border: none;
-    padding: 16px 24px;
+    padding: 15px 24px;
     border-radius: 50px;
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-top: 10px;
+    margin-top: 6px;
     align-self: flex-start;
 }
 
 .hx-submit-minimal-btn:hover {
     background: var(--hexa-accent);
-    box-shadow: 0 10px 25px rgba(0, 255, 209, 0.25);
+    box-shadow: 0 8px 20px rgba(0, 255, 209, 0.25);
     transform: translateY(-2px);
 }
 
 /* =========================================
-   SAĞ: ÖZET VE İLETİŞİM ALANI
+   SAĞ: SIDEBAR & BİLGİ KUTULARI
 ========================================= */
 .hx-contact-sidebar {
     position: sticky;
@@ -343,8 +309,8 @@
 
 .hx-cart-summary-box,
 .hx-info-summary-box {
-    padding: 30px;
-    border-radius: 24px;
+    padding: 28px;
+    border-radius: var(--radius-card);
     border: 1px solid rgba(0, 255, 209, 0.3);
     background: linear-gradient(180deg, rgba(0, 255, 209, 0.03) 0%, rgba(15, 15, 15, 0.2) 100%);
 }
@@ -352,14 +318,14 @@
 .summary-header {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 24px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    padding-bottom: 16px;
+    gap: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--hexa-card-border);
+    padding-bottom: 14px;
 }
 
 .summary-header h3 {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     color: var(--hexa-font-main);
     margin: 0;
     font-weight: 500;
@@ -369,23 +335,23 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin-bottom: 30px;
+    margin-bottom: 24px;
 }
 
 .summary-item-card {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--hexa-card-border);
 }
 
 .summary-item-info {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     color: var(--hexa-font-main);
-    font-size: 0.95rem;
+    font-size: 0.92rem;
 }
 
 .summary-remove-btn {
@@ -393,77 +359,70 @@
     border: none;
     color: #ff4d4d;
     cursor: pointer;
-    opacity: 0.5;
-    transition: opacity 0.3s;
+    opacity: 0.6;
+    transition: opacity 0.2s;
 }
 
 .summary-remove-btn:hover {
     opacity: 1;
 }
 
-.summary-total-box {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
 .total-label {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--hexa-font-dim);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 .total-price {
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 700;
     color: var(--hexa-accent);
     letter-spacing: -1px;
 }
 
-/* Direkt İletişim */
 .hx-info-summary-box {
-    border-color: rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.02);
+    border-color: var(--hexa-card-border);
+    background: var(--hexa-card-bg);
 }
 
 .hx-info-summary-box h3 {
-    font-size: 1.3rem;
-    margin-bottom: 8px;
-    font-weight: 500;
+    font-size: 1.25rem;
+    margin-bottom: 6px;
+    font-weight: 600;
 }
 
 .hx-info-summary-box p {
     color: var(--hexa-font-dim);
-    margin-bottom: 30px;
-    font-size: 0.95rem;
+    margin-bottom: 24px;
+    font-size: 0.92rem;
 }
 
 .direct-contact-items {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 18px;
 }
 
 .dc-item {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 3px;
 }
 
 .dc-label {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     color: var(--hexa-font-dim);
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.2px;
 }
 
 .dc-item a,
 .dc-item p {
     color: var(--hexa-font-main);
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.25s ease;
     margin: 0;
 }
 
@@ -472,99 +431,14 @@
 }
 
 /* =========================================
-   GÜN SEÇİCİ - YATAY KAYDIRILABİLİR (Geliştirilmiş)
+   MOBİL (RESPONSIVE)
 ========================================= */
-.hx-custom-date-picker {
-    width: 100%;
-    margin-top: 10px;
-}
-
-.hx-date-scroll-container {
-    width: 100%;
-    overflow: hidden;
-    /* Kartların sağ ve sol kenardan kesilmemesi için padding */
-    padding: 0 4px;
-}
-
-.hx-date-scroll-area {
-    display: flex;
-    gap: 12px;
-    overflow-x: auto;
-    padding-bottom: 12px;
-    padding-top: 4px;
-    scroll-behavior: smooth;
-    /* Kesilmeyi engellemek için */
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
-.hx-date-scroll-area::-webkit-scrollbar {
-    height: 4px;
-}
-
-.hx-date-scroll-area::-webkit-scrollbar-thumb {
-    background: var(--hexa-card-border);
-    border-radius: 10px;
-}
-
-.hx-date-card {
-    flex: 0 0 auto;
-    /* Kartın genişliğinin bozulmasını engeller */
-    width: 75px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--hexa-card-border);
-    padding: 12px 8px;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.hx-date-card .d-month {
-    font-size: 0.65rem;
-    color: var(--hexa-accent);
-    text-transform: uppercase;
-    font-weight: 600;
-}
-
-.hx-date-card .d-num {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--hexa-font-main);
-}
-
-.hx-date-card .d-day {
-    font-size: 0.75rem;
-    color: var(--hexa-font-dim);
-}
-
-/* Aktif Kart */
-.hx-date-card.active {
-    background: var(--hexa-accent);
-    border-color: var(--hexa-accent);
-    transform: translateY(-2px);
-}
-
-.hx-date-card.active span {
-    color: var(--hexa-bg);
-}
-
-/* =========================================
-   MOBİL (RESPONSIVE) - GELİŞTİRİLMİŞ
-========================================= */
-
-/* Tablet ve Küçük Laptoplar */
 @media (max-width: 1024px) {
     .hx-contact-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 32px;
     }
 
-    /* Sağdaki bilgi/özet paneli mobilde üste çıksın */
     .hx-contact-sidebar {
         position: relative;
         top: 0;
@@ -572,116 +446,64 @@
     }
 }
 
-/* Telefonlar (Ortalama Ekranlar) */
 @media (max-width: 768px) {
-
-    /* Dış boşlukları daraltarak ekrana nefes aldırıyoruz */
     .hx-contact-page {
-        padding-top: 120px;
-        padding-bottom: 80px;
+        padding-top: 100px;
+        padding-bottom: 60px;
     }
 
-    .hx-contact-title {
-        font-size: 2.2rem;
-        margin-bottom: 15px;
-    }
-
-    .hx-contact-subtitle {
-        font-size: 1rem;
-    }
-
-    /* Form kartının iç boşluğunu mobilde optimize ediyoruz */
     .hx-contact-form-wrapper {
-        padding: 24px;
-        border-radius: 20px;
+        padding: 20px 16px;
     }
 
-    /* Sekmeleri yan yana sıkışmak yerine tam genişliğe yayıyoruz */
     .hx-form-tabs-minimal {
-        gap: 8px;
-        margin-bottom: 30px;
-        justify-content: space-between;
+        gap: 6px;
+        margin-bottom: 24px;
+        justify-content: flex-start;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 6px;
     }
 
     .hx-tab-minimal-btn {
-        padding: 10px 8px;
-        font-size: 0.85rem;
-        flex: 1;
-        justify-content: center;
-        text-align: center;
+        padding: 8px 12px;
+        font-size: 0.84rem;
+        flex: none;
     }
 
-    /* Form satırlarını tek sütuna indiriyoruz */
     .hx-input-row-minimal {
         grid-template-columns: 1fr;
-        gap: 25px;
+        gap: 20px;
     }
 
-    /* Toplantı tiplerini alt alta alarak tıklanabilir alanı büyütüyoruz */
     .hx-type-pills {
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
     }
 
     .hx-type-pill {
         width: 100%;
         justify-content: center;
-        padding: 12px;
+        padding: 11px;
     }
 
-    /* Saat seçimi için grid yapısını mobilde 3'lü sütun yapıyoruz */
     .hx-time-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 8px;
     }
 
-    .hx-time-pill {
-        padding: 10px 0;
-        font-size: 0.9rem;
-    }
-
     .hx-submit-minimal-btn {
         width: 100%;
-        padding: 16px;
-        margin-top: 20px;
+        padding: 15px;
+        margin-top: 10px;
     }
 
-    /* Özet kartlarının iç boşluklarını daraltıyoruz */
     .hx-cart-summary-box,
     .hx-info-summary-box {
-        padding: 20px;
-        border-radius: 20px;
+        padding: 20px 16px;
     }
 
     .total-price {
-        font-size: 1.8rem;
-    }
-}
-
-/* Küçük Ekranlı Telefonlar (iPhone SE, vs.) */
-@media (max-width: 480px) {
-    .hx-contact-page {
-        padding-top: 120px;
-        padding-bottom: 60px;
-    }
-
-    .hx-contact-title {
-        font-size: 1.8rem;
-    }
-
-    .hx-contact-form-wrapper {
-        padding: 20px;
-    }
-
-    /* Ekran çok daraldığında sekme metinlerini alt alta almamak için padding'i kısıyoruz */
-    .hx-tab-minimal-btn {
-        font-size: 0.75rem;
-        padding: 8px 4px;
-        gap: 4px;
-    }
-
-    /* Çok küçük ekranlarda saatleri 2 sütuna düşürüyoruz */
-    .hx-time-grid {
-        grid-template-columns: repeat(2, 1fr);
+        font-size: 1.75rem;
     }
 }

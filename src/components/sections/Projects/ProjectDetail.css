@@ -1,5 +1,5 @@
 /* ==========================================================================
-   HEXA PREMIUM PROJE DETAY MİMARİSİ (Sıfırdan Revize Edildi)
+   HEXA PREMIUM PROJE DETAY MİMARİSİ (ProjectDetail.css)
    ========================================================================== */
 
 .hx-project-detail-page {
@@ -7,7 +7,7 @@
     min-height: 100vh;
     background-color: var(--hexa-bg);
     color: var(--hexa-font-main);
-    /* Sayfa bütününde sızmaları engeller */
+    overflow-x: hidden;
 }
 
 /* ==========================================================================
@@ -16,7 +16,8 @@
 .hx-pd-webgl-hero {
     position: relative;
     width: 100%;
-    height: 60vh;
+    height: 55vh;
+    min-height: 380px;
     border-bottom: 1px solid var(--hexa-card-border);
     overflow: hidden;
 }
@@ -54,8 +55,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-top: 120px;
-    padding-bottom: 40px;
+    padding-top: 110px;
+    padding-bottom: 30px;
     pointer-events: none;
 }
 
@@ -73,7 +74,7 @@
     gap: 8px;
     color: var(--hexa-font-dim);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     font-weight: 500;
     letter-spacing: 0.5px;
     transition: color var(--transition-fast), transform var(--transition-fast);
@@ -91,42 +92,41 @@
     color: var(--hexa-accent);
     font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     background: rgba(0, 255, 209, 0.05);
-    padding: 6px 14px;
+    padding: 5px 12px;
     border-radius: 50px;
     border: 1px solid rgba(0, 255, 209, 0.15);
 }
 
 .hx-pd-massive-title {
-    font-size: clamp(2.5rem, 5vw, 5.5rem);
+    font-size: clamp(2.2rem, 5vw, 5rem);
     font-weight: 600;
     line-height: 1.1;
-    letter-spacing: -2px;
+    letter-spacing: -1.5px;
     margin: 0;
     color: var(--hexa-font-main);
     pointer-events: auto;
 }
 
-
 /* ==========================================================================
-   2. GİRİŞ VE METRİKLER (Tamamen Yenilenen Editoryal Düzen)
+   2. GİRİŞ VE METRİKLER
    ========================================================================== */
 .hx-pd-intro-flex {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
-    gap: 80px;
-    padding: 140px 20px;
+    gap: 60px;
+    padding: 80px 20px;
     align-items: start;
 }
 
 .hx-pd-sidebar-box h2 {
-    font-size: clamp(2rem, 3vw, 3rem);
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
     font-weight: 600;
     line-height: 1.2;
     letter-spacing: -1px;
-    margin: 0 0 28px 0;
+    margin: 0 0 20px 0;
 }
 
 .hx-pd-sidebar-box h2 .global-text-dimmed {
@@ -135,10 +135,10 @@
 }
 
 .hx-pd-intro-text {
-    font-size: 1.15rem;
+    font-size: 1.08rem;
     line-height: 1.75;
     color: var(--hexa-font-dim-hover);
-    margin: 0 0 40px 0;
+    margin: 0 0 30px 0;
 }
 
 .hx-pd-meta-tags {
@@ -150,67 +150,58 @@
 .hx-pd-tag {
     background: var(--hexa-card-bg);
     border: 1px solid var(--hexa-card-border);
-    padding: 6px 16px;
+    padding: 6px 14px;
     border-radius: 50px;
     font-size: 0.8rem;
     color: var(--hexa-font-dim);
     font-weight: 500;
 }
 
-/* YENİ: Mimari Grid Sistemi (Laptop Dostu Akıllı Esneklik) */
 .hx-pd-metrics-horizontal {
     display: grid;
-    /* Laptop ekranlarında 140px altına düşmeden sığabildiği kadar yan yana dizilir */
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 40px 30px;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 30px 20px;
     width: 100%;
-    padding-top: 10px;
 }
 
-/* YENİ: Editoryal Çizgili Metrik Kutusu */
 .hx-pd-metric-box {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     border-left: 1px solid rgba(255, 255, 255, 0.08);
-    /* Şık sol sınır çizgisi */
-    padding-left: 20px;
+    padding-left: 16px;
     white-space: nowrap;
     transition: border-color var(--transition-fast);
 }
 
 .hx-pd-metric-box:hover {
     border-left-color: var(--hexa-accent);
-    /* Hover anında imza rengin parlar */
 }
 
 .hx-pd-metric-value {
-    font-size: clamp(2.5rem, 4vw, 4rem);
-    /* Üst sınırı laptoplar için optimize edildi */
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
     font-weight: 300;
     color: var(--hexa-accent);
     line-height: 1;
     letter-spacing: -1.5px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .hx-pd-metric-label {
-    font-size: 0.95rem;
+    font-size: 0.88rem;
     color: var(--hexa-font-dim);
     font-weight: 500;
-    letter-spacing: 0.3px;
     line-height: 1.3;
 }
 
-
 /* ==========================================================================
-   3. VAKA YAKLAŞIMI VE ÖZELLİKLER (Sticky Split Düzen)
+   3. VAKA YAKLAŞIMI VE ÖZELLİKLER
    ========================================================================== */
 .hx-pd-approach-section {
     display: grid;
     grid-template-columns: 1fr 1.3fr;
-    gap: 100px;
-    margin-bottom: 160px;
+    gap: 60px;
+    margin-bottom: 100px;
     align-items: start;
 }
 
@@ -225,22 +216,22 @@
     font-size: 0.8rem;
     font-weight: 600;
     color: var(--hexa-font-dim);
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .hx-pd-approach-title {
-    font-size: clamp(2rem, 3.5vw, 3.5rem);
+    font-size: clamp(1.8rem, 3vw, 3rem);
     font-weight: 600;
     color: var(--hexa-font-main);
     line-height: 1.15;
-    margin-bottom: 24px;
+    margin-bottom: 18px;
     letter-spacing: -1px;
 }
 
 .hx-pd-approach-p {
-    font-size: 1.15rem;
+    font-size: 1.08rem;
     color: var(--hexa-font-dim);
     line-height: 1.75;
 }
@@ -248,19 +239,19 @@
 .hx-pd-features-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-top: 40px;
+    gap: 10px;
+    margin-top: 30px;
 }
 
 .hx-pd-feature-item {
     display: flex;
     align-items: center;
-    gap: 16px;
-    padding: 24px 28px;
+    gap: 14px;
+    padding: 18px 22px;
     background: var(--hexa-card-bg);
     border: 1px solid var(--hexa-card-border);
-    border-radius: 16px;
-    font-size: 1.1rem;
+    border-radius: var(--radius-card);
+    font-size: 1rem;
     color: var(--hexa-font-dim-hover);
     transition: all var(--transition-fast);
 }
@@ -269,25 +260,24 @@
     background: rgba(255, 255, 255, 0.03);
     border-color: rgba(0, 255, 209, 0.2);
     color: var(--hexa-font-main);
-    transform: translateX(6px);
+    transform: translateX(4px);
 }
 
-
 /* ==========================================================================
-   4. BENTO GALERİ SİSTEMİ (Aspect Ratio Korumalı Grid)
+   4. BENTO GALERİ SİSTEMİ
    ========================================================================== */
 .hx-pd-gallery-section {
-    padding-bottom: 160px;
+    padding-bottom: 100px;
 }
 
 .hx-pd-bento-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 16px;
 }
 
 .hx-pd-bento-item {
-    border-radius: 20px;
+    border-radius: var(--radius-card);
     overflow: hidden;
     position: relative;
     border: 1px solid var(--hexa-card-border);
@@ -298,7 +288,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1), filter 0.5s ease;
+    transition: transform 0.6s ease, filter 0.5s ease;
     filter: brightness(0.85);
 }
 
@@ -307,7 +297,6 @@
     filter: brightness(1);
 }
 
-/* Kusursuz Bento Kombinasyon Oranları */
 .hx-pd-bento-1 {
     grid-column: span 2;
     grid-row: span 2;
@@ -326,16 +315,16 @@
     aspect-ratio: 4 / 3;
 }
 
-
-/* ==========================================================================
-   5. SONRAKİ PROJE CTA (Sonsuz Döngü Geçiş Alanı)
-   ========================================================================== */
+/* =========================================
+   5. SONRAKİ PROJE CTA
+========================================= */
 .hx-pd-next-project {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 65vh;
+    height: 50vh;
+    min-height: 350px;
     overflow: hidden;
     text-decoration: none;
     border-top: 1px solid var(--hexa-card-border);
@@ -351,23 +340,22 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 0.8s ease;
 }
 
 .hx-pd-next-overlay {
     position: absolute;
     inset: 0;
     background: rgba(10, 14, 23, 0.85);
-    transition: background-color 0.6s ease;
+    transition: background-color 0.4s ease;
 }
 
 .hx-pd-next-project:hover .hx-pd-next-bg img {
-    transform: scale(1.04);
+    transform: scale(1.03);
 }
 
 .hx-pd-next-project:hover .hx-pd-next-overlay {
-    background: rgba(10, 14, 23, 0.6);
-    /* Detayların derinleşmesi */
+    background: rgba(10, 14, 23, 0.65);
 }
 
 .hx-pd-next-content {
@@ -377,19 +365,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
 }
 
 .next-kicker {
     font-size: 0.8rem;
     color: var(--hexa-font-dim);
-    letter-spacing: 4px;
+    letter-spacing: 3px;
     text-transform: uppercase;
     font-weight: 600;
 }
 
 .next-title {
-    font-size: clamp(2.5rem, 5vw, 5rem);
+    font-size: clamp(2rem, 5vw, 4.2rem);
     color: var(--hexa-font-main);
     margin: 0;
     font-weight: 600;
@@ -401,31 +389,26 @@
     align-items: center;
     gap: 8px;
     color: var(--hexa-accent);
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 500;
-    margin-top: 12px;
-    opacity: 0.8;
-    transition: opacity var(--transition-fast), transform var(--transition-fast);
+    margin-top: 8px;
+    transition: transform var(--transition-fast);
 }
 
 .hx-pd-next-project:hover .next-action {
-    opacity: 1;
-    transform: scale(1.03);
+    transform: scale(1.04);
 }
 
-
-/* ==========================================================================
-   6. RESPONSIVE / MOBİL UYARLAMA (Kırılma Noktaları)
-   ========================================================================== */
-
-/* Tablet ve Küçük Ekranlı Laptoplar */
+/* =========================================
+   6. MOBİL UYARLAMA
+========================================= */
 @media (max-width: 1024px) {
 
     .hx-pd-intro-flex,
     .hx-pd-approach-section {
         grid-template-columns: 1fr;
-        gap: 50px;
-        padding: 100px 20px;
+        gap: 36px;
+        padding: 60px 16px;
     }
 
     .hx-pd-approach-left {
@@ -435,8 +418,7 @@
 
     .hx-pd-metrics-horizontal {
         grid-template-columns: repeat(2, 1fr);
-        /* Mobilde dengeli 2'li düzen */
-        gap: 30px;
+        gap: 20px;
     }
 
     .hx-pd-bento-grid {
@@ -452,20 +434,18 @@
     }
 }
 
-/* Akıllı Telefonlar */
 @media (max-width: 768px) {
     .hx-pd-hero-content {
         padding-top: 100px;
-        padding-bottom: 24px;
+        padding-bottom: 20px;
     }
 
     .hx-pd-metrics-horizontal {
         grid-template-columns: 1fr;
-        /* Dar ekranda dikey mimari çizgi akışı */
     }
 
     .hx-pd-feature-item {
-        padding: 20px;
+        padding: 16px;
     }
 }
 

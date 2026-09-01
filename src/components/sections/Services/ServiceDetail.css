@@ -6,6 +6,7 @@
     width: 100%;
     min-height: 100vh;
     position: relative;
+    overflow-x: hidden;
 }
 
 /* =========================================
@@ -16,10 +17,10 @@
     width: 100%;
     min-height: 480px;
     padding-top: 130px;
-    padding-bottom: 60px;
+    padding-bottom: 50px;
     display: flex;
     align-items: flex-end;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
     overflow: hidden;
     border-bottom: 1px solid var(--hexa-card-border);
 }
@@ -51,13 +52,13 @@
     z-index: 2;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
 }
 
 .hexa-sd-top-nav {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
     flex-wrap: wrap;
 }
 
@@ -100,12 +101,12 @@
 .hexa-sd-hero-text {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 14px;
     max-width: 860px;
 }
 
 .sd-hero-heading {
-    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+    font-size: clamp(2rem, 4.5vw, 3.8rem);
     font-weight: 700;
     line-height: 1.15;
     letter-spacing: -1px;
@@ -114,7 +115,7 @@
 }
 
 .sd-hero-description {
-    font-size: clamp(1rem, 1.3vw, 1.2rem);
+    font-size: clamp(0.95rem, 1.3vw, 1.2rem);
     color: var(--hexa-font-dim-hover);
     line-height: 1.65;
     margin: 0;
@@ -137,20 +138,20 @@
     grid-template-columns: 1.45fr 1fr;
     gap: 60px;
     align-items: start;
-    margin-bottom: 90px;
+    margin-bottom: 70px;
     position: relative;
 }
 
 .hexa-sd-main-article {
     display: flex;
     flex-direction: column;
-    gap: 36px;
+    gap: 32px;
 }
 
 /* ACI NOKTASI KUTUSU */
 .sd-pain-box {
-    padding: 30px;
-    border-radius: 20px;
+    padding: 28px;
+    border-radius: var(--radius-card);
     background: rgba(255, 77, 77, 0.03);
     border: 1px solid rgba(255, 77, 77, 0.2);
 }
@@ -159,7 +160,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 }
 
 .pain-icon {
@@ -168,25 +169,25 @@
 }
 
 .pain-header h3 {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: #ff6b6b;
     margin: 0;
 }
 
 .pain-desc {
-    font-size: 1.05rem;
+    font-size: 1rem;
     line-height: 1.7;
     color: var(--hexa-font-main);
-    margin-bottom: 22px;
+    margin-bottom: 20px;
 }
 
 .pain-consequences {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 18px;
     border-top: 1px solid rgba(255, 77, 77, 0.15);
-    padding-top: 20px;
+    padding-top: 18px;
 }
 
 .consequence-item {
@@ -209,46 +210,46 @@
 
 /* Çözüm */
 .sd-solution-box h2.sd-block-title {
-    font-size: 1.85rem;
+    font-size: 1.65rem;
     font-weight: 600;
     color: var(--hexa-font-main);
     letter-spacing: -0.5px;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     line-height: 1.25;
 }
 
 .sd-solution-box p.sd-block-desc {
-    font-size: 1.08rem;
-    line-height: 1.8;
+    font-size: 1.05rem;
+    line-height: 1.75;
     color: var(--hexa-font-dim-hover);
     margin: 0;
 }
 
 /* Teslimatlar */
 .sd-deliverables-box {
-    padding: 32px;
-    border-radius: 20px;
+    padding: 28px;
+    border-radius: var(--radius-card);
 }
 
 .deliverables-heading,
 .comparison-heading {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 600;
     color: var(--hexa-font-main);
-    margin: 0 0 22px 0;
+    margin: 0 0 18px 0;
 }
 
 .deliverables-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 12px;
 }
 
 .deliverable-item {
     display: flex;
     align-items: center;
-    gap: 14px;
-    font-size: 1rem;
+    gap: 12px;
+    font-size: 0.98rem;
     color: var(--hexa-font-main);
 }
 
@@ -259,8 +260,8 @@
 
 /* Kıyaslama Tablosu */
 .sd-comparison-box {
-    padding: 32px;
-    border-radius: 20px;
+    padding: 28px;
+    border-radius: var(--radius-card);
 }
 
 .comparison-table {
@@ -271,8 +272,8 @@
 .comparison-row {
     display: grid;
     grid-template-columns: 1fr 1.2fr 1.2fr;
-    gap: 18px;
-    padding: 18px 0;
+    gap: 16px;
+    padding: 16px 0;
     border-bottom: 1px solid var(--hexa-card-border);
     align-items: center;
 }
@@ -306,7 +307,7 @@
 
 .comp-others p,
 .comp-hexa p {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     margin: 0;
     line-height: 1.5;
 }
@@ -324,18 +325,18 @@
 .sd-faq-section {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 16px;
     margin-top: 10px;
 }
 
 .faq-header {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
 }
 
 .faq-main-title {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     font-weight: 600;
     color: var(--hexa-font-main);
     margin: 0;
@@ -344,12 +345,12 @@
 .faq-accordion-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
 }
 
 .faq-item {
-    border-radius: 16px;
-    padding: 20px 24px;
+    border-radius: 14px;
+    padding: 18px 20px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -363,14 +364,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.02rem;
+    font-size: 0.98rem;
     font-weight: 500;
     color: var(--hexa-font-main);
+    gap: 12px;
 }
 
 .faq-chevron {
     color: var(--hexa-font-dim);
     transition: transform 0.3s ease, color 0.3s ease;
+    flex-shrink: 0;
 }
 
 .faq-item.open .faq-chevron {
@@ -379,12 +382,12 @@
 }
 
 .faq-answer {
-    padding-top: 14px;
-    font-size: 0.95rem;
-    line-height: 1.7;
+    padding-top: 12px;
+    font-size: 0.92rem;
+    line-height: 1.65;
     color: var(--hexa-font-dim);
     border-top: 1px solid var(--hexa-card-border);
-    margin-top: 14px;
+    margin-top: 12px;
 }
 
 /* =========================================
@@ -402,9 +405,9 @@
 .sidebar-sticky-box {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding: 32px;
-    border-radius: 24px;
+    gap: 18px;
+    padding: 28px;
+    border-radius: var(--radius-card);
     border: 1px solid rgba(0, 255, 209, 0.25);
     background: linear-gradient(180deg, rgba(0, 255, 209, 0.04) 0%, rgba(10, 14, 23, 0.85) 100%);
     backdrop-filter: blur(16px);
@@ -416,13 +419,13 @@
     align-items: center;
     gap: 6px;
     color: var(--hexa-accent);
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.5px;
 }
 
 .sidebar-action-title {
-    font-size: 1.55rem;
+    font-size: 1.45rem;
     font-weight: 600;
     line-height: 1.25;
     margin: 0;
@@ -433,7 +436,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding: 16px 0;
+    padding: 14px 0;
     border-top: 1px solid var(--hexa-card-border);
     border-bottom: 1px solid var(--hexa-card-border);
 }
@@ -442,7 +445,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     color: var(--hexa-font-main);
     font-weight: 500;
 }
@@ -450,7 +453,7 @@
 .sidebar-action-buttons-inline {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
-    gap: 12px;
+    gap: 10px;
     align-items: center;
 }
 
@@ -461,9 +464,9 @@
     gap: 8px;
     background: var(--hexa-accent);
     color: var(--hexa-bg);
-    padding: 13px 18px;
+    padding: 12px 16px;
     border-radius: 50px;
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     font-weight: 600;
     text-decoration: none;
     transition: all 0.3s ease;
@@ -484,9 +487,9 @@
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid var(--hexa-card-border);
     color: var(--hexa-font-dim-hover);
-    padding: 13px 18px;
+    padding: 12px 16px;
     border-radius: 50px;
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     font-weight: 500;
     text-decoration: none;
     transition: all 0.3s ease;
@@ -499,9 +502,9 @@
 }
 
 .sidebar-sub-note {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     color: var(--hexa-font-dim);
-    line-height: 1.55;
+    line-height: 1.5;
     text-align: center;
     margin-top: 4px;
 }
@@ -510,30 +513,30 @@
    4. CANLI SİNEMATİK SAHNE
 ========================================= */
 .sd-pure-live-showcase-section {
-    display: block !important;
-    margin-top: 20px;
-    margin-bottom: 90px;
-    padding-bottom: 50px;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 70px;
+    padding-bottom: 40px;
     border-bottom: 1px solid var(--hexa-card-border);
     position: relative;
     z-index: 10;
 }
 
 .sd-showcase-top-header {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .sd-showcase-title-row {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    gap: 20px;
+    gap: 16px;
     flex-wrap: wrap;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .sd-showcase-heading {
-    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
     font-weight: 600;
     letter-spacing: -0.5px;
     color: var(--hexa-font-main);
@@ -543,13 +546,13 @@
 .sd-live-pulse-badge {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px 18px;
+    gap: 6px;
+    padding: 6px 14px;
     background: rgba(0, 255, 209, 0.08);
     border: 1px solid rgba(0, 255, 209, 0.3);
     border-radius: 50px;
     color: var(--hexa-accent);
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 600;
 }
 
@@ -572,7 +575,7 @@
 }
 
 .sd-showcase-lead-desc {
-    font-size: 1.05rem;
+    font-size: 1rem;
     color: var(--hexa-font-dim-hover);
     line-height: 1.6;
     max-width: 840px;
@@ -585,21 +588,21 @@
 
 .sd-demo-tabs-nav {
     display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+    gap: 8px;
+    margin-bottom: 16px;
     flex-wrap: wrap;
 }
 
 .sd-demo-tab-btn {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
+    gap: 6px;
+    padding: 8px 16px;
     border-radius: 50px;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid var(--hexa-card-border);
     color: var(--hexa-font-dim);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -623,30 +626,30 @@
 
 .sd-cinema-energy-bloom {
     position: absolute;
-    inset: -40px;
-    border-radius: 50px;
-    background: radial-gradient(circle, rgba(0, 255, 209, 0.6) 0%, rgba(0, 255, 209, 0.2) 40%, transparent 75%);
+    inset: -30px;
+    border-radius: 40px;
+    background: radial-gradient(circle, rgba(0, 255, 209, 0.5) 0%, rgba(0, 255, 209, 0.15) 40%, transparent 75%);
     opacity: 0;
     transform: scale(0.7);
     pointer-events: none;
     z-index: 0;
     transition: all 0.3s ease;
-    filter: blur(40px);
+    filter: blur(30px);
 }
 
 .sd-cinema-energy-bloom.active {
     opacity: 1;
-    transform: scale(1.15);
+    transform: scale(1.1);
 }
 
 /* SAYFA İÇİNDEKİ CANLI PENCERE */
 .sd-live-morphing-window {
     position: relative;
     width: 100%;
-    border-radius: 20px;
+    border-radius: var(--radius-card);
     overflow: hidden;
     border: 1px solid rgba(0, 255, 209, 0.3);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
     background: #080c14;
     cursor: pointer;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -655,35 +658,35 @@
 
 .sd-live-morphing-window:hover {
     border-color: var(--hexa-accent);
-    box-shadow: 0 30px 80px rgba(0, 255, 209, 0.2);
+    box-shadow: 0 25px 60px rgba(0, 255, 209, 0.2);
 }
 
 .sd-live-morphing-window.is-focusing {
     border-color: var(--hexa-accent);
-    box-shadow: 0 0 40px rgba(0, 255, 209, 0.5);
+    box-shadow: 0 0 30px rgba(0, 255, 209, 0.4);
 }
 
 .sd-browser-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 20px;
+    padding: 12px 18px;
     background: rgba(255, 255, 255, 0.04);
     border-bottom: 1px solid var(--hexa-card-border);
-    gap: 16px;
+    gap: 12px;
     flex-shrink: 0;
 }
 
 .sd-browser-dots {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     flex-shrink: 0;
 }
 
 .sd-browser-dots .dot {
-    width: 11px;
-    height: 11px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     display: inline-block;
 }
@@ -702,7 +705,7 @@
 
 .sd-browser-address-bar {
     flex: 1;
-    max-width: 480px;
+    max-width: 440px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -710,7 +713,7 @@
     gap: 8px;
     background: rgba(0, 0, 0, 0.45);
     border: 1px solid var(--hexa-card-border);
-    padding: 6px 16px;
+    padding: 5px 14px;
     border-radius: 50px;
 }
 
@@ -719,7 +722,7 @@
 }
 
 .sd-address-url {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-family: monospace;
     color: var(--hexa-font-dim-hover);
     white-space: nowrap;
@@ -730,7 +733,7 @@
 .sd-browser-right-actions {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     flex-shrink: 0;
 }
 
@@ -738,10 +741,10 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 600;
     color: var(--hexa-accent);
-    padding: 6px 14px;
+    padding: 5px 12px;
     border-radius: 50px;
     background: rgba(0, 255, 209, 0.08);
     border: 1px solid rgba(0, 255, 209, 0.2);
@@ -759,7 +762,7 @@
 .sd-morph-iframe-holder {
     position: relative;
     width: 100%;
-    height: 480px;
+    height: 440px;
     background: #0f172a;
     overflow: hidden;
 }
@@ -770,7 +773,6 @@
     border: none;
     display: block;
     pointer-events: none;
-    /* Arka plandaki karttayken kaydırmayı engellemez */
 }
 
 .sd-in-place-trigger-overlay {
@@ -793,15 +795,15 @@
 .sd-interactive-trigger-pill {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 16px 32px;
+    gap: 8px;
+    padding: 14px 28px;
     background: rgba(10, 14, 23, 0.94);
     border: 1px solid var(--hexa-accent);
     border-radius: 50px;
     color: var(--hexa-font-main);
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 600;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -815,22 +817,22 @@
 
 .sd-live-morphing-window:hover .sd-interactive-trigger-pill {
     transform: scale(1.04);
-    box-shadow: 0 15px 40px rgba(0, 255, 209, 0.25);
+    box-shadow: 0 12px 35px rgba(0, 255, 209, 0.25);
 }
 
 .sd-viewport-caption-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 24px;
+    padding: 12px 20px;
     background: #0d131f;
     border-top: 1px solid var(--hexa-card-border);
-    gap: 16px;
+    gap: 12px;
     cursor: pointer;
 }
 
 .caption-text-block {
-    font-size: 0.92rem;
+    font-size: 0.88rem;
     color: var(--hexa-font-dim-hover);
 }
 
@@ -843,13 +845,13 @@
     align-items: center;
     gap: 6px;
     color: var(--hexa-accent);
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     font-weight: 600;
     white-space: nowrap;
 }
 
 /* =========================================
-   5. SİNEMATİK TAM EKRAN MODAL (GPU ACCELERATED)
+   5. SİNEMATİK TAM EKRAN MODAL
 ========================================= */
 .sd-fullscreen-demo-overlay {
     position: fixed;
@@ -858,7 +860,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 30px;
+    padding: 24px;
     will-change: opacity;
 }
 
@@ -876,11 +878,11 @@
     z-index: 2;
     width: 100%;
     height: 100%;
-    max-width: 1600px;
-    max-height: 92vh;
+    max-width: 1500px;
+    max-height: 90vh;
     background: #080c14;
     border: 1px solid rgba(0, 255, 209, 0.5);
-    border-radius: 24px;
+    border-radius: var(--radius-card);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -892,17 +894,17 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 28px;
+    padding: 14px 24px;
     background: #0d131f;
     border-bottom: 1px solid var(--hexa-card-border);
-    gap: 20px;
+    gap: 16px;
     flex-shrink: 0;
 }
 
 .sd-modal-left-info {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
 }
 
 .sd-modal-url-pill {
@@ -911,9 +913,9 @@
     gap: 8px;
     background: rgba(0, 0, 0, 0.5);
     border: 1px solid var(--hexa-card-border);
-    padding: 6px 18px;
+    padding: 5px 16px;
     border-radius: 50px;
-    font-size: 0.84rem;
+    font-size: 0.82rem;
     font-family: monospace;
     color: var(--hexa-font-dim-hover);
 }
@@ -921,19 +923,19 @@
 .sd-modal-actions-right {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
 }
 
 .sd-modal-newtab-btn {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 9px 18px;
+    padding: 8px 16px;
     border-radius: 50px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--hexa-card-border);
     color: var(--hexa-font-main);
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     font-weight: 500;
     text-decoration: none;
     transition: all 0.3s ease;
@@ -947,13 +949,13 @@
 .sd-modal-close-btn {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 22px;
+    gap: 6px;
+    padding: 8px 18px;
     border-radius: 50px;
     background: var(--hexa-accent);
     color: var(--hexa-bg);
     border: none;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     font-weight: 700;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -981,7 +983,6 @@
     border: none;
     display: block;
     pointer-events: auto;
-    /* Tam ekranda serbestçe dokunup gezinilir */
 }
 
 /* =========================================
@@ -989,17 +990,17 @@
 ========================================= */
 .sd-showcase-section,
 .sd-related-projects-section {
-    margin-bottom: 80px;
-    padding-bottom: 50px;
+    margin-bottom: 70px;
+    padding-bottom: 40px;
     border-bottom: 1px solid var(--hexa-card-border);
 }
 
 .sd-section-header {
-    margin-bottom: 30px;
+    margin-bottom: 24px;
 }
 
 .sd-section-title {
-    font-size: clamp(1.6rem, 2.5vw, 2.3rem);
+    font-size: clamp(1.5rem, 2.5vw, 2.2rem);
     font-weight: 600;
     color: var(--hexa-font-main);
     letter-spacing: -0.5px;
@@ -1008,8 +1009,8 @@
 
 .sd-logos-podium-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
 }
 
 .sd-logo-podium-card {
@@ -1017,18 +1018,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 32px 20px;
-    border-radius: 18px;
+    padding: 24px 16px;
+    border-radius: var(--radius-card);
     transition: all 0.3s ease;
 }
 
 .podium-logo-wrap {
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .podium-logo-wrap img {
@@ -1038,13 +1039,13 @@
 }
 
 .podium-brand-name {
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--hexa-font-main);
 }
 
 .podium-sector {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     color: var(--hexa-font-dim);
 }
 
@@ -1056,16 +1057,16 @@
 /* PROJELER */
 .sd-projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 28px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
 }
 
 .sd-project-card {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    padding: 16px;
-    border-radius: 18px;
+    gap: 14px;
+    padding: 14px;
+    border-radius: var(--radius-card);
     text-decoration: none;
     transition: all 0.3s ease;
 }
@@ -1078,7 +1079,7 @@
 .sd-project-img {
     width: 100%;
     aspect-ratio: 16 / 9;
-    border-radius: 14px;
+    border-radius: 12px;
     overflow: hidden;
 }
 
@@ -1101,7 +1102,7 @@
 }
 
 .sd-client-tag {
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     color: var(--hexa-accent);
     font-weight: 600;
     text-transform: uppercase;
@@ -1111,7 +1112,7 @@
 }
 
 .sd-project-name {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     font-weight: 600;
     color: var(--hexa-font-main);
     margin: 0;
@@ -1121,8 +1122,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     border: 1px solid var(--hexa-card-border);
     color: var(--hexa-font-dim);
@@ -1137,30 +1138,30 @@
 }
 
 .hexa-sd-related-section {
-    margin-bottom: 90px;
+    margin-bottom: 70px;
     border-top: 1px solid var(--hexa-card-border);
-    padding-top: 50px;
+    padding-top: 40px;
 }
 
 .related-section-title {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: var(--hexa-font-main);
-    margin-bottom: 24px;
+    margin-bottom: 18px;
 }
 
 .sleek-related-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
 }
 
 .sleek-related-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 22px;
-    border-radius: 16px;
+    padding: 18px;
+    border-radius: 14px;
     text-decoration: none;
     color: var(--hexa-font-main);
     font-weight: 500;
@@ -1177,16 +1178,16 @@
     align-items: center;
     gap: 6px;
     color: var(--hexa-accent);
-    font-size: 0.88rem;
+    font-size: 0.85rem;
 }
 
 /* =========================================
-   7. MOBİL & TABLET UYUMU (SIFIR KASMA)
+   7. MOBİL UYUM (ÖZEL HİZALAMA VE BOŞLUKLAR)
 ========================================= */
 @media (max-width: 1024px) {
     .hexa-sd-conversion-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 32px;
     }
 
     .hexa-sd-sidebar {
@@ -1197,10 +1198,9 @@
 
     .comparison-row {
         grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 10px;
     }
 
-    /* Mobilde GPU'yu yormaması için arka plan enerji patlamasını kapatıyoruz */
     .sd-cinema-energy-bloom {
         display: none !important;
     }
@@ -1242,14 +1242,23 @@
 
 @media (max-width: 768px) {
     .hexa-sd-hero-section {
-        min-height: 420px;
-        padding-top: 110px;
-        padding-bottom: 40px;
-        margin-bottom: 40px;
+        min-height: 380px;
+        padding-top: 100px;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+    }
+
+    .sd-pain-box,
+    .sd-deliverables-box,
+    .sd-comparison-box,
+    .sidebar-sticky-box {
+        padding: 20px 16px;
     }
 
     .pain-consequences {
         grid-template-columns: 1fr;
+        gap: 14px;
+        padding-top: 14px;
     }
 
     .sidebar-action-buttons-inline {
@@ -1265,37 +1274,57 @@
     }
 
     .sd-morph-iframe-holder {
-        height: 320px;
+        height: 300px;
     }
 
     .sd-interactive-trigger-pill {
-        padding: 14px 22px;
-        font-size: 0.9rem;
+        padding: 12px 20px;
+        font-size: 0.88rem;
     }
 
     .sd-viewport-caption-bar {
         flex-direction: column;
         align-items: flex-start;
-        gap: 10px;
-        padding: 12px 16px;
+        gap: 8px;
+        padding: 12px 14px;
     }
 
     .sd-browser-address-bar {
         display: none;
     }
 
+    .sd-showcase-title-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
     .sd-logos-podium-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .sd-logo-podium-card {
+        padding: 18px 12px;
+    }
+
+    .podium-logo-wrap {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 8px;
+    }
+
+    .podium-brand-name {
+        font-size: 0.92rem;
     }
 
     .sd-projects-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
     }
 
-    .sd-deliverables-box,
-    .sd-comparison-box,
-    .sd-pain-box,
-    .sidebar-sticky-box {
-        padding: 24px;
+    .sleek-related-list {
+        grid-template-columns: 1fr;
+        gap: 8px;
     }
 }

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, Check, ArrowRight } from "lucide-react";
 import { sectoralData } from "@/data/sectoralData";
+import { assetUrl } from "@/utils/formatters";
 import "./SectoralPanel.css";
 
 const SectoralPanel = () => {
@@ -33,7 +34,9 @@ const SectoralPanel = () => {
                   >
                     <div
                       className="hx-bento-bg-layer"
-                      style={{ backgroundImage: `url(${sector.bgImage})` }}
+                      style={{
+                        backgroundImage: `url(${assetUrl(sector.bgImage)})`,
+                      }}
                     />
                     <div className="hx-bento-overlay-layer" />
 

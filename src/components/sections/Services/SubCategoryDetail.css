@@ -5,12 +5,12 @@
 .subcat-hero-section {
     position: relative;
     width: 100%;
-    min-height: 440px;
-    padding-top: 130px;
-    padding-bottom: 50px;
+    min-height: 420px;
+    padding-top: 120px;
+    padding-bottom: 40px;
     display: flex;
     align-items: flex-end;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
     overflow: hidden;
     border-bottom: 1px solid var(--hexa-card-border);
 }
@@ -42,13 +42,13 @@
     z-index: 2;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
 }
 
 .subcat-top-nav {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
     flex-wrap: wrap;
 }
 
@@ -91,12 +91,12 @@
 .subcat-hero-text {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     max-width: 860px;
 }
 
 .subcat-hero-heading {
-    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+    font-size: clamp(2rem, 4.5vw, 3.8rem);
     font-weight: 700;
     line-height: 1.15;
     letter-spacing: -1px;
@@ -105,7 +105,7 @@
 }
 
 .subcat-hero-subtext {
-    font-size: clamp(1rem, 1.3vw, 1.2rem);
+    font-size: clamp(0.95rem, 1.3vw, 1.2rem);
     color: var(--hexa-font-dim-hover);
     line-height: 1.65;
     margin: 0;
@@ -117,10 +117,10 @@
 .subcat-article-layout {
     display: grid;
     grid-template-columns: 1fr 1.6fr;
-    gap: 60px;
-    padding-bottom: 70px;
+    gap: 50px;
+    padding-bottom: 60px;
     border-bottom: 1px solid var(--hexa-card-border);
-    margin-bottom: 60px;
+    margin-bottom: 50px;
     align-items: start;
 }
 
@@ -134,13 +134,13 @@
     align-items: center;
     gap: 6px;
     color: var(--hexa-accent);
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .subcat-side-desc {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     color: var(--hexa-font-dim);
     line-height: 1.6;
     margin: 0;
@@ -151,7 +151,7 @@
     grid-template-columns: 1.2fr 1fr;
     gap: 10px;
     align-items: center;
-    margin-top: 8px;
+    margin-top: 6px;
 }
 
 .subcat-btn-primary {
@@ -161,7 +161,7 @@
     gap: 8px;
     background: var(--hexa-accent);
     color: var(--hexa-bg);
-    padding: 13px 16px;
+    padding: 12px 16px;
     border-radius: 50px;
     font-size: 0.88rem;
     font-weight: 600;
@@ -184,7 +184,7 @@
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid var(--hexa-card-border);
     color: var(--hexa-font-dim-hover);
-    padding: 13px 16px;
+    padding: 12px 16px;
     border-radius: 50px;
     font-size: 0.85rem;
     font-weight: 500;
@@ -201,11 +201,11 @@
 .subcat-article-body {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
 }
 
 .subcat-content-heading {
-    font-size: 1.55rem;
+    font-size: 1.45rem;
     font-weight: 600;
     color: var(--hexa-font-main);
     letter-spacing: -0.5px;
@@ -213,22 +213,22 @@
 }
 
 .subcat-content-text {
-    font-size: 1.05rem;
-    line-height: 1.8;
+    font-size: 1.02rem;
+    line-height: 1.75;
     color: var(--hexa-font-dim-hover);
     margin: 0;
 }
 
 .subcat-quote {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-style: italic;
     line-height: 1.6;
     color: var(--hexa-font-main);
-    margin: 10px 0;
-    padding: 18px 24px;
+    margin: 6px 0;
+    padding: 16px 20px;
     background: linear-gradient(to right, rgba(0, 255, 209, 0.05), transparent);
     border-left: 4px solid var(--hexa-accent);
-    border-radius: 0 14px 14px 0;
+    border-radius: 0 12px 12px 0;
 }
 
 .article-list {
@@ -237,38 +237,39 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
 }
 
 .article-list li {
     display: flex;
     align-items: flex-start;
-    gap: 12px;
-    font-size: 1rem;
+    gap: 10px;
+    font-size: 0.98rem;
     color: var(--hexa-font-dim-hover);
 }
 
 .list-icon {
     color: var(--hexa-accent);
     flex-shrink: 0;
-    margin-top: 4px;
+    margin-top: 3px;
 }
 
 /* =========================================
    HİZMET LİSTESİ SATIRLARI
 ========================================= */
 .subcat-services-section {
-    padding-top: 20px;
+    padding-top: 10px;
+    margin-bottom: 70px;
 }
 
 .subcat-list-header {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: var(--hexa-font-main);
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .subcat-sleek-list {
@@ -281,7 +282,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 28px 16px;
+    padding: 24px 12px;
     border-bottom: 1px solid var(--hexa-card-border);
     cursor: pointer;
     transition: all 0.3s ease;
@@ -295,31 +296,31 @@
 .sleek-row-left {
     display: flex;
     align-items: flex-start;
-    gap: 28px;
-    max-width: 75%;
+    gap: 24px;
+    max-width: 80%;
 }
 
 .sleek-row-index {
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-family: monospace;
     color: var(--hexa-font-dim);
-    margin-top: 4px;
+    margin-top: 3px;
     transition: color 0.3s ease;
 }
 
 .sleek-row-texts h3 {
-    font-size: 1.45rem;
+    font-size: 1.35rem;
     font-weight: 600;
     color: var(--hexa-font-main);
-    margin: 0 0 6px 0;
+    margin: 0 0 4px 0;
     letter-spacing: -0.5px;
     transition: color 0.3s ease;
 }
 
 .sleek-row-texts p {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     color: var(--hexa-font-dim);
-    line-height: 1.6;
+    line-height: 1.55;
     margin: 0;
 }
 
@@ -333,7 +334,7 @@
     align-items: center;
     gap: 6px;
     color: var(--hexa-font-dim);
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     font-weight: 600;
     transition: all 0.3s ease;
 }
@@ -346,7 +347,7 @@
 @media (max-width: 1024px) {
     .subcat-article-layout {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 32px;
     }
 
     .subcat-article-sidebar {
@@ -357,22 +358,22 @@
     .sleek-list-row {
         flex-direction: column;
         align-items: flex-start;
-        gap: 16px;
-        padding: 22px 0;
+        gap: 12px;
+        padding: 18px 0;
     }
 
     .sleek-row-left {
         max-width: 100%;
-        gap: 16px;
+        gap: 14px;
     }
 }
 
 @media (max-width: 768px) {
     .subcat-hero-section {
-        min-height: 380px;
-        padding-top: 110px;
-        padding-bottom: 35px;
-        margin-bottom: 40px;
+        min-height: 340px;
+        padding-top: 100px;
+        padding-bottom: 25px;
+        margin-bottom: 30px;
     }
 
     .subcat-action-buttons-inline {

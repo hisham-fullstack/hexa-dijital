@@ -9,6 +9,7 @@ import {
   CheckCircle,
   ArrowUpRight,
 } from "lucide-react";
+import { assetUrl } from "@/utils/formatters";
 import HomeServices from "@/components/sections/Home/HomeServices";
 import "./SectoralDetail.css";
 
@@ -25,7 +26,10 @@ const SectoralDetail = ({ currentSector, relatedProjects = [] }) => {
     <div className="hexa-sd-page">
       <div className="hexa-sd-hero-block">
         <div className="hexa-sd-image-wrapper">
-          <img src={currentSector.bgImage} alt={currentSector.title} />
+          <img
+            src={assetUrl(currentSector.bgImage)}
+            alt={currentSector.title}
+          />
         </div>
         <div className="hexa-sd-top-action">
           <Link href="/sektorel-cozumler" className="hexa-sd-back-btn">
@@ -134,7 +138,7 @@ const SectoralDetail = ({ currentSector, relatedProjects = [] }) => {
                   className="related-project-card global-glass-card"
                 >
                   <div className="rp-image-box">
-                    <img src={project.image} alt={project.title} />
+                    <img src={assetUrl(project.image)} alt={project.title} />
                   </div>
                   <div className="rp-info-box">
                     <div>

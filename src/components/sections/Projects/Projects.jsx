@@ -5,6 +5,7 @@ import { Link } from "next-view-transitions";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Cpu } from "lucide-react";
 import { projectsData } from "@/data/projectsData";
+import { assetUrl } from "@/utils/formatters";
 import "./Projects.css";
 
 const Projects = () => {
@@ -97,7 +98,7 @@ const Projects = () => {
                     </div>
 
                     <div className="mobile-project-image">
-                      <img src={project.image} alt={project.title} />
+                      <img src={assetUrl(project.image)} alt={project.title} />
                     </div>
                   </Link>
                 </motion.div>
@@ -118,7 +119,7 @@ const Projects = () => {
                     transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                   >
                     <img
-                      src={hoveredProject.image}
+                      src={assetUrl(hoveredProject.image)}
                       alt={hoveredProject.title}
                     />
 

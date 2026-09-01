@@ -67,6 +67,13 @@ html.lenis body {
   -webkit-tap-highlight-color: transparent;
 }
 
+html,
+body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
 body {
   background-color: var(--hexa-bg);
   color: var(--hexa-font-main);
@@ -78,6 +85,8 @@ body {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .global-section {
@@ -113,9 +122,9 @@ body {
 }
 
 .text-gradient-flow {
-  font-size: 2rem;
-  letter-spacing: 1.5px;
-  margin-bottom: 2rem;
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
   display: block;
   font-weight: 500;
   background: linear-gradient(to right, var(--hexa-accent) 20%, var(--hexa-gradient-mid) 50%, var(--hexa-accent) 80%);
@@ -157,4 +166,18 @@ body {
   gap: 16px;
   color: var(--hexa-font-dim);
   font-size: 1.2rem;
+  padding: 20px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 60px 16px;
+    --radius-card: 18px;
+  }
+
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { sectoralData } from "@/data/sectoralData";
+import { assetUrl } from "@/utils/formatters";
 import HomeServices from "@/components/sections/Home/HomeServices";
 import "./SectoralSolutions.css";
 
@@ -28,7 +29,7 @@ const SectorCard = ({ sector }) => {
         ref={cardRef}
         onMouseMove={handleMouseMove}
       >
-        <img src={sector.bgImage} alt={sector.title} />
+        <img src={assetUrl(sector.bgImage)} alt={sector.title} />
 
         <motion.div
           className="portfolio-hover-btn"
