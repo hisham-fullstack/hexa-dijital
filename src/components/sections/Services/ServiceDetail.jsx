@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useLayoutEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   ChevronLeft,
   ArrowRight,
@@ -21,6 +23,9 @@ import {
   Maximize2,
   X,
   Smartphone,
+  Check,
+  XCircle,
+  Coffee,
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa6";
 import { projectsData } from "@/data/projectsData";
@@ -28,6 +33,13 @@ import { assetUrl } from "@/utils/formatters";
 import CtaSection from "@/components/ui/CtaSection";
 import SectoralPanel from "@/components/sections/Home/SectoralPanel";
 import "./ServiceDetail.css";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+const useIsomorphicLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 const ServiceDetail = ({
   currentService,
@@ -39,11 +51,364 @@ const ServiceDetail = ({
   const [activeDemoTab, setActiveDemoTab] = useState(0);
   const [cinemaStage, setCinemaStage] = useState("idle");
   const cardContainerRef = useRef(null);
+  const pageRef = useRef(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     setCinemaStage("idle");
     setActiveDemoTab(0);
+  }, [currentService?.slug]);
+
+  // FOUC (PARLAMA) ENGELLEYİCİ GSAP SİSTEMİ
+  useIsomorphicLayoutEffect(() => {
+    if (!pageRef.current) return;
+
+    const ctx = gsap.context(() => {
+      gsap.set(
+        [
+          ".hexa-sd-top-nav",
+          ".sd-hero-heading",
+          ".sd-hero-description",
+          ".quick-stat-item",
+        ],
+        { autoAlpha: 0 },
+      );
+
+      const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+      heroTl
+        .to(".hexa-sd-top-nav", {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.6,
+          startAt: { y: -20 },
+        })
+        .to(
+          ".sd-hero-heading",
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.8,
+            startAt: { y: 35 },
+          },
+          "-=0.4",
+        )
+        .to(
+          ".sd-hero-description",
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.7,
+            startAt: { y: 25 },
+          },
+          "-=0.5",
+        )
+        .to(
+          ".quick-stat-item",
+          {
+            autoAlpha: 1,
+            scale: 1,
+            y: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            startAt: { scale: 0.85, y: 15 },
+          },
+          "-=0.4",
+        );
+
+      const sections = gsap.utils.toArray(".sd-editorial-section");
+      sections.forEach((sec) => {
+        const kicker = sec.querySelector(".sd-section-kicker, .faq-header");
+        const title = sec.querySelector(".sd-editorial-title");
+        const desc = sec.querySelector(".sd-editorial-p");
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: sec,
+            start: "top 85%",
+            once: true,
+          },
+          defaults: { ease: "power3.out" },
+        });
+
+        if (kicker) {
+          tl.fromTo(
+            kicker,
+            { autoAlpha: 0, x: -20 },
+            { autoAlpha: 1, x: 0, duration: 0.5 },
+          );
+        }
+        if (title) {
+          tl.fromTo(
+            title,
+            { autoAlpha: 0, y: 25 },
+            { autoAlpha: 1, y: 0, duration: 0.6 },
+            "-=0.3",
+          );
+        }
+        if (desc) {
+          tl.fromTo(
+            desc,
+            { autoAlpha: 0, y: 20 },
+            { autoAlpha: 1, y: 0, duration: 0.6 },
+            "-=0.4",
+          );
+        }
+      });
+
+      gsap.fromTo(
+        ".pain-card-clean",
+        { autoAlpha: 0, y: 35 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.12,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".sd-pain-breakdown-grid",
+            start: "top 85%",
+            once: true,
+          },
+        },
+      );
+
+      gsap.fromTo(
+        ".deliverable-row",
+        { autoAlpha: 0, x: -20 },
+        {
+          autoAlpha: 1,
+          x: 0,
+          duration: 0.5,
+          stagger: 0.08,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".sd-deliverables-clean-list",
+            start: "top 85%",
+            once: true,
+          },
+        },
+      );
+
+      gsap.fromTo(
+        ".timeline-step-item",
+        { autoAlpha: 0, y: 35 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.65,
+          stagger: 0.15,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".sd-timeline-cards",
+            start: "top 85%",
+            once: true,
+          },
+        },
+      );
+
+      gsap.fromTo(
+        ".comparison-card-split",
+        { autoAlpha: 0, y: 30 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.12,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".sd-comparison-matrix",
+            start: "top 85%",
+            once: true,
+          },
+        },
+      );
+
+      gsap.fromTo(
+        ".faq-item",
+        { autoAlpha: 0, y: 20 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.5,
+          stagger: 0.08,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".faq-accordion-list",
+            start: "top 88%",
+            once: true,
+          },
+        },
+      );
+
+      if (document.querySelector(".sd-pure-live-showcase-section")) {
+        const liveTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".sd-pure-live-showcase-section",
+            start: "top 80%",
+            once: true,
+          },
+          defaults: { ease: "power3.out" },
+        });
+
+        liveTl
+          .fromTo(
+            ".sd-pure-live-showcase-section .sd-section-kicker",
+            { autoAlpha: 0, x: -20 },
+            { autoAlpha: 1, x: 0, duration: 0.5 },
+          )
+          .fromTo(
+            ".sd-showcase-heading",
+            { autoAlpha: 0, y: 25 },
+            { autoAlpha: 1, y: 0, duration: 0.6 },
+            "-=0.3",
+          )
+          .fromTo(
+            ".sd-live-pulse-badge",
+            { autoAlpha: 0, scale: 0.8 },
+            { autoAlpha: 1, scale: 1, duration: 0.4 },
+            "-=0.4",
+          )
+          .fromTo(
+            ".sd-showcase-lead-desc",
+            { autoAlpha: 0, y: 15 },
+            { autoAlpha: 1, y: 0, duration: 0.5 },
+            "-=0.3",
+          )
+          .fromTo(
+            ".sd-live-morphing-window",
+            { autoAlpha: 0, y: 40, scale: 0.96 },
+            { autoAlpha: 1, y: 0, scale: 1, duration: 0.8 },
+            "-=0.3",
+          );
+      }
+
+      if (document.querySelector(".sd-showcase-section")) {
+        gsap.fromTo(
+          ".sd-showcase-section .sd-section-kicker, .sd-showcase-section .sd-section-title",
+          { autoAlpha: 0, y: 20 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: ".sd-showcase-section",
+              start: "top 85%",
+              once: true,
+            },
+          },
+        );
+
+        gsap.fromTo(
+          ".sd-logo-podium-card",
+          { autoAlpha: 0, y: 30, scale: 0.9 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: ".sd-logos-podium-grid",
+              start: "top 85%",
+              once: true,
+            },
+          },
+        );
+      }
+
+      if (document.querySelector(".sd-related-projects-section")) {
+        gsap.fromTo(
+          ".sd-related-projects-section .sd-section-kicker, .sd-related-projects-section .sd-section-title",
+          { autoAlpha: 0, y: 20 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: ".sd-related-projects-section",
+              start: "top 85%",
+              once: true,
+            },
+          },
+        );
+
+        gsap.fromTo(
+          ".sd-project-card",
+          { autoAlpha: 0, y: 35 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.15,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: ".sd-projects-grid",
+              start: "top 85%",
+              once: true,
+            },
+          },
+        );
+      }
+
+      if (document.querySelector(".hexa-sd-related-section")) {
+        gsap.fromTo(
+          ".related-section-title",
+          { autoAlpha: 0, y: 20 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: ".hexa-sd-related-section",
+              start: "top 88%",
+              once: true,
+            },
+          },
+        );
+
+        gsap.fromTo(
+          ".sleek-related-item",
+          { autoAlpha: 0, y: 25 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: ".sleek-related-list",
+              start: "top 88%",
+              once: true,
+            },
+          },
+        );
+      }
+
+      gsap.fromTo(
+        ".sidebar-sticky-box",
+        { autoAlpha: 0, x: 30 },
+        {
+          autoAlpha: 1,
+          x: 0,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".hexa-sd-conversion-grid",
+            start: "top 80%",
+            once: true,
+          },
+        },
+      );
+    }, pageRef);
+
+    return () => ctx.revert();
   }, [currentService?.slug]);
 
   useEffect(() => {
@@ -85,19 +450,16 @@ const ServiceDetail = ({
       ? currentService.liveDemos[activeDemoTab]
       : null;
 
-  // MOBİLDE KASMAYI ÖNLEYEN HIZLI TETİKLEME
   const handleCinemaTrigger = () => {
     if (cinemaStage === "expanded") return;
 
     const isMobile = typeof window !== "undefined" && window.innerWidth < 1024;
 
-    // Mobilde ağır animasyonları atlayıp direkt 60fps açılış yapıyoruz
     if (isMobile) {
       setCinemaStage("expanded");
       return;
     }
 
-    // Masaüstünde sinematik akış
     setCinemaStage("focusing");
 
     let safetyTimer = setTimeout(() => {
@@ -138,7 +500,7 @@ const ServiceDetail = ({
   };
 
   return (
-    <div className="hexa-sd-page">
+    <div className="hexa-sd-page" ref={pageRef}>
       {/* 1. HERO BÖLÜMÜ */}
       <section className="hexa-sd-hero-section">
         <div className="hexa-sd-hero-bg">
@@ -169,79 +531,163 @@ const ServiceDetail = ({
             </h1>
             <p className="sd-hero-description">{currentService.introText}</p>
           </div>
+
+          <div className="sd-hero-quick-stats">
+            <div className="quick-stat-item">
+              <Clock size={16} className="text-cyan" />
+              <span>3 - 7 Günde Teslim</span>
+            </div>
+            <div className="quick-stat-item">
+              <Coffee size={16} className="text-cyan" />
+              <span>Bursa İçi Yüz Yüze Görüşme</span>
+            </div>
+            <div className="quick-stat-item">
+              <ShieldCheck size={16} className="text-cyan" />
+              <span>Sürpriz Ekstra Masraf Yok</span>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* 2. DÖNÜŞÜM & İÇERİK BÖLÜMÜ */}
+      {/* 2. ANA DÖNÜŞÜM DÜZENİ */}
       <div className="container">
         <div className="hexa-sd-conversion-grid">
-          {/* SOL: MAKALE, ACI NOKTALARI, SSS */}
+          {/* SOL: EDİTORYAL MAKALE VE İKNA AKIŞI */}
           <article className="hexa-sd-main-article">
-            {/* ACI NOKTASI KUTUSU */}
-            <div className="sd-pain-box global-glass-card">
-              <div className="pain-header">
-                <AlertTriangle className="pain-icon" size={22} />
-                <h3>Bu Durumu Ertelediğinizde Neler Oluyor?</h3>
-              </div>
-              <p className="pain-desc">
+            {/* 2.1 MEVCUT DURUM VE GÖRÜNMEYEN ZARAR */}
+            <div className="sd-editorial-section">
+              <span className="sd-section-kicker">GERÇEK DURUM ANALİZİ</span>
+              <h2 className="sd-editorial-title">
+                Eski veya Yavaş Bir Sistemle <br />
+                <span className="text-glow">Neler Kaybediyorsunuz?</span>
+              </h2>
+              <p className="sd-editorial-p">
                 {currentService.painPointText ||
-                  "Müşterileriniz sizi aradığında yavaş açılan, telefonda dağınık duran veya Google'da bulunamayan bir işletmeyle karşılaştığında aramaktan vazgeçip doğrudan rakibinize gidiyor."}
+                  "Müşterileriniz firmanızı internette aradığında ya da bir tavsiye üzerine sitenize girdiğinde; açılmayan, telefonda dağılan veya karmaşık bir ekranla karşılaştığı an aramaktan vazgeçer. O an kaçan müşteri, doğrudan rakibinize gider."}
               </p>
-              <div className="pain-consequences">
-                <div className="consequence-item">
-                  <span className="consequence-title">Kaçan Müşteriler</span>
-                  <span className="consequence-desc">
-                    Sitenizden veya sosyal medyanızdan bilgi alamayıp başka
-                    firmayı arayan potansiyel müşteriler.
-                  </span>
+
+              <div className="sd-pain-breakdown-grid">
+                <div className="pain-card-clean">
+                  <div className="pain-card-number">01</div>
+                  <h4>Hazır Müşteriyi Kaçırma</h4>
+                  <p>
+                    Sosyal medyadan veya tavsiyeyle gelen kişi 3 saniye içinde
+                    aradığını bulamazsa hemen sayfayı kapatıp rakibi arar.
+                  </p>
                 </div>
-                <div className="consequence-item">
-                  <span className="consequence-title">Fiyat Pazarlığı</span>
-                  <span className="consequence-desc">
-                    Amatör kurumsal görünüm yüzünden kaliteli işinize rağmen
-                    fiyat kırmak zorunda kalma.
-                  </span>
+
+                <div className="pain-card-clean">
+                  <div className="pain-card-number">02</div>
+                  <h4>Haksız Fiyat Pazarlığı</h4>
+                  <p>
+                    İşinizi ne kadar kaliteli yaparsanız yapın, internetteki
+                    amatör görünüm müşteride "küçük işletme" algısı yaratır ve
+                    fiyat kırdırır.
+                  </p>
+                </div>
+
+                <div className="pain-card-clean">
+                  <div className="pain-card-number">03</div>
+                  <h4>Telefon ve Mesaj Yorgunluğu</h4>
+                  <p>
+                    Fiyatı, menüyü veya adresi tek tek WhatsApp'tan yazarak
+                    anlatmaya çalışırken asıl işinize ve üretiminize vakit
+                    kalmaz.
+                  </p>
                 </div>
               </div>
             </div>
 
-            {/* ÇÖZÜM */}
-            <div className="sd-solution-box">
-              <h2 className="sd-block-title">İşinizi Büyüten Çözümümüz</h2>
-              <p className="sd-block-desc">{currentService.description}</p>
-            </div>
+            {/* 2.2 ÇÖZÜMÜMÜZ VE KAZANILACAKLAR */}
+            <div className="sd-editorial-section">
+              <span className="sd-section-kicker">HEXA ÇÖZÜM STANDARDI</span>
+              <h2 className="sd-editorial-title">İşinizi Büyüten Net Çözüm</h2>
+              <p className="sd-editorial-p">{currentService.description}</p>
 
-            {/* TESLİMATLAR */}
-            {currentService.deliverables && (
-              <div className="sd-deliverables-box global-glass-card">
-                <h3 className="deliverables-heading">Bu Pakette Neler Var?</h3>
-                <div className="deliverables-grid">
-                  {currentService.deliverables.map((item, idx) => (
-                    <div key={idx} className="deliverable-item">
-                      <CheckCircle2 size={18} className="deliverable-check" />
-                      <span>{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* KIYASLAMA TABLOSU */}
-            {currentService.comparison && (
-              <div className="sd-comparison-box global-glass-card">
-                <h3 className="comparison-heading">Neden Hexa Standartları?</h3>
-                <div className="comparison-table">
-                  {currentService.comparison.map((row, idx) => (
-                    <div key={idx} className="comparison-row">
-                      <div className="comp-col comp-feature">
-                        <strong>{row.feature}</strong>
+              {currentService.deliverables && (
+                <div className="sd-deliverables-clean-list">
+                  <h3 className="deliverables-subheading">
+                    Bu Pakette Size Teslim Edeceklerimiz:
+                  </h3>
+                  <div className="deliverables-columns">
+                    {currentService.deliverables.map((item, idx) => (
+                      <div key={idx} className="deliverable-row">
+                        <div className="check-bullet">
+                          <Check size={16} strokeWidth={2.5} />
+                        </div>
+                        <span>{item}</span>
                       </div>
-                      <div className="comp-col comp-others">
-                        <span className="comp-badge bad">Sıradan Yaklaşım</span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* 2.3 SÜREÇ NASIL İŞLİYOR? (3 ADIMLI ZAHMETSİZ YOLCULUK) */}
+            <div className="sd-editorial-section">
+              <span className="sd-section-kicker">ÇALIŞMA DÜZENİ</span>
+              <h2 className="sd-editorial-title">
+                Sizi Teknik Detaylarla Yormuyoruz.
+              </h2>
+              <p className="sd-editorial-p">
+                Yazılım veya tasarım terimlerini bilmek zorunda değilsiniz.
+                Süreci tamamen anahtar teslim ve şeffaf yönetiyoruz:
+              </p>
+
+              <div className="sd-timeline-cards">
+                <div className="timeline-step-item">
+                  <div className="step-badge">1. ADIM</div>
+                  <h4>Kahvenizi İçerken Dinliyoruz</h4>
+                  <p>
+                    İhtiyacınızı, ürünlerinizi ve hedef kitlenizi yerinde
+                    inceliyor; neye ihtiyacınız olduğunu netleştiriyoruz.
+                  </p>
+                </div>
+
+                <div className="timeline-step-item">
+                  <div className="step-badge">2. ADIM</div>
+                  <h4>3 Günde Canlı Önizleme</h4>
+                  <p>
+                    Tasarımı hazırlayıp bizzat telefonunuzda çalışan halini
+                    onayınıza sunuyoruz. Beğenmediğiniz yerleri düzeltiyoruz.
+                  </p>
+                </div>
+
+                <div className="timeline-step-item">
+                  <div className="step-badge">3. ADIM</div>
+                  <h4>Eksiksiz Yayına Alma</h4>
+                  <p>
+                    Google kayıtları, harita konumu ve WhatsApp butonları
+                    bağlanmış olarak anahtar teslim kullanımınıza açıyoruz.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* 2.4 PİYASA İŞİ VS. HEXA STANDARDI */}
+            {currentService.comparison && (
+              <div className="sd-editorial-section">
+                <span className="sd-section-kicker">FARKIMIZ</span>
+                <h2 className="sd-editorial-title">
+                  Neden Sıradan Şablon Değil?
+                </h2>
+
+                <div className="sd-comparison-matrix">
+                  {currentService.comparison.map((row, idx) => (
+                    <div key={idx} className="comparison-card-split">
+                      <div className="comp-side bad-side">
+                        <div className="side-title">
+                          <XCircle size={16} />
+                          <span>Piyasadaki Sıradan Yaklaşım</span>
+                        </div>
                         <p>{row.others}</p>
                       </div>
-                      <div className="comp-col comp-hexa">
-                        <span className="comp-badge good">Hexa Yaklaşımı</span>
+
+                      <div className="comp-side good-side">
+                        <div className="side-title">
+                          <CheckCircle2 size={16} />
+                          <span>Hexa Standartları</span>
+                        </div>
                         <p>{row.hexa}</p>
                       </div>
                     </div>
@@ -250,20 +696,20 @@ const ServiceDetail = ({
               </div>
             )}
 
-            {/* S.S.S. */}
-            <div className="sd-faq-section">
+            {/* 2.5 S.S.S. (AKICI ANİMASYONLU AÇILIR KUTULAR) */}
+            <div className="sd-editorial-section">
               <div className="faq-header">
                 <HelpCircle size={22} className="text-cyan" />
-                <h3 className="faq-main-title">
+                <h2 className="sd-editorial-title" style={{ margin: 0 }}>
                   Aklınıza Takılabilecek Sorular
-                </h3>
+                </h2>
               </div>
               <div className="faq-accordion-list">
                 {(
                   currentService.faqs || [
                     {
                       q: "İş ne kadar sürede tamamlanır ve teslim edilir?",
-                      a: "Gerekli bilgileri ve görselleri aldıktan sonra genellikle 3 ila 7 iş günü içinde tüm kurulum, test ve Google kayıtlarını tamamlayarak anahtar teslim kullanımınıza açıyoruz.",
+                      a: "Gerekli bilgileri ve fotoğrafları aldıktan sonra genellikle 3 ila 7 iş günü içinde tüm kurulum, test ve Google kayıtlarını tamamlayarak anahtar teslim kullanımınıza açıyoruz.",
                     },
                     {
                       q: "Sonradan sürpriz bir masraf çıkar mı?",
@@ -286,40 +732,63 @@ const ServiceDetail = ({
                       <span>{faq.q}</span>
                       <ChevronDown size={18} className="faq-chevron" />
                     </div>
-                    {openFaq === fIdx && (
-                      <div className="faq-answer">
-                        <p>{faq.a}</p>
-                      </div>
-                    )}
+                    <AnimatePresence initial={false}>
+                      {openFaq === fIdx && (
+                        <motion.div
+                          key="faq-content"
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{
+                            height: { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
+                            opacity: { duration: 0.25, delay: 0.05 },
+                          }}
+                          style={{ overflow: "hidden" }}
+                        >
+                          <div className="faq-answer">
+                            <p>{faq.a}</p>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 ))}
               </div>
             </div>
           </article>
 
-          {/* SAĞ: TEMİZ VE KONTROLLÜ STICKY SIDEBAR */}
+          {/* SAĞ: STICKY DANIŞMANLIK & İLETİŞİM BLOKU */}
           <aside className="hexa-sd-sidebar">
             <div className="sidebar-sticky-box global-glass-card">
               <div className="action-trust-badge">
                 <ShieldCheck size={16} />
-                <span>Şeffaf Fiyatlandırma & Hızlı Teslim</span>
+                <span>Doğrudan Çözüm Ortağınız</span>
               </div>
 
               <h2 className="sidebar-action-title">
                 {currentService.sloganMain} <br />
-                <span className="global-text-dimmed">
+                <span className="text-cyan">
                   {currentService.sloganHighlight}
                 </span>
               </h2>
 
+              <p className="sidebar-main-lead">
+                İşletmenizin ihtiyacına uygun paketi ve yol haritasını net bir
+                şekilde belirleyelim.
+              </p>
+
               <div className="action-perks-list">
                 <div className="perk-row">
-                  <Clock size={15} className="text-cyan" />
-                  <span>3-7 Günde Eksiksiz Teslim</span>
+                  <Check size={15} className="text-cyan" />
+                  <span>3 - 7 Günde Eksiksiz Teslim</span>
                 </div>
                 <div className="perk-row">
-                  <ShieldCheck size={15} className="text-cyan" />
-                  <span>Sürpriz Ek Ücret Yok</span>
+                  <Check size={15} className="text-cyan" />
+                  <span>Sürpriz Ekstra Fatura Yok</span>
+                </div>
+                <div className="perk-row">
+                  <Check size={15} className="text-cyan" />
+                  <span>Bursa İçi Yüz Yüze Destek</span>
                 </div>
               </div>
 
@@ -330,54 +799,48 @@ const ServiceDetail = ({
                   rel="noopener noreferrer"
                   className="sd-btn-inline-primary"
                 >
-                  <FaWhatsapp size={17} />
+                  <FaWhatsapp size={18} />
                   <span>WhatsApp'tan Yazın</span>
                 </a>
 
                 <Link href="/iletisim" className="sd-btn-inline-secondary">
-                  <span>Teklif İsteyin</span>
+                  <span>Teklif Alın</span>
                   <ArrowRight size={14} />
                 </Link>
               </div>
 
               <span className="sidebar-sub-note">
-                Bursa içi işletmeleri dilerseniz yerinde ziyaret ediyor,
-                kahvenizi içerken ihtiyacınızı netleştiriyoruz.
+                Dilerseniz Bursa'daki işletmenizi ziyaret ediyor, kahvenizi
+                içerken detayları konuşuyoruz.
               </span>
             </div>
           </aside>
         </div>
       </div>
 
-      {/* 3. CANLI SİNEMATİK SAHNE: MOBİLDE SIFIR KASMA, MASAÜSTÜNDE SİNEMATİK */}
+      {/* 3. CANLI SİNEMATİK SAHNE */}
       {activeLiveDemo && (
         <section className="sd-pure-live-showcase-section">
           <div className="container">
             <div className="sd-showcase-top-header">
-              <div
-                className="text-gradient-flow"
-                style={{ marginBottom: "8px" }}
-              >
-                CANLI VE ETKİLEŞİMLİ VİTRİN
-              </div>
+              <span className="sd-section-kicker">CANLI TEST ALANI</span>
               <div className="sd-showcase-title-row">
                 <h2 className="sd-showcase-heading">
                   Yaptığımız Sitede{" "}
-                  <span className="text-glow">Doğrudan Gezinin</span>
+                  <span className="text-glow">Bizzat Gezinin</span>
                 </h2>
                 <div className="sd-live-pulse-badge">
                   <Radio size={14} className="live-pulse-icon" />
-                  <span>Canlı Bağlantı Hazır</span>
+                  <span>Canlı Bağlantı Açık</span>
                 </div>
               </div>
               <p className="sd-showcase-lead-desc">
                 Aşağıdaki pencere bir resim değildir;{" "}
                 <strong>birebir çalışan gerçek web sitesidir</strong>. Üzerine
-                dokunduğunuzda gerçek bir kullanıcı deneyimi yaşayın.
+                dokunarak telefonunuzda test edin.
               </p>
             </div>
 
-            {/* SEKMELER */}
             {currentService.liveDemos.length > 1 && (
               <div className="sd-demo-tabs-nav">
                 {currentService.liveDemos.map((demo, idx) => (
@@ -399,7 +862,6 @@ const ServiceDetail = ({
               </div>
             )}
 
-            {/* SİNEMA ÇAPASI */}
             <div ref={cardContainerRef} className="sd-cinema-anchor-box">
               <div
                 className={`sd-cinema-energy-bloom ${
@@ -409,14 +871,12 @@ const ServiceDetail = ({
                 }`}
               />
 
-              {/* SAYFA İÇİNDEKİ CANLI PENCERE */}
               <div
                 className={`sd-live-morphing-window global-glass-card ${
                   cinemaStage === "focusing" ? "is-focusing" : ""
                 }`}
                 onClick={handleCinemaTrigger}
               >
-                {/* TARAYICI ÜST ÇUBUĞU */}
                 <div className="sd-browser-bar">
                   <div className="sd-browser-dots">
                     <span className="dot dot-red" />
@@ -439,7 +899,6 @@ const ServiceDetail = ({
                   </div>
                 </div>
 
-                {/* BİZZAT CANLI ÇALIŞAN GERÇEK SİTE GÖVDESİ */}
                 <div className="sd-morph-iframe-holder">
                   <div className="sd-in-place-trigger-overlay">
                     <div className="sd-interactive-trigger-pill">
@@ -464,7 +923,6 @@ const ServiceDetail = ({
                   />
                 </div>
 
-                {/* ALT BİLGİ ŞERİDİ */}
                 <div className="sd-viewport-caption-bar">
                   <div className="caption-text-block">
                     <strong>{activeLiveDemo.title}:</strong>{" "}
@@ -480,7 +938,7 @@ const ServiceDetail = ({
         </section>
       )}
 
-      {/* 4. SİNEMATİK TAM EKRAN (MOBİLDE SIFIR KASMA DONANIM HIZLANDIRMASI) */}
+      {/* 4. SİNEMATİK TAM EKRAN MODAL */}
       <AnimatePresence>
         {cinemaStage === "expanded" && activeLiveDemo && (
           <div className="sd-fullscreen-demo-overlay">
@@ -562,7 +1020,7 @@ const ServiceDetail = ({
           currentService.showcaseLogos.length > 0 && (
             <section className="sd-showcase-section">
               <div className="sd-section-header">
-                <span className="text-gradient-flow">LOGO ÇALIŞMALARIMIZ</span>
+                <span className="sd-section-kicker">REFERANSLARIMIZ</span>
                 <h2 className="sd-section-title">
                   İşletmelere Kazandırdığımız{" "}
                   <span className="text-glow">Özgün Marka İmzaları</span>
@@ -591,7 +1049,7 @@ const ServiceDetail = ({
         {relatedProjects.length > 0 && (
           <section className="sd-related-projects-section">
             <div className="sd-section-header">
-              <span className="text-gradient-flow">VAKA ANALİZLERİ</span>
+              <span className="sd-section-kicker">VAKA ANALİZLERİ</span>
               <h2 className="sd-section-title">
                 Birlikte Büyüdüğümüz{" "}
                 <span className="text-glow">Müşteri Hikayeleri</span>
@@ -645,9 +1103,6 @@ const ServiceDetail = ({
           </div>
         )}
       </div>
-
-      <CtaSection />
-      <SectoralPanel />
     </div>
   );
 };
