@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Cpu } from "lucide-react";
 import { projectsData } from "@/data/projectsData";
+import { assetUrl } from "@/utils/formatters";
 import "./LatestWork.css";
 
 const LatestWork = () => {
@@ -66,7 +67,7 @@ const LatestWork = () => {
                 </div>
 
                 <div className="lw-mobile-image">
-                  <img src={work.image} alt={work.title} />
+                  <img src={assetUrl(work.image)} alt={work.title} />
                 </div>
               </Link>
             ))}
@@ -84,7 +85,10 @@ const LatestWork = () => {
                     exit={{ opacity: 0, scale: 1.05 }}
                     transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    <img src={hoveredWork.image} alt={hoveredWork.title} />
+                    <img
+                      src={assetUrl(hoveredWork.image)}
+                      alt={hoveredWork.title}
+                    />
                     <div className="lw-overlay-info">
                       <span className="lw-client-text">
                         {hoveredWork.meta[0].label}: {hoveredWork.meta[0].value}

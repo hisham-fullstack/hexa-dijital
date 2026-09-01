@@ -45,3 +45,22 @@ export const parsePrice = (priceStr) => {
   const clean = parseInt(priceStr.toString().replace(/\./g, ""), 10);
   return isNaN(clean) ? 0 : clean;
 };
+
+/**
+ * Statik görsel ve SVG yollarını GitHub Pages alt dizinine (basePath) otomatik uyarlar.
+ * @param {string} path
+ * @returns {string}
+ */
+export const assetUrl = (path) => {
+  if (!path) return "";
+  if (
+    path.startsWith("http://") ||
+    path.startsWith("https://") ||
+    path.startsWith("data:")
+  ) {
+    return path;
+  }
+  const basePath = process.env.NODE_ENV === "production" ? "/hexa-dijital" : "";
+  const cleanPath = path.startsWith("/") ? path : `/${path}`;
+  return `${basePath}${cleanPath}`;
+};

@@ -18,6 +18,7 @@ import {
   X,
   ChevronDown,
 } from "lucide-react";
+import { assetUrl } from "@/utils/formatters";
 import "./Header.css";
 
 const techMenuItems = [
@@ -295,7 +296,7 @@ const Header = () => {
         <div className="logo-box">
           <Link href="/" onClick={handleLinkClick}>
             <img
-              src="/assets/logos/hexa_logo.svg"
+              src={assetUrl("/assets/logos/hexa_logo.svg")}
               alt="Hexa Logo"
               className="hexa-svg-logo"
             />
@@ -383,7 +384,7 @@ const Header = () => {
                           <div
                             className="bento-bg"
                             style={{
-                              backgroundImage: `url(${service.bgImage})`,
+                              backgroundImage: `url(${assetUrl(service.bgImage)})`,
                             }}
                           />
                           <div className="bento-content">

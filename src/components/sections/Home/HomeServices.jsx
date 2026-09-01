@@ -3,7 +3,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { servicesData } from "@/data/servicesData";
-import { slugify } from "@/utils/formatters";
+import { slugify, assetUrl } from "@/utils/formatters";
 import "./HomeServices.css";
 
 const HomeServices = () => {
@@ -24,7 +24,7 @@ const HomeServices = () => {
                 <div
                   key={cardId}
                   className="bento-card"
-                  style={{ backgroundImage: `url(${sub.image})` }}
+                  style={{ backgroundImage: `url(${assetUrl(sub.image)})` }}
                   onClick={() => router.push(`/hizmetler/${subSlug}`)}
                 >
                   <div className="card-overlay" />

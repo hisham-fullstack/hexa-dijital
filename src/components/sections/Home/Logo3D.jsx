@@ -2,21 +2,21 @@
 
 import React, { useMemo, useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Center, Environment, Float, ContactShadows } from "@react-three/drei";
+import { Center, Environment, Float } from "@react-three/drei";
 import { useLoader } from "@react-three/fiber";
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader";
 import * as THREE from "three";
+import { assetUrl } from "@/utils/formatters";
 
 const SvgModel = ({ url }) => {
   const svg = useLoader(SVGLoader, url);
   const groupRef = useRef();
 
-  // Ekran boyutunu takip etmek için state
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile(); // İlk render'da kontrol et
+    checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
@@ -43,11 +43,9 @@ const SvgModel = ({ url }) => {
   useFrame((state) => {
     if (groupRef.current) {
       if (isMobile) {
-        // Mobil: Sürekli 360 derece dönüş
         groupRef.current.rotation.y += 0.006;
-        groupRef.current.rotation.x = 0; // Mobil için tilt'i sıfırla
+        groupRef.current.rotation.x = 0;
       } else {
-        // Masaüstü: Fare takibi (Mevcut mantık)
         const targetX = -(state.mouse.y * 12 * Math.PI) / 90;
         const targetY = (state.mouse.x * 12 * Math.PI) / 90;
         groupRef.current.rotation.x = THREE.MathUtils.lerp(
@@ -78,7 +76,7 @@ const SvgModel = ({ url }) => {
                   roughness={0.3}
                   envMapIntensity={0.8}
                   toneMapped={false}
-                />{" "}
+                />
               </mesh>
             )),
           )}
@@ -89,12 +87,16 @@ const SvgModel = ({ url }) => {
 };
 
 export default function Logo3D({ logoUrl }) {
-  // VİTE KALINTISI TEMİZLENDİ VE NEXT.JS PUBLIC KLASÖRÜNE YÖNLENDİRİLDİ
-  const finalUrl = logoUrl || "/assets/logos/hexa_logo.svg";
+  const finalUrl = assetUrl(logoUrl || "/assets/logos/hexa_logo.svg");
 
   return (
     <div
-      style={{ width: "100%", height: "100%", position: "absolute", zIndex: 1 }}
+      style={{
+        width: "100%",
+        height: "100%",
+        position: "absolute",
+        zIndex: 1,
+      }}
     >
       <Canvas camera={{ position: [0, 0, 120], fov: 45 }} dpr={[1, 2]}>
         <ambientLight intensity={0.6} />
