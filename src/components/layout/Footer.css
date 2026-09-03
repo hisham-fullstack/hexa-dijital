@@ -1,56 +1,50 @@
+/* ==========================================================================
+   HEXA PREMIUM FOOTER & 35VW DEVASA FİLİGRAN MİMARİSİ (Footer.css)
+   ========================================================================== */
+
 .hexa-premium-footer {
     background-color: var(--hexa-bg);
     color: var(--hexa-font-main);
-    padding-top: 5vw;
+    padding-top: 80px;
     position: relative;
     overflow: hidden;
     width: 100%;
+    border-top: 1px solid var(--hexa-card-border);
     transition: background-color var(--transition-theme), border-color var(--transition-theme), color var(--transition-theme);
 }
 
-.footer-grid-container {
-    margin: 0 auto;
-    padding: 0 5%;
+/* =========================================
+   5 EŞİT SÜTUNLU YAN YANA DİZİLİM
+========================================= */
+.footer-columns-5grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 32px;
+    align-items: flex-start;
+    padding-bottom: 60px;
+}
+
+.footer-column-item {
     display: flex;
     flex-direction: column;
-    gap: 4vw;
 }
 
-.footer-row {
-    display: grid;
-    grid-template-columns: 2fr 8fr;
-    gap: 4vw;
-    align-items: flex-start;
-}
-
-.footer-row-title h3 {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--hexa-font-main);
-    letter-spacing: 1px;
-    transition: color var(--transition-theme);
-}
-
-.footer-row-links {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 32px;
-}
-
-.footer-col h4 {
-    font-size: 1.05rem;
-    font-weight: 500;
+.footer-column-title {
+    font-size: 1rem;
+    font-weight: 600;
     color: var(--hexa-font-main);
     margin-bottom: 20px;
-    transition: color var(--transition-fast);
+    letter-spacing: -0.3px;
+    line-height: 1.3;
 }
 
 .footer-col-header-link {
     color: inherit;
     text-decoration: none;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
+    transition: color var(--transition-fast);
 }
 
 .col-arrow {
@@ -58,42 +52,49 @@
     transition: transform var(--transition-fast), color var(--transition-fast);
 }
 
-.footer-col:hover h4 {
+.footer-col-header-link:hover {
     color: var(--hexa-accent);
 }
 
-.footer-col:hover .col-arrow {
+.footer-col-header-link:hover .col-arrow {
     color: var(--hexa-accent);
-    transform: translate(3px, -3px);
+    transform: translate(2px, -2px);
 }
 
-.footer-col ul {
+.footer-links-list {
     list-style: none;
     padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 13px;
 }
 
-.footer-col a {
+.footer-links-list a {
     text-decoration: none;
     color: var(--hexa-font-dim);
-    font-size: 0.92rem;
-    transition: color var(--transition-fast);
+    font-size: 0.88rem;
+    line-height: 1.45;
+    transition: color var(--transition-fast), transform var(--transition-fast);
+    display: inline-block;
 }
 
-.footer-col a:hover {
+.footer-links-list a:hover {
     color: var(--hexa-font-main);
+    transform: translateX(3px);
 }
 
+/* =========================================
+   ORİJİNAL 35VW DEVASA HEXA FİLİGRANI
+========================================= */
 .footer-bottom-container {
     position: relative;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding-bottom: 100px;
-    margin-top: 30px;
+    padding-bottom: 80px;
+    margin-top: 10px;
     overflow: hidden;
 }
 
@@ -106,43 +107,47 @@
     align-items: flex-end;
     overflow: hidden;
     pointer-events: none;
+    line-height: 0.75;
 }
 
 .footer-massive-text span {
-    display: block;
-    width: 100%;
     text-align: center;
-    font-size: clamp(3.5rem, 24vw, 28vw);
-    font-weight: 700;
+    width: 100%;
     color: var(--hexa-card-bg);
     text-transform: uppercase;
+    font-size: 35vw;
+    font-weight: 700;
+    display: block;
     user-select: none;
-    line-height: 0.8;
+    line-height: 0.75;
+    letter-spacing: -0.03em;
+    transition: color var(--transition-theme);
 }
 
 .footer-social-row {
     position: absolute;
-    bottom: 24px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 90%;
+    width: 92%;
+    max-width: 1400px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 2;
     border-top: 1px solid var(--hexa-card-border);
-    padding-top: 20px;
+    padding-top: 18px;
 }
 
 .copyright-text {
     color: var(--hexa-font-dim);
-    font-size: 0.85rem;
-    letter-spacing: 0.5px;
+    font-size: 0.82rem;
+    letter-spacing: 0.3px;
 }
 
 .social-links {
     display: flex;
-    gap: 24px;
+    gap: 20px;
 }
 
 .social-link {
@@ -152,8 +157,7 @@
     color: var(--hexa-font-dim);
     text-decoration: none;
     font-size: 0.82rem;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
+    letter-spacing: 0.3px;
     transition: all var(--transition-fast);
 }
 
@@ -162,38 +166,37 @@
     transform: translateY(-2px);
 }
 
-@media (max-width: 1200px) {
-    .footer-row {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
-
-    .footer-row-links {
-        grid-template-columns: repeat(2, 1fr);
+/* =========================================
+   TABLET VE MOBİL UYUMU
+========================================= */
+@media (max-width: 1100px) {
+    .footer-columns-5grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
     }
 }
 
 @media (max-width: 768px) {
-    .footer-grid-container {
-        padding: 0 16px;
-        gap: 32px;
-    }
-
-    .footer-row-links {
+    .footer-columns-5grid {
         grid-template-columns: 1fr;
-        gap: 28px;
+        gap: 32px;
+        padding-bottom: 40px;
     }
 
     .footer-bottom-container {
         padding-bottom: 120px;
     }
 
+    .footer-massive-text span {
+        font-size: 32vw;
+    }
+
     .footer-social-row {
         flex-direction: column-reverse;
-        gap: 18px;
-        bottom: 20px;
+        gap: 16px;
+        bottom: 16px;
         width: 100%;
-        padding: 16px 16px 0 16px;
+        padding: 16px 20px 0 20px;
         text-align: center;
     }
 
@@ -201,6 +204,6 @@
         width: 100%;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 14px 20px;
+        gap: 12px 18px;
     }
 }

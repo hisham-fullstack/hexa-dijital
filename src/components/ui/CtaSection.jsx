@@ -3,10 +3,13 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Rocket, ArrowRight, MessageSquareCode } from "lucide-react";
+import { PhoneCall, ArrowRight, MessageSquareCheck } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 import "./CtaSection.css";
 
 const CtaSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="hexa-cta-wrapper">
       <div className="container">
@@ -17,32 +20,22 @@ const CtaSection = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          {/* Arka plan parlaması için dekoratif element */}
           <div className="cta-glow-bg" />
 
           <div className="cta-content-left">
             <div className="cta-icon-wrapper">
-              <Rocket size={28} color="var(--hexa-accent)" />
+              <PhoneCall size={28} color="var(--hexa-accent)" />
             </div>
-            <h2 className="cta-heading">
-              Tamamen Size Özel Bir Çözüm mü Arıyorsunuz?
-            </h2>
-            <p className="cta-text">
-              Standart paketlere sığmayan, sınırların ötesinde bir fikriniz mi
-              var? Hexa Dijital olarak, markanızın DNA'sına uygun,{" "}
-              <strong>terzi işi (tailor-made)</strong> teknoloji ve tasarım
-              projeleri inşa ediyoruz. Hayalinizdeki projeyi konuşmak için
-              bizimle iletişime geçin.
-            </p>
+            <h2 className="cta-heading">{t("cta.heading")}</h2>
+            <p className="cta-text">{t("cta.text")}</p>
           </div>
 
           <div className="cta-action-right">
-            {/* to yerine href kullanıldı */}
             <Link href="/iletisim" className="cta-primary-btn">
-              Özel Teklif İste <ArrowRight size={18} />
+              {t("cta.btnPrimary")} <ArrowRight size={18} />
             </Link>
             <Link href="/iletisim" className="cta-secondary-btn">
-              <MessageSquareCode size={18} /> Ekibimizle Görüşün
+              <MessageSquareCheck size={18} /> {t("cta.btnSecondary")}
             </Link>
           </div>
         </motion.div>

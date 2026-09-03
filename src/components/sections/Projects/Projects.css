@@ -1,31 +1,63 @@
 /* ==========================================================================
-   PORTFOLYO & ÜRÜNLER ANA SAYFASI (Projects.css)
+   PORTFOLYO & PROJELER - BAĞIMSIZ LÜKS TİPOGRAFİ (Projects.css)
    ========================================================================== */
 
 .projects-page {
     padding-top: 150px;
+    width: 100%;
+    background-color: var(--hexa-bg);
+    color: var(--hexa-font-main);
+    min-height: 100vh;
 }
 
 .projects-hero-margin {
-    margin-bottom: 80px;
+    margin-bottom: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.projects-hero-margin .approach-label p {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--hexa-accent);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 8px 0;
+}
+
+.projects-hero-margin .approach-text h2 {
+    font-size: clamp(2rem, 3.5vw, 3.2rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    margin: 0;
+}
+
+.projects-hero-margin .text-dark {
+    color: var(--hexa-font-main);
+}
+
+.projects-hero-margin .text-light {
+    color: var(--hexa-font-dim);
 }
 
 /* --- FİLTRELEME ÇUBUĞU --- */
 .projects-filter-wrapper {
     display: flex;
-    gap: 12px;
-    margin-bottom: 60px;
+    gap: 10px;
+    margin-bottom: 50px;
     flex-wrap: wrap;
 }
 
 .filter-pill {
-    padding: 10px 24px;
+    padding: 9px 22px;
     border-radius: 50px;
-    background: transparent;
+    background: rgba(255, 255, 255, 0.02);
     border: 1px solid var(--hexa-card-border);
     color: var(--hexa-font-dim);
-    font-size: 0.95rem;
-    font-weight: 500;
+    font-size: 0.9rem;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -41,17 +73,16 @@
     border-color: var(--hexa-accent);
 }
 
-/* --- INTERACTIVE TYPOGRAPHIC LIST (Awwwards Style) --- */
+/* --- İNTERAKTİF PROJE LİSTESİ --- */
 .projects-interactive-layout {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
-    gap: 80px;
+    gap: 70px;
     align-items: start;
     position: relative;
     padding-bottom: 120px;
 }
 
-/* SOL: LİSTE ALANI */
 .projects-list-column {
     display: flex;
     flex-direction: column;
@@ -61,7 +92,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px 0;
+    padding: 36px 0;
     border-bottom: 1px solid var(--hexa-card-border);
     text-decoration: none;
     cursor: pointer;
@@ -79,13 +110,14 @@
 .row-meta {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 14px;
 }
 
 .row-year {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--hexa-font-dim);
-    font-weight: 500;
+    font-weight: 600;
+    font-family: monospace;
 }
 
 .hexa-original-tag {
@@ -94,16 +126,16 @@
     gap: 6px;
     background: rgba(0, 255, 209, 0.08);
     color: var(--hexa-accent);
-    padding: 4px 12px;
+    padding: 3px 10px;
     border-radius: 50px;
-    font-size: 0.75rem;
-    font-weight: 600;
+    font-size: 0.72rem;
+    font-weight: 700;
     letter-spacing: 0.5px;
     border: 1px solid rgba(0, 255, 209, 0.2);
 }
 
 .row-title {
-    font-size: clamp(2rem, 3vw, 3.5rem);
+    font-size: clamp(1.8rem, 2.8vw, 3rem);
     font-weight: 600;
     color: var(--hexa-font-main);
     margin: 0;
@@ -113,7 +145,7 @@
 }
 
 .row-category {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--hexa-font-dim);
     margin: 0;
 }
@@ -122,59 +154,59 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60px;
-    height: 60px;
+    width: 54px;
+    height: 54px;
     border-radius: 50%;
     border: 1px solid var(--hexa-card-border);
     color: var(--hexa-font-dim);
+    background: rgba(255, 255, 255, 0.03);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Hover Efektleri */
 .project-row-item:hover {
     border-bottom-color: var(--hexa-accent);
 }
 
 .project-row-item:hover .row-title {
     color: var(--hexa-accent);
-    transform: translateX(10px);
+    transform: translateX(8px);
 }
 
 .project-row-item:hover .row-arrow-circle {
     background: var(--hexa-accent);
     color: var(--hexa-bg);
     border-color: var(--hexa-accent);
-    transform: scale(1.1) rotate(-45deg);
+    transform: scale(1.08) rotate(-45deg);
 }
 
 .mobile-project-image {
     display: none;
-    /* Masaüstünde gizli */
 }
 
-/* SAĞ: STICKY GÖRSEL ALANI */
-.projects-image-column {    
+/* STICKY GÖRSEL ALANI */
+.projects-image-column {
+    position: -webkit-sticky;
     position: sticky;
-    top: 120px;
-    height: 520px;
+    top: 130px;
+    height: 500px;
     width: 100%;
 }
 
 .sticky-image-container {
     width: 100%;
     height: 100%;
-    border-radius: 24px;
+    border-radius: var(--radius-card);
     overflow: hidden;
     position: relative;
-    border: 1px solid rgba(0, 255, 209, 0.15);
+    border: 1px solid rgba(0, 255, 209, 0.2);
+    background-color: var(--hexa-card-bg);
 }
 
 .sticky-image-wrapper {
     width: 100%;
     height: 100%;
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
 }
 
 .sticky-image-wrapper img {
@@ -188,9 +220,9 @@
     position: absolute;
     bottom: 20px;
     left: 20px;
-    background: rgba(15, 15, 15, 0.6);
-    backdrop-filter: blur(10px);
-    padding: 10px 20px;
+    background: rgba(10, 14, 23, 0.85);
+    backdrop-filter: blur(12px);
+    padding: 8px 18px;
     border-radius: 50px;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -198,43 +230,36 @@
 .client-text {
     color: var(--hexa-font-main);
     font-size: 0.85rem;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.5px;
 }
 
 /* =========================================
-   MOBİL (RESPONSIVE)
+   MOBİL VE TABLET
 ========================================= */
 @media (max-width: 1024px) {
     .projects-interactive-layout {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 30px;
     }
 
     .projects-image-column {
         display: none;
-        /* Mobilde sağ paneli tamamen kaldırıyoruz */
     }
 
     .project-row-item {
         flex-direction: column;
         align-items: flex-start;
-        gap: 20px;
-        padding: 30px 0;
-    }
-
-    .row-item-right {
-        display: none;
-        /* Mobilde oku gizleyebilir veya koruyabiliriz, sadelik için gizlendi */
+        gap: 16px;
+        padding: 24px 0;
     }
 
     .mobile-project-image {
         display: block;
         width: 100%;
-        height: 250px;
+        height: 240px;
         border-radius: 16px;
         overflow: hidden;
-        margin-top: 10px;
         border: 1px solid var(--hexa-card-border);
     }
 
@@ -242,5 +267,19 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-page {
+        padding-top: 100px;
+    }
+
+    .projects-hero-margin {
+        margin-bottom: 40px;
+    }
+
+    .row-title {
+        font-size: 1.6rem;
     }
 }

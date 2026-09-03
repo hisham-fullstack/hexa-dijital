@@ -1,36 +1,41 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProgress } from "@react-three/drei";
 import "./Preloader.css";
 
 const Preloader = ({ onComplete }) => {
-  const { progress } = useProgress(); // 3D sahnelerin yüklenme yüzdesini alır
+  const pathname = usePathname();
+  const { progress } = useProgress();
   const [displayProgress, setDisplayProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
+  // Bio-link ve hızlı bağlantı sayfalarında preloader'ı tamamen devre dışı bırak
+  const isExcludedPage =
+    pathname === "/baglantilar" || pathname === "/baglantilar/";
+
   useEffect(() => {
-    // 3D model anında yüklense bile animasyonun akıcı görünmesi için yapay bir gecikme ve animasyon
+    if (isExcludedPage) {
+      setIsLoading(false);
+      return;
+    }
+
     let currentProgress = displayProgress;
 
-    // Framer motion kullanmadan sayıları akıcı bir şekilde artırmak için requestAnimationFrame kullanıyoruz
     const updateProgress = () => {
-      // Hedef, ya 3D modelin gerçek progress'i ya da en azından zamanla artan bir değer
       const target = Math.max(progress, 100);
-
-      // Yumuşak geçiş (Lerp)
       currentProgress += (target - currentProgress) * 0.05;
 
       if (currentProgress > 99.9) {
         setDisplayProgress(100);
         setTimeout(() => {
           setIsLoading(false);
-          // Preloader kapandıktan biraz sonra ana sisteme haber ver (Prop varsa çalıştır)
           if (onComplete) {
             setTimeout(onComplete, 1000);
           }
-        }, 400); // 100% olduktan sonra yarım saniye bekle
+        }, 400);
       } else {
         setDisplayProgress(Math.floor(currentProgress));
         requestAnimationFrame(updateProgress);
@@ -39,13 +44,17 @@ const Preloader = ({ onComplete }) => {
 
     const animationId = requestAnimationFrame(updateProgress);
     return () => cancelAnimationFrame(animationId);
-  }, [progress, onComplete]);
+  }, [progress, onComplete, isExcludedPage]);
 
-  // Awwwards tarzı pürüzsüz çıkış animasyonu (Eğri: çok hızlı başlar, çok yavaş biter)
+  // Hızlı erişim sayfasındaysak hiçbir şey render etme (Anında açılış)
+  if (isExcludedPage) {
+    return null;
+  }
+
   const slideUp = {
     initial: { y: "0%" },
     exit: {
-      y: "-100%", // top yerine y kullanıyoruz
+      y: "-100%",
       transition: { duration: 1.2, ease: [0.76, 0, 0.24, 1] },
     },
   };
@@ -73,7 +82,6 @@ const Preloader = ({ onComplete }) => {
           exit="exit"
           className="preloader-container"
         >
-          {/* Arka plandaki ince grid veya noise detayı (Opsiyonel ama lüks gösterir) */}
           <div className="preloader-noise"></div>
 
           <div className="preloader-content">

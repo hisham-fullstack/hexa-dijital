@@ -2,13 +2,13 @@
 
 import React from "react";
 import { FaWhatsapp } from "react-icons/fa6";
+import { ArrowUpRight } from "lucide-react";
 import "./WhatsAppButton.css";
 
 const WhatsAppButton = () => {
-  // Hexa Dijital İletişim Numarası
-  const phoneNumber = "905537161958";
+  const phoneNumber = "905539344135";
   const defaultMessage = encodeURIComponent(
-    "Merhaba Hexa Dijital, projem için hızlı bir teklif ve bilgi almak istiyorum.",
+    "Merhaba, işletmem için hizmetleriniz hakkında hızlı bir bilgi ve fiyat teklifi almak istiyorum.",
   );
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${defaultMessage}`;
 
@@ -17,14 +17,22 @@ const WhatsAppButton = () => {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="hexa-whatsapp-float"
-      aria-label="WhatsApp ile Hızlı Teklif Alın"
+      className="hexa-luxury-whatsapp-float"
+      aria-label="WhatsApp Hızlı İletişim Hattı"
     >
-      <div className="whatsapp-icon-box">
-        <FaWhatsapp size={28} />
+      <div className="whatsapp-glass-glow" />
+
+      <div className="whatsapp-icon-wrapper">
+        <FaWhatsapp size={20} className="whatsapp-brand-icon" />
       </div>
-      <span className="whatsapp-text">Hızlı Teklif Al</span>
-      <span className="whatsapp-ping" />
+
+      <div className="whatsapp-text-group">
+        <span className="whatsapp-action-text">WhatsApp Hızlı Hat</span>
+      </div>
+
+      <div className="whatsapp-arrow-pill">
+        <ArrowUpRight size={14} />
+      </div>
     </a>
   );
 };

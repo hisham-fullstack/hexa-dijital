@@ -5,13 +5,13 @@ import { Link } from "next-view-transitions";
 import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { useTheme } from "next-themes";
+import { useLanguage } from "@/context/LanguageContext";
 import {
   Globe,
   ShoppingBag,
   Cpu,
-  Sparkles,
   Search,
-  Zap,
+  Sparkles,
   Sun,
   Moon,
   Menu,
@@ -21,54 +21,64 @@ import {
 import { assetUrl } from "@/utils/formatters";
 import "./Header.css";
 
-const techMenuItems = [
+const serviceCategories = [
   {
-    title: "Web Siteleri",
-    count: "/ 3 hizmet",
+    title: "Web Siteleri & Dijital Vitrin",
+    count: "/ 5 hizmet",
     icon: <Globe size={18} strokeWidth={1.5} />,
     bgImage: "/assets/servicess/web.webp",
-    href: "/hizmetler/web-siteleri",
+    href: "/hizmetler/web-siteleri-dijital-vitrin",
   },
   {
-    title: "E-Ticaret & Satış Sistemleri",
-    count: "/ 2 hizmet",
+    title: "Satış & Sipariş Sistemleri",
+    count: "/ 5 hizmet",
     icon: <ShoppingBag size={18} strokeWidth={1.5} />,
     bgImage: "/assets/servicess/subServicess/e-commerce.webp",
-    href: "/hizmetler/e-ticaret-satis-sistemleri",
+    href: "/hizmetler/satis-siparis-sistemleri",
   },
   {
-    title: "İşletme Otomasyonu & Yazılım",
-    count: "/ 4 hizmet",
+    title: "Dükkan İçi Programlar & Kolaylıklar",
+    count: "/ 5 hizmet",
     icon: <Cpu size={18} strokeWidth={1.5} />,
     bgImage: "/assets/servicess/subServicess/business_management_software.webp",
-    href: "/hizmetler/isletme-otomasyonu-yazilim",
+    href: "/hizmetler/dukkan-ici-programlar-kolayliklar",
   },
   {
-    title: "Marka & Grafik Tasarım",
-    count: "/ 3 hizmet",
-    icon: <Sparkles size={18} strokeWidth={1.5} />,
-    bgImage: "/assets/servicess/brand_identity.webp",
-    href: "/hizmetler/marka-grafik-tasarim",
-  },
-  {
-    title: "Sosyal Medya & Google",
-    count: "/ 2 hizmet",
+    title: "Müşteri Çekme, Reklam & İtibar",
+    count: "/ 5 hizmet",
     icon: <Search size={18} strokeWidth={1.5} />,
     bgImage: "/assets/servicess/subServicess/local_seo.webp",
-    href: "/hizmetler/sosyal-medya-google",
+    href: "/hizmetler/musteri-cekme-reklam-itibar",
   },
+  {
+    title: "Tasarım & Baskı İşleri",
+    count: "/ 4 hizmet",
+    icon: <Sparkles size={18} strokeWidth={1.5} />,
+    bgImage: "/assets/servicess/brand_identity.webp",
+    href: "/hizmetler/tasarim-baski-isleri",
+  },
+];
+
+const availableLanguages = [
+  { code: "tr", label: "TR", title: "Türkçe" },
+  { code: "en", label: "EN", title: "English" },
+  { code: "de", label: "DE", title: "Deutsch" },
+  { code: "ar", label: "عربي", title: "العربية" },
 ];
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
+  const [langMenuOpen, setLangMenuOpen] = useState(false);
   const pathname = usePathname();
   const { resolvedTheme, setTheme } = useTheme();
+  const { currentLang, changeLanguage, t } = useLanguage();
   const [mounted, setMounted] = useState(false);
 
   const islandRef = useRef(null);
   const menuContainerRef = useRef(null);
   const closeTimeout = useRef(null);
+  const langDropdownRef = useRef(null);
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
@@ -95,6 +105,20 @@ const Header = () => {
       document.body.style.overflow = "unset";
     };
   }, [isMobileMenuOpen]);
+
+  // Dil menüsü dışına tıklandığında kapatma
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        langDropdownRef.current &&
+        !langDropdownRef.current.contains(event.target)
+      ) {
+        setLangMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   useLayoutEffect(() => {
     if (activeMenu && islandRef.current && menuContainerRef.current) {
@@ -223,12 +247,13 @@ const Header = () => {
     <header className={`modern-header ${scrolled ? "scrolled" : ""}`}>
       <div className={`nav-cinematic-overlay ${activeMenu ? "active" : ""}`} />
 
+      {/* MOBİL MENÜ */}
       <div className={`mobile-menu-overlay ${isMobileMenuOpen ? "open" : ""}`}>
         <div className="mobile-menu-content">
           <ul className="mobile-nav-list">
             <li style={{ "--delay": "0.1s" }}>
               <Link href="/" onClick={handleLinkClick}>
-                Ana Sayfa
+                {t("nav.home")}
               </Link>
             </li>
 
@@ -237,7 +262,7 @@ const Header = () => {
                 className="mobile-dropdown-header"
                 onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
               >
-                <span>Hizmetler</span>
+                <span>{t("nav.services")}</span>
                 <ChevronDown
                   size={24}
                   className={`dropdown-icon ${mobileServicesOpen ? "open" : ""}`}
@@ -246,7 +271,7 @@ const Header = () => {
               <div
                 className={`mobile-dropdown-body ${mobileServicesOpen ? "open" : ""}`}
               >
-                {techMenuItems.map((item, idx) => (
+                {serviceCategories.map((item, idx) => (
                   <Link
                     key={idx}
                     href={item.href}
@@ -262,37 +287,42 @@ const Header = () => {
 
             <li style={{ "--delay": "0.3s" }}>
               <Link href="/sektorel-cozumler" onClick={handleLinkClick}>
-                Sektörel Çözümler
+                {t("nav.sectoral")}
               </Link>
             </li>
             <li style={{ "--delay": "0.4s" }}>
               <Link href="/projeler" onClick={handleLinkClick}>
-                Projeler
+                {t("nav.projects")}
               </Link>
             </li>
             <li style={{ "--delay": "0.5s" }}>
               <Link href="/iletisim" onClick={handleLinkClick}>
-                Tanışalım
+                {t("nav.contact")}
               </Link>
             </li>
           </ul>
 
-          <div className="mobile-menu-footer" style={{ "--delay": "0.6s" }}>
-            <Link
-              href="/iletisim"
-              onClick={handleLinkClick}
-              className="mobile-cta-link-wrapper"
-            >
-              <button className="hexa-premium-cta-btn mobile-full-btn">
-                <Zap size={18} strokeWidth={2} className="cta-bolt-icon" />
-                <span>Teklif & Görüşme</span>
+          {/* Mobilde Dil Seçimi Butonları */}
+          <div className="mobile-lang-row">
+            {availableLanguages.map((l) => (
+              <button
+                key={l.code}
+                type="button"
+                className={`mobile-lang-pill ${currentLang === l.code ? "active" : ""}`}
+                onClick={() => {
+                  changeLanguage(l.code);
+                  closeMobileMenu();
+                }}
+              >
+                {l.label}
               </button>
-            </Link>
+            ))}
           </div>
         </div>
       </div>
 
       <div className="header-container">
+        {/* LOGO */}
         <div className="logo-box">
           <Link href="/" onClick={handleLinkClick}>
             <img
@@ -303,6 +333,7 @@ const Header = () => {
           </Link>
         </div>
 
+        {/* ORTA MENÜ ADASI */}
         <div className="center-nav-wrapper">
           <nav
             className="nav-island"
@@ -316,7 +347,7 @@ const Header = () => {
                   className={pathname === "/" ? "active-link" : ""}
                   onClick={handleLinkClick}
                 >
-                  Ana Sayfa
+                  {t("nav.home")}
                 </Link>
               </li>
               <li
@@ -333,7 +364,7 @@ const Header = () => {
                   }
                   onClick={handleLinkClick}
                 >
-                  Hizmetler
+                  {t("nav.services")}
                 </Link>
               </li>
 
@@ -345,7 +376,7 @@ const Header = () => {
                   }
                   onClick={handleLinkClick}
                 >
-                  Sektörel Çözümler
+                  {t("nav.sectoral")}
                 </Link>
               </li>
 
@@ -355,7 +386,7 @@ const Header = () => {
                   className={pathname === "/projeler" ? "active-link" : ""}
                   onClick={handleLinkClick}
                 >
-                  Projeler
+                  {t("nav.projects")}
                 </Link>
               </li>
               <li onMouseEnter={closeMenu}>
@@ -364,17 +395,18 @@ const Header = () => {
                   className={pathname === "/iletisim" ? "active-link" : ""}
                   onClick={handleLinkClick}
                 >
-                  Tanışalım
+                  {t("nav.contact")}
                 </Link>
               </li>
             </ul>
 
+            {/* AÇILIR MEGA MENÜ */}
             <div className="mega-menu-container" ref={menuContainerRef}>
               <div className="mega-menu-inner">
                 {activeMenu === "hizmetler" && (
                   <div className="mega-menu-section">
                     <div className="mega-menu-grid">
-                      {techMenuItems.map((service, index) => (
+                      {serviceCategories.map((service, index) => (
                         <Link
                           className="bento-item menu-fade-item"
                           key={index}
@@ -404,7 +436,47 @@ const Header = () => {
           </nav>
         </div>
 
+        {/* SAĞ AKSİYON ALANI (DİL SEÇİCİ & TEMA & MOBİL MENÜ) */}
         <div className="header-action">
+          {/* LÜKS DİL SEÇİM KAPSÜLÜ */}
+          <div className="hexa-lang-selector-wrapper" ref={langDropdownRef}>
+            <button
+              type="button"
+              className="hexa-lang-toggle-btn"
+              onClick={() => setLangMenuOpen(!langMenuOpen)}
+              aria-label="Dil Seçimi"
+            >
+              <Globe size={16} className="lang-globe-icon" />
+              <span>{currentLang.toUpperCase()}</span>
+              <ChevronDown
+                size={13}
+                className={`lang-chevron ${langMenuOpen ? "open" : ""}`}
+              />
+            </button>
+
+            {langMenuOpen && (
+              <div className="hexa-lang-dropdown-menu global-glass-card">
+                {availableLanguages.map((item) => (
+                  <button
+                    key={item.code}
+                    type="button"
+                    className={`lang-option-row ${
+                      currentLang === item.code ? "active" : ""
+                    }`}
+                    onClick={() => {
+                      changeLanguage(item.code);
+                      setLangMenuOpen(false);
+                    }}
+                  >
+                    <span className="lang-code-tag">{item.label}</span>
+                    <span className="lang-full-title">{item.title}</span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* TEMA SEÇİCİ */}
           <button
             className={`hexa-theme-toggle ${isLightTheme ? "is-light" : ""}`}
             onClick={() => setTheme(isLightTheme ? "dark" : "light")}
@@ -418,17 +490,7 @@ const Header = () => {
             </div>
           </button>
 
-          <Link
-            href="/iletisim"
-            onClick={handleLinkClick}
-            className="desktop-cta"
-          >
-            <button className="hexa-premium-cta-btn">
-              <Zap size={18} strokeWidth={2} className="cta-bolt-icon" />
-              <span>Teklif & Görüşme</span>
-            </button>
-          </Link>
-
+          {/* MOBİL BUTON */}
           <button
             className="mobile-menu-toggle"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

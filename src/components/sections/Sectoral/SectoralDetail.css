@@ -1,13 +1,25 @@
 /* ==========================================================================
-   SEKTÖREL DETAY - Z-PATTERN (ZIG-ZAG) MİMARİSİ
+   SEKTÖREL DETAY - BAĞIMSIZ LÜKS EDİTORYAL MİMARİ (SectoralDetail.css)
    ========================================================================== */
 
-/* --- HERO BÖLÜMÜ (Orijinal Eski Hali) --- */
+.hexa-sd-page {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--hexa-bg);
+    color: var(--hexa-font-main);
+    position: relative;
+    overflow-x: clip;
+}
+
+/* --- HERO BÖLÜMÜ --- */
 .hexa-sd-hero-block {
     position: relative;
     width: 100%;
-    height: 70vh;
-    margin-bottom: 120px;
+    height: 65vh;
+    min-height: 440px;
+    margin-bottom: 100px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--hexa-card-border);
 }
 
 .hexa-sd-image-wrapper {
@@ -20,7 +32,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.75);
+    filter: brightness(0.4);
 }
 
 .hexa-sd-top-action {
@@ -34,25 +46,27 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 12px 24px;
-    background-color: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 22px;
+    background-color: rgba(10, 14, 23, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 50px;
     color: #ffffff;
     text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
     transition: all 0.3s ease;
 }
 
 .hexa-sd-back-btn:hover {
     background-color: var(--hexa-accent);
-    color: #000000;
+    color: var(--hexa-bg);
     border-color: var(--hexa-accent);
 }
 
 .hexa-sd-hero-title {
     position: absolute;
-    bottom: 40px;
+    bottom: 30px;
     right: 40px;
     display: flex;
     flex-direction: column;
@@ -62,70 +76,66 @@
 }
 
 .hexa-sd-hero-title .title-line {
-    font-size: clamp(2.5rem, 9vw, 10rem);
-    font-weight: 500;
-    line-height: 0.85;
+    font-size: clamp(2.5rem, 8vw, 8.5rem);
+    font-weight: 700;
+    line-height: 0.9;
     letter-spacing: -3px;
     color: #ffffff;
     white-space: nowrap;
-    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
 }
 
-/* --- ANA KONTEYNER VE ORTAK RENKLER --- */
-
+/* --- SPLIT EDİTORYAL YAPI --- */
 .text-cyan {
     color: var(--hexa-accent);
 }
 
 .text-danger {
-    color: #ff4b4b;
+    color: #ff4d4d;
 }
 
 .icon-danger {
-    color: #ff4b4b;
+    color: #ff4d4d;
 }
 
 .icon-success {
     color: var(--hexa-accent);
 }
 
-/* --- SPLIT (İKİYE BÖLÜNMÜŞ) Z-PATTERN YERLEŞİMİ --- */
 .hexa-split-section {
     display: flex;
     align-items: flex-start;
-    gap: 8vw;
-    margin-bottom: 150px;
+    gap: 60px;
+    margin-bottom: 120px;
 }
 
-/* Reverse özelliği: Sol ve Sağın yerini değiştirir */
 .hexa-split-section.reverse-layout {
     flex-direction: row-reverse;
 }
 
-/* Makale Paneli (Sticky) */
 .split-text-panel {
-    flex: 1;
+    flex: 1.1;
     display: flex;
     flex-direction: column;
 }
 
-/* Scroll ettikçe ekranda asılı kalması için */
 .sticky-panel {
     position: -webkit-sticky;
     position: sticky;
-    top: 15vh;
+    top: 130px;
 }
 
 .section-kicker {
-    font-family: monospace;
-    font-size: 0.9rem;
-    letter-spacing: 3px;
-    margin-bottom: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
     display: block;
+    text-transform: uppercase;
 }
 
 .section-kicker.danger {
-    color: #ff4b4b;
+    color: #ff4d4d;
 }
 
 .section-kicker.success {
@@ -133,210 +143,155 @@
 }
 
 .split-title {
-    font-size: clamp(2.5rem, 4vw, 4rem);
+    font-size: clamp(2.2rem, 3.5vw, 3.5rem);
     font-weight: 600;
-    line-height: 1.1;
-    letter-spacing: -1.5px;
-    margin-bottom: 40px;
+    line-height: 1.15;
+    letter-spacing: -1px;
+    margin-bottom: 24px;
     color: var(--hexa-font-main);
 }
 
 .article-content .lead-text {
-    font-size: 1.4rem;
-    line-height: 1.7;
+    font-size: 1.15rem;
+    line-height: 1.75;
     color: var(--hexa-font-main);
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .article-sub-block h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
     color: var(--hexa-font-main);
+    font-weight: 600;
 }
 
 .article-sub-block p {
-    font-size: 1.15rem;
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.65;
     color: var(--hexa-font-dim);
 }
 
-/* Kartlar Paneli (Kaydırılabilir) */
+/* Kartlar Paneli */
 .split-cards-panel {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
 }
 
-/* --- GLASSMORPHISM KART YAPISI --- */
 .hexa-glass-card {
     background: var(--hexa-card-bg);
     border: 1px solid var(--hexa-card-border);
     border-radius: var(--radius-card);
-    padding: 40px;
+    padding: 32px;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     transition: all var(--transition-fast);
 }
 
 .hexa-glass-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
 }
 
-/* Problem Kartı Özel Efektleri */
 .problem-card:hover {
-    border-color: rgba(255, 75, 75, 0.4);
-    background: rgba(255, 75, 75, 0.03);
+    border-color: rgba(255, 77, 77, 0.4);
+    background: rgba(255, 77, 77, 0.03);
 }
 
-/* Çözüm Kartı Özel Efektleri */
 .solution-card:hover {
     border-color: var(--hexa-accent);
-    background: rgba(0, 255, 209, 0.05);
+    background: rgba(0, 255, 209, 0.04);
 }
 
 .card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 25px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    padding-bottom: 15px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--hexa-card-border);
+    padding-bottom: 12px;
 }
 
 .card-num {
     font-family: monospace;
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 700;
     color: var(--hexa-font-dim);
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
 .phase-badge {
     font-family: monospace;
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-    color: var(--hexa-font-main);
-    background: rgba(255, 255, 255, 0.05);
-    padding: 6px 12px;
-    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--hexa-accent);
+    background: rgba(0, 255, 209, 0.1);
+    padding: 4px 10px;
+    border-radius: 50px;
 }
 
 .hexa-glass-card h3 {
-    font-size: 1.6rem;
-    font-weight: 500;
-    margin-bottom: 15px;
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 10px;
     color: var(--hexa-font-main);
 }
 
 .hexa-glass-card p {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     color: var(--hexa-font-dim);
     line-height: 1.6;
+    margin: 0;
 }
 
-/* --- FINAL CTA BÖLÜMÜ --- */
-.hexa-final-cta {
-    padding: 0 0 150px 0;
-}
-
-.cta-inner-glass {
-    background: linear-gradient(135deg, rgba(0, 255, 209, 0.05) 0%, transparent 100%);
-    border: 1px solid var(--hexa-card-border);
-    border-radius: 30px;
-    padding: 100px 5%;
-    text-align: center;
-    backdrop-filter: blur(10px);
-}
-
-.cta-inner-glass h2 {
-    font-size: clamp(3rem, 5vw, 5rem);
-    line-height: 1.1;
-    letter-spacing: -2px;
-    margin-bottom: 30px;
-}
-
-.cta-inner-glass p {
-    font-size: 1.3rem;
-    color: var(--hexa-font-dim);
-    margin-bottom: 50px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.hexa-magnetic-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 15px;
-    background: var(--hexa-accent);
-    color: #000;
-    font-size: 1.2rem;
-    font-weight: 600;
-    padding: 20px 40px;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: all var(--transition-fast);
-}
-
-.hexa-magnetic-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 30px rgba(0, 255, 209, 0.3);
-}
-
-/* ==========================================================================
-   YENİ: SEKTÖREL BAŞARI HİKAYELERİ (RELATED PROJECTS)
-   ========================================================================== */
+/* =========================================
+   BAŞARI HİKAYELERİ & PROJELER
+========================================= */
 .hexa-related-projects-section {
-    margin-bottom: 150px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    padding-top: 100px;
-}
-
-.related-header {
-    margin-bottom: 60px;
+    margin-bottom: 120px;
+    border-top: 1px solid var(--hexa-card-border);
+    padding-top: 80px;
 }
 
 .related-title {
-    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-size: clamp(2rem, 3.5vw, 3rem);
     font-weight: 600;
-    line-height: 1.1;
+    line-height: 1.15;
     letter-spacing: -1px;
     color: var(--hexa-font-main);
-    margin-top: 10px;
+    margin-top: 8px;
+    margin-bottom: 40px;
 }
 
 .related-projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 30px;
 }
 
 .related-project-card {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-    border-radius: 24px;
+    gap: 16px;
+    padding: 18px;
+    border-radius: var(--radius-card);
     text-decoration: none;
-    transition: all 0.4s ease;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    border: 1px solid var(--hexa-card-border);
+    background: var(--hexa-card-bg);
 }
 
 .related-project-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(0, 255, 209, 0.3);
-    box-shadow: 0 10px 30px rgba(0, 255, 209, 0.05);
+    transform: translateY(-4px);
+    border-color: var(--hexa-accent);
 }
 
 .rp-image-box {
     width: 100%;
     aspect-ratio: 16 / 9;
-    border-radius: 16px;
+    border-radius: 14px;
     overflow: hidden;
-    position: relative;
 }
 
 .rp-image-box img {
@@ -347,29 +302,29 @@
 }
 
 .related-project-card:hover .rp-image-box img {
-    transform: scale(1.05);
+    transform: scale(1.04);
 }
 
 .rp-info-box {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    padding: 0 10px;
+    padding: 0 4px;
 }
 
 .rp-client {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--hexa-accent);
-    font-weight: 600;
-    letter-spacing: 1px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
 .rp-title {
-    font-size: 1.8rem;
-    font-weight: 500;
+    font-size: 1.4rem;
+    font-weight: 600;
     color: var(--hexa-font-main);
     margin: 0;
 }
@@ -378,8 +333,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 45px;
-    height: 45px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     border: 1px solid var(--hexa-card-border);
     color: var(--hexa-font-dim);
@@ -393,23 +348,105 @@
     transform: rotate(45deg);
 }
 
-@media (max-width: 768px) {
-    .related-projects-grid {
-        grid-template-columns: 1fr;
-    }
+/* FINAL CTA */
+.hexa-final-cta {
+    padding-bottom: 120px;
 }
 
-/* --- MOBİL UYARLAMA --- */
+.cta-inner-glass {
+    background: linear-gradient(180deg, rgba(0, 255, 209, 0.04) 0%, rgba(10, 14, 23, 0.9) 100%);
+    border: 1px solid rgba(0, 255, 209, 0.25);
+    border-radius: 30px;
+    padding: 80px 40px;
+    text-align: center;
+    backdrop-filter: blur(16px);
+}
+
+.cta-inner-glass h2 {
+    font-size: clamp(2.2rem, 4vw, 3.8rem);
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    margin-bottom: 18px;
+    color: var(--hexa-font-main);
+}
+
+.cta-inner-glass p {
+    font-size: 1.15rem;
+    color: var(--hexa-font-dim-hover);
+    margin-bottom: 36px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.65;
+}
+
+.hexa-magnetic-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--hexa-accent);
+    color: var(--hexa-bg);
+    font-size: 1.05rem;
+    font-weight: 700;
+    padding: 16px 36px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    box-shadow: 0 10px 25px rgba(0, 255, 209, 0.25);
+}
+
+.hexa-magnetic-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 255, 209, 0.4);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
 @media (max-width: 1024px) {
 
     .hexa-split-section,
     .hexa-split-section.reverse-layout {
         flex-direction: column;
-        gap: 50px;
+        gap: 36px;
+        margin-bottom: 80px;
     }
 
     .sticky-panel {
         position: relative;
         top: 0;
+    }
+
+    .hexa-sd-hero-title .title-line {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hexa-sd-hero-block {
+        height: 48vh;
+        margin-bottom: 60px;
+    }
+
+    .hexa-sd-top-action {
+        bottom: 20px;
+        left: 20px;
+    }
+
+    .hexa-sd-hero-title {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .hexa-sd-hero-title .title-line {
+        font-size: 2.6rem;
+    }
+
+    .related-projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-inner-glass {
+        padding: 50px 20px;
     }
 }

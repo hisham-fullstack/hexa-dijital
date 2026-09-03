@@ -1,6 +1,6 @@
 import { ViewTransitions } from "next-view-transitions";
 import Script from "next/script";
-import { Space_Grotesk } from "next/font/google";
+import { Plus_Jakarta_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/Providers";
 import Header from "@/components/layout/Header";
@@ -8,15 +8,23 @@ import Footer from "@/components/layout/Footer";
 import Preloader from "@/components/layout/Preloader";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 
-const spaceGrotesk = Space_Grotesk({
+// Apple ve lüks kurumsal markaların tercih ettiği ana tipografi
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
-  variable: "--font-space",
+  variable: "--font-sans",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  display: "swap",
+  variable: "--font-body",
 });
 
 export const metadata = {
-  title: "Hexa Dijital | Bursa Web Tasarım, Yazılım ve Reklam Ajansı",
+  title: "Hexa Dijital | Bursa Web Tasarım, Yazılım ve Dükkan Çözümleri",
   description:
     "Müşteri kaybettiren eski sitelere son. Telefonda saniyesinde açılan web siteleri, akılda kalıcı logolar ve restoran otomasyonları inşa ediyoruz.",
   verification: {
@@ -64,7 +72,7 @@ export default function RootLayout({ children }) {
           />
         </head>
         <body
-          className={`${spaceGrotesk.className} ${spaceGrotesk.variable}`}
+          className={`${plusJakarta.className} ${plusJakarta.variable} ${inter.variable}`}
           suppressHydrationWarning
         >
           <Script

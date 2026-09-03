@@ -110,8 +110,8 @@ const Contact = () => {
             TANIŞALIM & <span className="text-glow">TEKLİF ALIN.</span>
           </h1>
           <p className="hx-contact-subtitle">
-            Harika bir fikriniz mi var, yoksa mevcut projeniz için desteğe mi
-            ihtiyacınız var? Doğru frekansı seçin ve sinyali gönderin.
+            Dükkanınız veya firmanız için en doğru çözümü belirleyelim. İster
+            telefonla arayalım, ister dükkanınızda kahvenizi içerken konuşalım.
           </p>
         </div>
 
@@ -123,14 +123,14 @@ const Contact = () => {
                 className={`hx-tab-minimal-btn ${activeTab === "proje" ? "active" : ""}`}
                 onClick={() => setActiveTab("proje")}
               >
-                <Briefcase size={16} /> Yeni Proje
+                <Briefcase size={16} /> Yeni Proje / Fiyat
               </button>
               <button
                 type="button"
                 className={`hx-tab-minimal-btn ${activeTab === "toplanti" ? "active" : ""}`}
                 onClick={() => setActiveTab("toplanti")}
               >
-                <CalendarDays size={16} /> Toplantı Planla
+                <CalendarDays size={16} /> Görüşme Planla
               </button>
               <button
                 type="button"
@@ -149,7 +149,7 @@ const Contact = () => {
                 </div>
                 <div className="hx-input-float">
                   <input type="text" name="sirket" placeholder=" " required />
-                  <label>Şirket / Marka</label>
+                  <label>Dükkan / Şirket Adı</label>
                 </div>
               </div>
 
@@ -181,14 +181,14 @@ const Contact = () => {
                         className={`hx-type-pill ${meetingType === "visit" ? "active" : ""}`}
                         onClick={() => setMeetingType("visit")}
                       >
-                        <Coffee size={14} /> Size Gelelim
+                        <Coffee size={14} /> Dükkanınıza Gelelim
                       </button>
                       <button
                         type="button"
                         className={`hx-type-pill ${meetingType === "online" ? "active" : ""}`}
                         onClick={() => setMeetingType("online")}
                       >
-                        <Video size={14} /> Online Toplantı
+                        <Video size={14} /> Online Görüşme
                       </button>
                     </div>
                   </div>
@@ -252,7 +252,9 @@ const Contact = () => {
                               placeholder=" "
                               required
                             ></textarea>
-                            <label>Açık Adresiniz (Örn: Nilüfer / Bursa)</label>
+                            <label>
+                              Dükkan Açık Adresiniz (Örn: Nilüfer / Bursa)
+                            </label>
                           </div>
                         )}
                       </motion.div>
@@ -266,7 +268,9 @@ const Contact = () => {
                       placeholder=" "
                       required
                     ></textarea>
-                    <label>Kısaca Toplantı Konusu</label>
+                    <label>
+                      Kısaca İhtiyacınız (Örn: Web sitesi ve adisyon kurulumu)
+                    </label>
                   </div>
                 </div>
               )}
@@ -279,7 +283,9 @@ const Contact = () => {
                     placeholder=" "
                     required
                   ></textarea>
-                  <label>Proje Detayları (Aklınızdaki vizyonu anlatın)</label>
+                  <label>
+                    Proje Detayları (Hangi hizmetlere ihtiyacınız var?)
+                  </label>
                 </div>
               )}
               {activeTab === "destek" && (
@@ -309,8 +315,8 @@ const Contact = () => {
                     : formStatus === "success"
                       ? "Başarıyla Gönderildi!"
                       : activeTab === "toplanti"
-                        ? "Randevu Talebi Gönder"
-                        : "Sinyali Gönder"}
+                        ? "Görüşme Talebi Gönder"
+                        : "Teklif İste"}
                 </span>
                 {formStatus === "success" ? (
                   <CheckCircle size={16} />
@@ -327,7 +333,8 @@ const Contact = () => {
                     marginTop: "10px",
                   }}
                 >
-                  Gönderim sırasında bir hata oluştu. Lütfen tekrar deneyin.
+                  Gönderim sırasında bir hata oluştu. Lütfen doğrudan WhatsApp
+                  veya telefonla bize ulaşın.
                 </p>
               )}
             </form>
@@ -382,15 +389,15 @@ const Contact = () => {
                   className="hx-info-summary-box global-glass-card"
                 >
                   <h3>Direkt İletişim</h3>
-                  <p>Form doldurmak istemiyor musunuz? Bize doğrudan ulaşın.</p>
+                  <p>Form doldurmak istemiyor musunuz? Bizi doğrudan arayın.</p>
                   <div className="direct-contact-items">
                     <div className="dc-item">
-                      <span className="dc-label">Yazılım Mühendisi</span>
+                      <span className="dc-label">Yazılım & Teknik Sorumlu</span>
                       <a href="tel:+905537161958">+90 553 716 19 58</a>
                     </div>
                     <div className="dc-item">
                       <span className="dc-label">
-                        Pazarlama ve Müşteri İlişkileri
+                        Pazarlama & Müşteri İlişkileri
                       </span>
                       <a href="tel:+905539344135">+90 553 934 41 35</a>
                     </div>

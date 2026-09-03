@@ -1,39 +1,90 @@
 /* ==========================================================================
-   HİZMETLER - ORİJİNAL AWWARDS STICKY SPLIT CSS (Services.css)
+   HİZMETLER - ORİJİNAL AWWARDS STICKY SPLIT & GARANTİLİ HERO TİPOGRAFİSİ
    ========================================================================== */
 
 .services-page {
     padding-top: 150px;
+    width: 100%;
+    background-color: var(--hexa-bg);
+    color: var(--hexa-font-main);
+    min-height: 100vh;
 }
 
 .services-hero-margin {
     margin-bottom: 120px;
 }
 
-.services-category-wrapper {
-    position: relative;
-    margin-bottom: 220px;
+/* =========================================
+   HERO ALANI (BAĞIMSIZ GARANTİLİ STİLLER)
+========================================= */
+.services-page .approach-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    width: 100%;
 }
 
-/* --- GRID YAPISI --- */
+.services-page .approach-label {
+    flex: 1;
+}
+
+.services-page .approach-label p {
+    font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+    color: var(--hexa-accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.1;
+    padding-top: 10px;
+}
+
+.services-page .approach-text {
+    flex: 3;
+}
+
+.services-page .approach-text h2 {
+    font-size: clamp(2rem, 3.2vw, 3rem);
+    font-weight: 500;
+    line-height: 1.25;
+    margin: 0;
+    letter-spacing: -1px;
+}
+
+.services-page .text-dark {
+    color: var(--hexa-font-main);
+}
+
+.services-page .text-light {
+    color: var(--hexa-font-dim);
+}
+
+/* =========================================
+   KATEGORİLER & STICKY GÖRSEL ALANI
+========================================= */
+.services-category-wrapper {
+    position: relative;
+    margin-bottom: 200px;
+}
+
 .category-grid {
     display: grid;
     grid-template-columns: 1.1fr 1fr;
     gap: 90px;
     position: relative;
     z-index: 1;
+    align-items: start;
 }
 
-/* Sol tarafın komple yazı ve görselle beraber ekran boyunca kaymasını sağlayan sticky kapsayıcı */
 .category-image-sticky-wrapper {
+    position: -webkit-sticky;
     position: sticky;
-    top: 100px;
+    top: 120px;
     height: max-content;
 }
 
-/* GÖRSELİN TEPESİNDEKİ DEVASA BAŞLIK */
 .category-bg-title {
-    font-size: 6rem;
+    font-size: clamp(3.5rem, 6vw, 6rem);
     color: var(--hexa-card-bg);
     display: flex;
     align-items: center;
@@ -42,6 +93,7 @@
     letter-spacing: -3px;
     user-select: none;
     line-height: 0.9;
+    font-weight: 800;
 }
 
 .theme-inverted .category-bg-title {
@@ -54,15 +106,17 @@
     border: 1px solid var(--hexa-card-border);
     padding: 4px 12px;
     border-radius: 8px;
-    color: var(--hexa-font-dim);
+    color: var(--hexa-accent);
+    font-family: monospace;
+    font-weight: 700;
 }
 
-/* --- GÖRSEL KUTUSU --- */
 .category-image-box {
     height: 520px;
     border-radius: var(--radius-card);
     overflow: hidden;
     border: 1px solid var(--hexa-card-border);
+    background-color: var(--hexa-card-bg);
 }
 
 .category-image-box img {
@@ -76,7 +130,9 @@
     transform: scale(1.02);
 }
 
-/* --- SAĞ LİSTE ALANI --- */
+/* =========================================
+   SAĞ LİSTE ALANI
+========================================= */
 .category-list-box {
     display: flex;
     flex-direction: column;
@@ -88,86 +144,83 @@
 }
 
 .list-main-header h3 {
-    font-size: 2.4rem;
-    font-weight: 400;
+    font-size: clamp(2rem, 2.5vw, 2.5rem);
+    font-weight: 600;
     color: var(--hexa-font-main);
     letter-spacing: -0.5px;
     margin-bottom: 12px;
+    line-height: 1.2;
 }
 
 .category-desc-text {
     color: var(--hexa-font-dim);
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: 1.05rem;
+    line-height: 1.65;
     max-width: 480px;
+}
+
+.sub-category-group {
+    margin-top: 45px;
+}
+
+.sub-category-title-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    position: relative;
+    padding: 10px 14px;
+    border-radius: 6px;
+    overflow: hidden;
+    z-index: 1;
+    margin-bottom: 14px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--hexa-card-border);
+    transition: all var(--transition-fast);
+}
+
+.sub-category-link-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .sub-category-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 12px;
     color: var(--hexa-accent);
     transition: color 0.3s ease;
 }
 
-.sub-category-title-link:hover .sub-category-icon {
-    color: var(--hexa-bg);
-}
-
-/* --- TIKLANABİLİR ALT BAŞLIKLAR --- */
-.sub-category-group {
-    margin-top: 45px;
-}
-
-.sub-category-title-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    position: relative;
-    padding: 8px 12px;
-    border-radius: 6px;
-    overflow: hidden;
-    z-index: 1;
-    margin-bottom: 12px;
-    transition: color var(--transition-fast);
-}
-
-.sub-category-title-link::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 0%;
-    background: var(--hexa-accent);
-    z-index: -1;
-    transition: height 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-    border-radius: 6px;
-}
-
 .sub-category-title {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 600;
     color: var(--hexa-font-main);
-    letter-spacing: 0.2px;
+    letter-spacing: -0.2px;
+    margin: 0;
     transition: color var(--transition-fast);
 }
 
-.sub-category-title-link:hover::before {
-    height: 100%;
+.group-explore-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--hexa-accent);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: color var(--transition-fast);
 }
 
-.sub-category-title-link:hover .sub-category-title {
-    color: var(--hexa-bg);
+.sub-category-title-link:hover {
+    background: rgba(0, 255, 209, 0.08);
+    border-color: var(--hexa-accent);
+    transform: translateX(4px);
 }
 
-.sub-category-title-link:hover .group-explore-text {
-    color: var(--hexa-bg);
-}
-
-/* --- LİNKLER VE HOVER DOLGU EFEKTİ --- */
+/* =========================================
+   LİNKLER & TURKUAZ DOLGU HOVER EFEKTİ
+========================================= */
 .service-links {
     border-top: 1px solid var(--hexa-card-border);
 }
@@ -200,14 +253,22 @@
 
 .item-text {
     font-size: 1.1rem;
-    font-weight: 400;
+    font-weight: 500;
+    color: var(--hexa-font-main);
+    position: relative;
+    z-index: 2;
+    transition: color var(--transition-fast);
+}
+
+.item-right-wrap {
+    display: flex;
+    align-items: center;
+    gap: 16px;
     position: relative;
     z-index: 2;
 }
 
 .item-arrow {
-    position: relative;
-    z-index: 2;
     color: var(--hexa-font-dim);
     transition: transform var(--transition-fast), color var(--transition-fast);
 }
@@ -216,8 +277,6 @@
     font-size: 0.85rem;
     font-weight: 500;
     color: var(--hexa-font-dim);
-    position: relative;
-    z-index: 2;
     transition: color var(--transition-fast);
 }
 
@@ -225,24 +284,23 @@
     height: 100%;
 }
 
-.service-list-item:hover {
+.service-list-item:hover .item-text,
+.service-list-item:hover .item-arrow,
+.service-list-item:hover .service-inspect-tag {
     color: var(--hexa-bg);
 }
 
 .service-list-item:hover .item-arrow,
 .service-list-item:hover .service-inspect-tag {
-    color: var(--hexa-bg);
     transform: translateX(4px);
 }
 
-/* --- RESPONSIVE AYARLAR --- */
+/* =========================================
+   TABLET VE MOBİL
+========================================= */
 @media (max-width: 1024px) {
     .services-category-wrapper {
         margin-bottom: 120px;
-    }
-
-    .category-bg-title {
-        font-size: clamp(3.5rem, 8vw, 5rem);
     }
 
     .category-grid {
@@ -256,37 +314,49 @@
     }
 
     .category-image-box {
-        height: 450px;
+        height: 420px;
+    }
+
+    .services-page .approach-content {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .services-page .approach-label p {
+        padding-top: 0;
     }
 }
 
 @media (max-width: 768px) {
+    .services-page {
+        padding-top: 100px;
+    }
+
     .services-hero-margin {
-        margin-bottom: 80px;
+        margin-bottom: 60px;
     }
 
     .category-bg-title {
-        font-size: clamp(2.8rem, 10vw, 4rem);
+        font-size: 3rem;
         margin-bottom: 16px;
     }
 
     .category-image-box {
-        height: 300px;
+        height: 280px;
     }
 
     .list-main-header h3 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
-    .sub-category-title {
-        font-size: 1.2rem;
+    .sub-category-title-link {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
     }
 
     .service-list-item {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        padding: 16px 0;
+        padding: 16px 8px;
     }
 
     .item-text {

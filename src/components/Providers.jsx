@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import { ThemeProvider } from "next-themes";
 import { CartProvider } from "@/context/CartContext";
+import { LanguageProvider } from "@/context/LanguageContext";
 import Lenis from "lenis";
 import { usePathname } from "next/navigation";
 
@@ -18,7 +19,6 @@ export default function Providers({ children }) {
     });
 
     lenisRef.current = lenis;
-    // Sayfa genelinde sinematik merkezleme yapabilmek için Lenis nesnesi kaydedilir
     if (typeof window !== "undefined") {
       window.lenis = lenis;
     }
@@ -45,16 +45,18 @@ export default function Providers({ children }) {
   }, [pathname]);
 
   return (
-    <ThemeProvider
-      attribute="class"
-      defaultTheme="dark"
-      enableSystem={false}
-      value={{
-        light: "theme-inverted",
-        dark: "dark",
-      }}
-    >
-      <CartProvider>{children}</CartProvider>
-    </ThemeProvider>
+    <LanguageProvider>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="dark"
+        enableSystem={false}
+        value={{
+          light: "theme-inverted",
+          dark: "dark",
+        }}
+      >
+        <CartProvider>{children}</CartProvider>
+      </ThemeProvider>
+    </LanguageProvider>
   );
 }

@@ -16,91 +16,43 @@ import {
 import "./Footer.css";
 
 const Footer = () => {
-  const designCategory = servicesData[0];
-  const techCategory1 = servicesData[1];
-  const techCategory2 = servicesData[2];
-
-  const techSubCategories = [
-    ...(techCategory1?.subCategories || []),
-    ...(techCategory2?.subCategories || []),
-  ];
-
   return (
     <footer className="hexa-premium-footer">
-      <div className="footer-grid-container">
-        {designCategory && (
-          <div className="footer-row">
-            <div className="footer-row-title">
-              <h3>{designCategory.title.toUpperCase()}</h3>
-            </div>
-            <div className="footer-row-links">
-              {designCategory.subCategories.map((sub, index) => {
-                const subSlug = slugify(sub.title);
+      <div className="container">
+        {/* 5 HİZMET KATEGORİSİNİN YAN YANA EŞİT DİZİLİMİ */}
+        <div className="footer-columns-5grid">
+          {servicesData.map((category) => {
+            const sub = category.subCategories[0];
+            if (!sub) return null;
+            const subSlug = slugify(sub.title);
 
-                return (
-                  <div key={index} className="footer-col">
-                    <h4>
-                      <Link
-                        href={`/hizmetler/${subSlug}`}
-                        className="footer-col-header-link"
-                      >
-                        <span>{sub.title}</span>
-                        <ArrowUpRight size={14} className="col-arrow" />
+            return (
+              <div key={category.id} className="footer-column-item">
+                <h4 className="footer-column-title">
+                  <Link
+                    href={`/hizmetler/${subSlug}`}
+                    className="footer-col-header-link"
+                  >
+                    <span>{sub.title}</span>
+                    <ArrowUpRight size={14} className="col-arrow" />
+                  </Link>
+                </h4>
+                <ul className="footer-links-list">
+                  {sub.items.map((item) => (
+                    <li key={item.slug}>
+                      <Link href={`/hizmetler/${subSlug}/${item.slug}`}>
+                        {item.name}
                       </Link>
-                    </h4>
-                    <ul>
-                      {sub.items.map((item) => (
-                        <li key={item.slug}>
-                          <Link href={`/hizmetler/${subSlug}/${item.slug}`}>
-                            {item.name}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
-
-        {techSubCategories.length > 0 && (
-          <div className="footer-row">
-            <div className="footer-row-title">
-              <h3>TEKNOLOJİ & YAZILIM</h3>
-            </div>
-            <div className="footer-row-links">
-              {techSubCategories.map((sub, index) => {
-                const subSlug = slugify(sub.title);
-
-                return (
-                  <div key={index} className="footer-col">
-                    <h4>
-                      <Link
-                        href={`/hizmetler/${subSlug}`}
-                        className="footer-col-header-link"
-                      >
-                        <span>{sub.title}</span>
-                        <ArrowUpRight size={14} className="col-arrow" />
-                      </Link>
-                    </h4>
-                    <ul>
-                      {sub.items.map((item) => (
-                        <li key={item.slug}>
-                          <Link href={`/hizmetler/${subSlug}/${item.slug}`}>
-                            {item.name}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
+        </div>
       </div>
 
+      {/* DEVASA ORİJİNAL 35VW HEXA FİLİGRANI */}
       <div className="footer-bottom-container">
         <div className="footer-massive-text">
           <span>HEXA</span>
@@ -108,7 +60,8 @@ const Footer = () => {
 
         <div className="footer-social-row">
           <div className="copyright-text">
-            © {new Date().getFullYear()} Hexa Dijital. Tüm hakları saklıdır.
+            © {new Date().getFullYear()} Hexa Dijital • Bursa. Tüm hakları
+            saklıdır.
           </div>
           <div className="social-links">
             <a
@@ -118,7 +71,7 @@ const Footer = () => {
               className="social-link"
               aria-label="Instagram"
             >
-              <FaInstagram size={18} />
+              <FaInstagram size={17} />
               <span>Instagram</span>
             </a>
             <a
@@ -128,7 +81,7 @@ const Footer = () => {
               className="social-link"
               aria-label="Facebook"
             >
-              <FaFacebook size={18} />
+              <FaFacebook size={17} />
               <span>Facebook</span>
             </a>
             <a
@@ -138,7 +91,7 @@ const Footer = () => {
               className="social-link"
               aria-label="YouTube"
             >
-              <FaYoutube size={18} />
+              <FaYoutube size={17} />
               <span>YouTube</span>
             </a>
             <a
@@ -148,7 +101,7 @@ const Footer = () => {
               className="social-link"
               aria-label="TikTok"
             >
-              <FaTiktok size={18} />
+              <FaTiktok size={17} />
               <span>TikTok</span>
             </a>
             <a
@@ -158,7 +111,7 @@ const Footer = () => {
               className="social-link"
               aria-label="Pinterest"
             >
-              <FaPinterest size={18} />
+              <FaPinterest size={17} />
               <span>Pinterest</span>
             </a>
             <a
@@ -168,7 +121,7 @@ const Footer = () => {
               className="social-link"
               aria-label="X Twitter"
             >
-              <FaXTwitter size={18} />
+              <FaXTwitter size={17} />
               <span>X</span>
             </a>
           </div>

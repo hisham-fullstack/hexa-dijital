@@ -1,45 +1,47 @@
+"use client";
+
 import React from "react";
+import { useLanguage } from "@/context/LanguageContext";
 import "./Testimonials.css";
 
-const testimonialsData = [
-  {
-    id: 1,
-    quote:
-      "Hexa Dijital ile Paninoteca Chicken'in marka kimliğini baştan yarattık. Logo güncellemesinden QR menü sistemine kadar her detay özenle kurgulandı; vizyonumuzu bizden bile daha iyi yansıttılar.",
-    name: "İbrahim Bey",
-    title: "Kurucu, Paninoteca Chicken",
-    initial: "İ",
-  },
-  {
-    id: 2,
-    quote:
-      "Geleneksel işleyişimizi modern bir dijital altyapıya taşıma konusunda harika bir iş çıkardılar. İşletmemizin dijital dönüşümü kusursuz yönetildi ve süreçlerimiz inanılmaz hızlandı.",
-    name: "Mehmet Bey",
-    title: "Kurucu, Hira Halı Yıkama",
-    initial: "M",
-  },
-  {
-    id: 3,
-    quote:
-      "Hexa Finans entegrasyonu ile restoranımızdaki adisyon ve komisyon takibi karmaşası tamamen ortadan kalktı. Emir ve Hisham ile sadece bir yazılım değil, işimizi büyüten bir iş ortaklığı bulduk.",
-    name: "Ömer Bey",
-    title: "Ömer Usta",
-    initial: "Ö",
-  },
-];
-
 const Testimonials = () => {
+  const { t } = useLanguage();
+
+  const testimonialsData = [
+    {
+      id: 1,
+      quote: t("testimonials.t1_quote"),
+      name: t("testimonials.t1_name"),
+      title: t("testimonials.t1_role"),
+      initial: "İ",
+    },
+    {
+      id: 2,
+      quote: t("testimonials.t2_quote"),
+      name: t("testimonials.t2_name"),
+      title: t("testimonials.t2_role"),
+      initial: "M",
+    },
+    {
+      id: 3,
+      quote: t("testimonials.t3_quote"),
+      name: t("testimonials.t3_name"),
+      title: t("testimonials.t3_role"),
+      initial: "Ö",
+    },
+  ];
+
   return (
     <section className="global-section testimonials-section">
       <div className="container testimonials-container">
         {/* SOL TARAF: Ekrana kilitlenen (Sticky) alan */}
         <div className="testimonials-left">
           <div className="testimonials-sticky-content">
-            <div className="text-gradient-flow">Yorumlarınız</div>
+            <div className="text-gradient-flow">{t("testimonials.tag")}</div>
             <h2 className="testimonials-title">
-              Müşterilerimiz <br />
+              {t("testimonials.title")} <br />
               <span className="text-dimmed global-text-dimmed">
-                bizimle olan çalışmaları hakında ne diyor?
+                {t("testimonials.subtitle")}
               </span>
             </h2>
           </div>

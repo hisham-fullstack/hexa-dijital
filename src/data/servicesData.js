@@ -1,192 +1,279 @@
 export const servicesData = [
   {
-    id: "web-sitesi",
-    title: "Web Sitesi",
+    id: "web-siteleri-dijital-vitrin",
+    title: "Web Siteleri & Dijital Vitrin",
     index: "01",
     description:
-      "Telefonda saniyesinde açılan, müşterinin ilk bakışta güvenip doğrudan aramasını sağlayan, teknik karmaşadan uzak modern web siteleri.",
+      "Telefonda saniyesinde açılan, müşterinin ilk bakışta güvenip doğrudan aramasını sağlayan modern web çözümleri.",
     bgImage: "/assets/servicess/web.webp",
     subCategories: [
       {
-        title: "Web Siteleri",
+        title: "Web Siteleri & Dijital Vitrin",
         image: "/assets/servicess/web.webp",
-        sloganMain: "Açılmayan ve Müşteri Kaçıran Sitelere Son.",
+        sloganMain: "Açılmayan ve Müşteri Kaçıran Sitelere Son,",
         sloganHighlight: "İnternetteki Dükkanınız Güven Versin.",
         introText:
-          "Ziyaretçilerin sitenize girdiği ilk 3 saniyede aradığını bulmasını ve rakiplerinize gitmeden doğrudan sizi aramasını sağlıyoruz.",
-        descriptionTitle: "İşletmeler Neden Web Sitesinden Verim Alamaz?",
+          "Ziyaretçilerin ilk 3 saniyede aradığını bulmasını ve rakiplerinize gitmeden doğrudan sizi aramasını sağlıyoruz.",
+        descriptionTitle: "Neden Hızlı ve Net Bir Web Sitesi?",
         description:
-          "Piyasadaki sitelerin çoğu eski, telefonda bozuk görünen veya 6-7 saniyede zor açılan yapılardan oluşur. Müşteri beklemez, hemen bir sonraki işletmeye tıklar. Biz hiçbir hazır hantal şablon kullanmadan, tertemiz ve hızlı açılan güvenilir sistemler kuruyoruz.",
+          "Telefonda açılmayan veya dağınık duran siteler müşteriyi anında kaçırır. Sade, hızlı ve doğrudan iletişime yönlendiren vitrinler kuruyoruz.",
         blockquote:
-          "İyi bir web sitesi süslü bir kartvizit değil; gece gündüz sizin için müşteri toplayan en sadık çalışanınız olmalıdır.",
-        processTitle: "Nasıl Çalışıyoruz?",
-        process:
-          "Sizi teknik terimlerle boğmuyoruz. İşinizi ve müşterinizi dinliyor, tasarımı hazırlıyor, onayınızdan sonra anahtar teslim yayına alıyoruz.",
+          "İyi bir web sitesi süs değil, gece gündüz sizin için müşteri toplayan çalışanınızdır.",
+        processTitle: "Çalışma Süreci",
         processSteps: [
           {
             title: "Sade Tasarım",
-            text: "İşinize yakışan net, hızlı ve telefon uyumlu modern ön izleme.",
+            text: "İşinize yakışan, telefonda kusursuz çalışan modern ön izleme.",
           },
           {
             title: "Hızlı İletişim",
-            text: "Telefonda tek tıkla arama ve WhatsApp iletişim butonlarının kurulumu.",
+            text: "Tek tıkla arama ve WhatsApp sipariş butonlarının bağlanması.",
           },
           {
-            title: "Google & Harita Kaydı",
-            text: "Sitenizin Google'a eksiksiz kaydedilmesi ve kullanıma açılması.",
+            title: "Yayına Alma",
+            text: "Google ve harita kayıtları tamamlanmış anahtar teslim teslimat.",
           },
         ],
         items: [
           {
-            name: "Hızlı Tanıtım Sitesi (Landing Page)",
-            slug: "hizli-tanitim-sitesi",
-            seoTitle: "Bursa Hızlı Tanıtım Web Sitesi | Hexa Dijital",
+            name: "Tek Sayfa Tanıtım Siteleri",
+            slug: "tek-sayfa-tanitim-siteleri",
+            seoTitle: "Bursa Tek Sayfa Tanıtım Sitesi | Hexa Dijital",
             seoKeywords: [
-              "Bursa web tasarım",
-              "tek sayfa web sitesi bursa",
-              "hızlı web sitesi bursa",
-              "tanıtım sitesi bursa",
+              "tek sayfa web sitesi",
+              "hızlı tanıtım sitesi bursa",
+              "landing page bursa",
             ],
             image: "/assets/servicess/custom_one_page.webp",
-            heroTitle1: "Hızlı Tanıtım Web Sitesi",
+            heroTitle1: "Tek Sayfa Tanıtım Siteleri",
             sloganMain: "Ziyaretçiyi Yorup Kaçırmayan,",
-            sloganHighlight: "Doğrudan Telefon Çaldıran Tek Sayfalık Vitrin.",
+            sloganHighlight: "Doğrudan Telefon Çaldıran Hızlı Sayfa.",
             introText:
-              "Hizmetlerinizi, referanslarınızı ve iletişim butonlarınızı tek bir sayfada sade biçimde sunarak müşterinin anında aramasını sağlayan web siteleri.",
+              "İşletmenizi, hizmetlerinizi ve konumunuzu öne çıkaran hızlı açılış sayfası.",
             painPointText:
-              "Sosyal medyadan veya tavsiyeyle firmanızı araştıran kişiler karmaşık, açılmayan ya da iletişimi zor bir siteyle karşılaştığında hemen çıkıp rakibinizi arar. Her gün kaçan bu müşterilerin faturası işletmenize ağır olur.",
+              "Sayfalar arasında kaybolan müşteri beklemez, hemen çıkar ve rakibinizi arar. Tek sayfada net bilgi doğrudan dönüşüm getirir.",
             description:
-              "Sayfalar arasında kaybolup siteden çıkan ziyaretçiler yerine; ne yaptığınızı, neden sizi seçmesi gerektiğini ve adresinizi hemen görüp WhatsApp'tan yazan müşteriler kazanın.",
+              "Hizmetlerinizi, referanslarınızı ve adresinizi tek ekranda toplayan, müşteriyi doğrudan WhatsApp veya aramaya yönlendiren pratik web çözümü.",
             relatedProjects: ["paninoteca", "hira-koltuk-yikama", "omer-usta"],
-            // CANLI WEBSİTELERİ VE KAYDIRILABİLİR GÖRSEL ŞERİTLERİ
             liveDemos: [
               {
                 title: "Munchico Fried Chicken",
                 domain: "munchico.com.tr",
                 url: "https://munchico.com.tr",
-                previewImage: "/assets/projects/paninoteca/image_3.webp",
                 caption:
-                  "Restoran ve paket servis müşterilerine özel hızlı sipariş ve menü tanıtım vitrini.",
+                  "Restoran ve paket servis müşterilerine özel hızlı sipariş ve tanıtım vitrini.",
               },
             ],
             deliverables: [
-              "Tüm telefonlarda, tabletlerde ve bilgisayarlarda %100 kusursuz mobil uyum",
-              "1 saniyenin altında açılan hızlı, donmayan ve sade altyapı",
-              "Doğrudan 'Hemen Ara' ve 'WhatsApp'tan Yaz' hızlı iletişim butonları",
-              "Google Haritalar ve Arama Motoru kayıtlarının tamamlanması",
-              "1 Yıl Ücretsiz Hızlı Sunucu ve Güvenlik Sertifikası (SSL)",
+              "Tüm telefon ve tabletlerle %100 uyumlu hızlı tasarım",
+              "Tek dokunuşla 'Hemen Ara' ve 'WhatsApp' butonları",
+              "Google Harita ve arama motoru kayıtları",
+              "1 Yıl ücretsiz sunucu ve SSL güvenlik sertifikası",
             ],
             faqs: [
               {
-                q: "Site ne kadar sürede hazır olur?",
-                a: "İşletmenizin görsellerini ve hizmet listesini aldıktan sonra ortalama 3-5 iş günü içinde sitenizi tamamen çalışır vaziyette teslim ediyoruz.",
-              },
-              {
-                q: "Sonradan ekstra bir sunucu veya bakım masrafı çıkar mı?",
-                a: "Hayır. İlk yıl tüm sunucu, SSL güvenlik sertifikası ve alan adı giderleri fiyata dahildir.",
+                q: "Ne kadar sürede teslim edilir?",
+                a: "Bilgi ve fotoğraflar geldikten sonra 3-5 iş günü içinde çalışır halde teslim edilir.",
               },
             ],
             comparison: [
               {
                 feature: "Açılış Hızı",
-                others: "5-8 saniye bekletir, müşteri sıkılıp hemen çıkar",
-                hexa: "Tıklandığı an açılır, müşteri hemen hizmeti görür",
-              },
-              {
-                feature: "Mobil Görünüm",
-                others: "Yazılar küçücük kalır, butonlara basılamaz",
-                hexa: "Parmakla rahatça kontrol edilen pratik telefon ekranı",
+                others: "Müşteriyi 5-8 saniye bekletir, ziyaretçi çıkar",
+                hexa: "Tıklandığı an açılır, müşteri hemen arar",
               },
             ],
           },
           {
-            name: "Kurumsal Şirket Sitesi",
-            slug: "kurumsal-sirket-sitesi",
-            seoTitle: "Bursa Kurumsal Şirket Web Sitesi Tasarımı | Hexa",
+            name: "Kurumsal Web Siteleri",
+            slug: "kurumsal-web-siteleri",
+            seoTitle: "Bursa Kurumsal Web Sitesi Tasarımı | Hexa Dijital",
             seoKeywords: [
-              "Bursa kurumsal web sitesi",
-              "şirket web sitesi bursa",
-              "firma tanıtım sitesi bursa",
+              "kurumsal web sitesi bursa",
+              "şirket sitesi tasarımı",
+              "firma web sitesi",
             ],
             image: "/assets/servicess/custom_corporate_website.webp",
-            heroTitle1: "Kurumsal Şirket Web Sitesi",
+            heroTitle1: "Kurumsal Web Siteleri",
             sloganMain: "Büyük Müşterilerinize ve İhalelere",
-            sloganHighlight: "Güven Veren Profesyonel Duruş.",
+            sloganHighlight: "Güven Veren Profesyonel Şirket Tanıtımı.",
             introText:
-              "Hizmetlerinizi, tamamlanan projelerinizi ve şirket profilinizi kurumsal ciddiyete yakışır şekilde sergileyen kapsamlı web çözümü.",
+              "Güven veren, profesyonel şirket tanıtımı ve faaliyet vitrini.",
             painPointText:
-              "Büyük bir müşteriyle görüşürken veya ihaleye girerken firmanızın web sitesi amatörse, ne kadar iyi iş yaparsanız yapın güven kazanamazsınız. Güven vermeyen site, büyük işlerin kaçmasına sebep olur.",
+              "İnternette profesyonel durmayan bir firma, ne kadar kaliteli iş yaparsa yapsın kurumsal müşterilerin ve ihalelerin güvenini kazanamaz.",
             description:
-              "Müşterileriniz firmanızı araştırdığında merdiven altı değil, köklü ve güvenilir bir kurumla karşılaştıklarını ilk saniyede hissetsinler.",
+              "Şirketinizin projelerini, kurumsal profilini ve hizmet alanlarını ciddiyetle sergileyen, yönetimi kolay kurumsal site.",
             relatedProjects: ["paninoteca", "omer-usta", "hexa-finans"],
             liveDemos: [
               {
-                title: "HEXA Dijital",
+                title: "Hexa Dijital Kurumsal",
                 domain: "hexadijital.com",
                 url: "https://hexadijital.com",
-                previewImage: "/assets/projects/paninoteca/image_3.webp",
                 caption:
-                  "Marka kimliğini ve şubeleşme vizyonunu yansıtan kurumsal yapı.",
+                  "Şirket profili, hizmet kataloğu ve vaka analizlerini toplayan kurumsal yapı.",
               },
             ],
             deliverables: [
-              "Hakkımızda, Hizmetler, Projeler, Belgeler ve İletişim sayfaları",
-              "Dilediğinizde fotoğraf ve yazı ekleyebileceğiniz son derece basit yönetim paneli",
-              "Şirket uzantılı profesyonel e-posta adresleri (adiniz@sirketiniz.com)",
-              "Google arama sonuçlarında düzgün başlık ve harita konumu",
+              "Hakkımızda, Hizmetler, Projeler ve İletişim sayfaları",
+              "Telefon ve bilgisayardan kolay yönetilen Türkçe panel",
+              "Şirket uzantılı profesyonel e-posta adresleri",
+              "Arama motorlarında düzgün kurumsal indeksleme",
             ],
             faqs: [
               {
-                q: "Sitedeki yazıları ve fotoğrafları kendim değiştirebilir miyim?",
-                a: "Evet. Size vereceğimiz Türkçe ve sade yönetim paneliyle bilgisayardan veya telefondan tek tıkla yeni proje ve yazı ekleyebilirsiniz.",
+                q: "İçerikleri kendimiz güncelleyebilir miyiz?",
+                a: "Evet, panel üzerinden 1 dakikada yeni yazı ve fotoğraf ekleyebilirsiniz.",
               },
             ],
             comparison: [
               {
-                feature: "Site Yönetimi",
-                others:
-                  "Her küçük değişiklik için yazılımcıya bağımlı kalırsınız",
-                hexa: "Kendinizin bile 1 dakikada güncelleyebileceği sade panel",
+                feature: "Yönetim",
+                others: "Her küçük detay için yazılımcıya bağımlılık",
+                hexa: "Kendinizin rahatça güncelleyebileceği sade yönetim paneli",
               },
             ],
           },
           {
-            name: "3D & Özel Tasarım Web Sitesi",
-            slug: "3d-ozel-tasarim-web-sitesi",
-            seoTitle: "Bursa Özel Tasarım ve 3D Web Sitesi | Hexa Dijital",
+            name: "QR Kodlu Menü",
+            slug: "qr-kodlu-menu",
+            seoTitle: "Bursa Restoran ve Kafe QR Menü Sistemi | Hexa Dijital",
             seoKeywords: [
-              "3D web sitesi bursa",
-              "özel web tasarım bursa",
-              "prestijli web sitesi",
+              "qr menü bursa",
+              "dijital menü sistemi",
+              "temassız menü",
             ],
-            image: "/assets/servicess/subServicess/mobile_development.webp",
-            heroTitle1: "3D & Özel Tasarım Web Sitesi",
-            sloganMain: "Sıradan Şablonların Çok Ötesinde,",
-            sloganHighlight: "Müşteriyi Hayran Bırakan Prestijli Vitrin.",
+            image: "/assets/servicess/web.webp",
+            heroTitle1: "QR Kodlu Dijital Menü",
+            sloganMain: "Yıpranan Kağıt Menü Masrafına Son,",
+            sloganHighlight: "Fiyatları Anında Güncellenen Temassız Menü.",
             introText:
-              "Rakipleriniz birbirinin kopyası hazır temalar kullanırken, markanızı 3 boyutlu ürün modelleri ve etkileyici görsel geçişlerle zirveye taşıyan özel tasarım siteler.",
+              "İşletmenize özel, masa vb. yerler için fiyatları anında güncellenen hızlı ve temassız menü.",
             painPointText:
-              "Pazardaki rakiplerinizin hepsi aynı hazır temaları kullanırken firmanız aradan sıyrılamaz. Kaliteli ve yüksek bütçeli işler yapan bir marka, sıradan bir web sitesiyle lüks algısını asla yaratamaz.",
+              "Fiyat değiştiğinde yeniden menü bastırmak hem büyük masraftır hem de güncellenmeyen fiyatlar müşteriyle kasa arasında tartışma çıkarır.",
             description:
-              "Ürünlerinizi müşterinin parmağıyla 360 derece döndürüp inceleyebileceği, mimari projeleri ve makineleri etkileyici animasyonlarla anlatan özel web çözümü.",
-            relatedProjects: ["paninoteca", "hexa-finans"],
+              "Masanın üzerindeki karekodu okutan müşterinin saniyede ulaştığı, fotoğraflı ve panelden fiyatı anında değişen dijital menü.",
+            relatedProjects: ["paninoteca", "omer-usta"],
+            liveDemos: [
+              {
+                title: "Canlı QR Menü Deneyimi",
+                domain: "munchico.com.tr",
+                url: "https://munchico.com.tr/menu",
+                caption:
+                  "Masa başında müşterinin kamerasını tutup saniyede sipariş incelediği temassız menü.",
+              },
+            ],
             deliverables: [
-              "Tamamen markanıza özel, sıfırdan çizilmiş özgün arayüz",
-              "3 Boyutlu ürün veya mekan modelleme entegrasyonu",
-              "Ağırlaşmayan, mobilde de akıcı çalışan özel kodlama altyapısı",
-              "Ödül standartlarında görsel ve tipografik hiyerarşi",
+              "Uygulama indirme gerektirmeyen hızlı açılan QR menü",
+              "Telefondan tek tıkla fiyat ve ürün güncelleme paneli",
+              "Masa üstü pleksi / yapışkan karekod baskı tasarımları",
+              "Kategori ve ürün fotoğraflarıyla iştah açıcı görünüm",
             ],
             faqs: [
               {
-                q: "3D modeller sitenin yavaş açılmasına sebep olur mu?",
-                a: "Hayır. 3D modelleri ve animasyonları özel olarak hafifletiyor, sitenin mobilde bile saniyeler içinde açılmasını sağlıyoruz.",
+                q: "Müşterinin uygulama indirmesi gerekir mi?",
+                a: "Hayır, telefon kamerasını tuttuğu an menü tarayıcıda hemen açılır.",
               },
             ],
             comparison: [
               {
-                feature: "Görsel Güç",
-                others: "Her yerde görülen sıradan kutulu şablonlar",
-                hexa: "Müşteride hayranlık ve prestij uyandıran 3 boyutlu görsel deneyim",
+                feature: "Fiyat Değişimi",
+                others: "Her zamda binlerce lira matbaa masrafı",
+                hexa: "Telefondan 10 saniyede sıfır masrafla güncelleme",
+              },
+            ],
+          },
+          {
+            name: "Özel Tasarım & 3D Siteler",
+            slug: "ozel-tasarim-3d-siteler",
+            seoTitle: "Bursa Özel Tasarım ve 3D Web Siteleri | Hexa Dijital",
+            seoKeywords: [
+              "3d web sitesi",
+              "özel tasarım web bursa",
+              "hareketli web sitesi",
+            ],
+            image: "/assets/servicess/subServicess/mobile_development.webp",
+            heroTitle1: "Özel Tasarım & 3D Web Siteleri",
+            sloganMain: "Rakiplerden Tamamen Ayrışan,",
+            sloganHighlight: "Göze Çarpan, Hareketli ve Farklı Özel Siteler.",
+            introText: "Göze çarpan, hareketli ve farklı özel siteler.",
+            painPointText:
+              "Herkesin kullandığı sıradan kalıplar lüks ve yüksek bütçeli ürün satan markaların kalitesini yansıtamaz.",
+            description:
+              "Ürünlerinizi veya projelerinizi 3 boyutlu hissettiren, akıcı animasyonlarla müşteriyi etkileyen üst düzey vitrin.",
+            relatedProjects: ["hexa-finans", "paninoteca"],
+            liveDemos: [
+              {
+                title: "3D İnteraktif Deneyim",
+                domain: "hexadijital.com",
+                url: "https://hexadijital.com",
+                caption:
+                  "Fare ve parmak hareketlerine duyarlı 3 boyutlu modelleme ve görsel mimari.",
+              },
+            ],
+            deliverables: [
+              "Markaya özel sıfırdan çizilmiş özgün arayüz",
+              "3D ürün veya mekan etkileşimleri",
+              "Hızlı yüklenen optimize edilmiş altyapı",
+            ],
+            faqs: [
+              {
+                q: "Telefonda yavaşlama yapar mı?",
+                a: "Hayır, özel optimizasyon ile mobilde de akıcı çalışır.",
+              },
+            ],
+            comparison: [
+              {
+                feature: "Etki",
+                others: "Sıradan, akılda kalmayan hazır temalar",
+                hexa: "Müşteride hayranlık uyandıran prestijli sunum",
+              },
+            ],
+          },
+          {
+            name: "E-Ticaret Siteleri",
+            slug: "e-ticaret-siteleri",
+            seoTitle: "Bursa E-Ticaret Sitesi Kurulumu | Hexa Dijital",
+            seoKeywords: [
+              "e-ticaret sitesi bursa",
+              "online mağaza açma",
+              "kartla ödeme alma",
+            ],
+            image: "/assets/servicess/e-commerce_website.webp",
+            heroTitle1: "E-Ticaret Siteleri",
+            sloganMain: "Pazaryeri Komisyonu Olmadan,",
+            sloganHighlight: "Kendi Adınıza Doğrudan Kartla Ödeme Alan Mağaza.",
+            introText:
+              "Kendi adınıza doğrudan kartla ödeme alan online mağaza.",
+            painPointText:
+              "Pazaryerlerinin %20-%30 komisyonları kârınızı tüketir. Kendi sitenizde satış yaparak kârınızı doğrudan kasanıza koyarsınız.",
+            description:
+              "Müşterilerinizin güvenle taksitli kartla alışveriş yapabileceği, kargo takipli eksiksiz e-ticaret mağazası.",
+            relatedProjects: ["paninoteca"],
+            liveDemos: [
+              // {
+              //   title: "Canlı Online Mağaza",
+              //   domain: "munchico.com.tr",
+              //   url: "https://munchico.com.tr",
+              //   caption:
+              //     "Doğrudan sepete ekleme, adres alma ve ödeme adımlarını içeren canlı akış.",
+              // },
+            ],
+            deliverables: [
+              "Tüm bankalara taksitli Sanal POS entegrasyonu",
+              "Kolay ürün, stok ve sipariş yönetim paneli",
+              "Otomatik kargo barkodu ve müşteri SMS bildirimi",
+            ],
+            faqs: [
+              {
+                q: "Ödemeler nereye yatar?",
+                a: "Tahsilatlar doğrudan kendi şirket banka hesabınıza aktarılır.",
+              },
+            ],
+            comparison: [
+              {
+                feature: "Kâr Marjı",
+                others: "Her siparişte yüksek platform komisyonu",
+                hexa: "Komisyonsuz, doğrudan sizin kasanıza kalan kâr",
               },
             ],
           },
@@ -195,122 +282,246 @@ export const servicesData = [
     ],
   },
   {
-    id: "online-satis-e-ticaret",
-    title: "Online Satış & E-Ticaret",
+    id: "satis-siparis-sistemleri",
+    title: "Satış & Sipariş Sistemleri",
     index: "02",
     description:
-      "Pazaryeri komisyonlarından kurtaran, kredi kartıyla 7/24 taksitli ödeme alan ve toptancılarınıza özel sipariş açan online mağazalar.",
+      "Aracı komisyonlarını ortadan kaldıran, bayilerden ve müşterilerden doğrudan sipariş toplayan satış sistemleri.",
     bgImage: "/assets/servicess/subServicess/e-commerce.webp",
     subCategories: [
       {
-        title: "E-Ticaret & Satış Sistemleri",
+        title: "Satış & Sipariş Sistemleri",
         image: "/assets/servicess/subServicess/e-commerce.webp",
-        sloganMain: "Pazaryeri Komisyonlarına Servet Ödemeyin,",
-        sloganHighlight: "Kendi Mağazanızdan Aracısız Satış Yapın.",
+        sloganMain: "Aracıları Devreden Çıkarın,",
+        sloganHighlight: "Siparişinizi Doğrudan Kendi Sisteminizden Alın.",
         introText:
-          "Ürünlerinizi doğrudan müşterilerinize veya bayilerinize kredi kartıyla güvenle satın.",
-        descriptionTitle: "Neden Kendi Satış Siteniz Olmalı?",
+          "Bayilerinize ve müşterilerinize özel, sipariş hatalarını bitiren otonom satış kanalları.",
+        descriptionTitle: "Satış Süreçlerinizi Neden Hızlandırmalısınız?",
         description:
-          "Trendyol, Hepsiburada gibi platformlar %20-30 komisyon keser ve müşteri sizin değil onların müşterisi olur. Kendi e-ticaret sitenizde tüm kazanç kasanızda kalır.",
+          "WhatsApp mesajları ve telefon trafiği arasında kaybolan siparişler ciro ve müşteri kaybettirir. Otomatik sistemle satışlar hatasız yürür.",
         blockquote:
-          "Komisyon ödemek yerine kendi müşteri kitlenize yatırım yapın; kazancınız katlansın.",
+          "Siparişi kolay veren müşteri, her zaman tekrar sipariş verir.",
         processTitle: "Kurulum Süreci",
-        process:
-          "Banka sanal posunuzu ve kargo anlaşmanızı bağlıyor, ürünlerinizi yükleyip sistemi aynı hafta satışa hazır teslim ediyoruz.",
         processSteps: [
           {
-            title: "Ödeme Kurulumu",
-            text: "Tüm kredi kartlarına taksit imkanı sunan güvenli Sanal POS bağlantısı.",
+            title: "Sipariş Akışı",
+            text: "Ürünlerinizin, iskonto oranlarınızın veya menünüzün sisteme tanımlanması.",
           },
           {
-            title: "Ürün Yükleme",
-            text: "Kategori, fiyat ve stokların kolayca girileceği sade yönetim paneli.",
+            title: "Kanal Bağlantısı",
+            text: "WhatsApp, web veya bayi paneli entegrasyonlarının yapılması.",
           },
           {
-            title: "Otomatik Kargo",
-            text: "Sipariş geldiğinde tek tıkla kargo fişi çıkaran altyapı.",
+            title: "Satışa Başlama",
+            text: "Siparişlerin anında ekrana ve yazıcıya düştüğü canlı sistem.",
           },
         ],
         items: [
           {
-            name: "Kredi Kartlı İnternet Satış Sitesi",
-            slug: "kredi-kartli-internet-satis-sitesi",
-            seoTitle: "Bursa E-Ticaret ve Online Satış Sitesi | Hexa",
+            name: "Toptan & Bayi Sipariş Sistemi",
+            slug: "toptan-bayi-siparis-sistemi",
+            seoTitle: "Bursa B2B Toptan ve Bayi Sipariş Sistemi | Hexa Dijital",
             seoKeywords: [
-              "Bursa e-ticaret sitesi",
-              "kredi kartıyla ödeme alma",
-              "online mağaza açmak bursa",
+              "b2b sipariş sistemi",
+              "bayi sipariş programı",
+              "toptan satış paneli",
             ],
-            image: "/assets/servicess/e-commerce_website.webp",
-            heroTitle1: "Kredi Kartlı İnternet Satış Sitesi",
-            sloganMain: "Komisyonsuz, 7/24 Taksitli Satış Yapın,",
-            sloganHighlight: "Kargo Fişini Tek Tıkla Çıkarın.",
-            introText:
-              "Ürünlerinizi sergileyin, taksitli kredi kartı ödemelerini güvenle tahsil edin ve siparişleri cep telefonunuzdan anlık takip edin.",
+            image:
+              "/assets/servicess/subServicess/business_management_software.webp",
+            heroTitle1: "Toptan & Bayi Sipariş Sistemi",
+            sloganMain: "WhatsApp'tan Liste Gönderme Çilesine Son,",
+            sloganHighlight: "Bayilere Özel Toptan Sipariş Paneli.",
+            introText: "Bayilere özel toptan sipariş paneli.",
             painPointText:
-              "Pazaryerlerinin yüksek komisyonları kârınızı eritirken, müşteriye doğrudan ulaşmanızı da engeller. Kendi sitenizde ürünlerinizi aracısız satıp net kârınızı artırırsınız.",
+              "Fiyat değişimlerini tek tek bayilere yazmak ve eksik sipariş notlarıyla uğraşmak sevkiyatı kilitler.",
             description:
-              "Müşterilerinizin üyelik formlarıyla boğuşmadan, birkaç saniyede adresini girip güvenle kartla ödeme yapabileceği hızlı satış mağazası.",
-            relatedProjects: ["paninoteca"],
+              "Her bayinin kendi özel iskontolu fiyatını ve carisini görerek 7/24 hatasız sipariş geçtiği B2B sistemi.",
+            relatedProjects: ["hexa-finans"],
             deliverables: [
-              "Tüm banka kartlarına taksitli güvenli Sanal POS (PayTR, İyzico vb.)",
-              "Telefondan tek tıkla ürün, fiyat ve stok güncelleme imkanı",
-              "Sipariş geldiğinde telefonunuza ve e-postanıza anlık bildirim",
-              "Otomatik kargo barkodu ve müşteri takip sistemi",
+              "Bayiye özel fiyat, iskonto ve açık hesap limiti",
+              "Toplu koli ve adet bazlı hızlı sepet ekranı",
+              "Siparişlerin muhasebeye uygun dökümü",
             ],
             faqs: [
               {
-                q: "Ödemeler banka hesabıma ne zaman yatar?",
-                a: "Anlaşmalı sanal pos firmaları tahsilatları ertesi gün veya haftalık olarak doğrudan şirket banka hesabınıza yatırır.",
+                q: "Herkes fiyatları görebilir mi?",
+                a: "Hayır, sadece şifre verdiğiniz onaylı bayiler giriş yapabilir.",
+              },
+            ],
+            comparison: [
+              {
+                feature: "Hata Oranı",
+                others: "Mesajlarda unutulan veya yanlış çıkan ürünler",
+                hexa: "Bayinin bizzat adet seçerek onayladığı net sipariş",
+              },
+            ],
+          },
+          {
+            name: "Komisyonsuz Paket Servis Sitesi",
+            slug: "komisyonsuz-paket-servis-sitesi",
+            seoTitle:
+              "Restoranlar İçin Komisyonsuz Paket Servis Sistemi | Hexa",
+            seoKeywords: [
+              "komisyonsuz paket servis",
+              "kendi yemek sipariş siteni kur",
+              "restoran paket sistemi",
+            ],
+            image: "/assets/projects/paninoteca/image_3.webp",
+            heroTitle1: "Komisyonsuz Paket Servis Sitesi",
+            sloganMain: "Yemek Platformu Kesintilerine Son,",
+            sloganHighlight:
+              "Aracı Platformlara Komisyon Ödemeden Kendi Siparişinizi Alma.",
+            introText:
+              "Aracı platformlara komisyon ödemeden kendi siparişinizi alma.",
+            painPointText:
+              "Her ay cironuzun önemli bir kısmı aracı yemek platformlarına komisyon olarak gider. Kendi müşterinizi kendi sisteminize çekmelisiniz.",
+            description:
+              "Müşterilerinizin adresini ve siparişini seçip doğrudan mutfağınıza ilettiği %0 komisyonlu paket servis sitesi.",
+            relatedProjects: ["paninoteca", "omer-usta", "hexa-finans"],
+            liveDemos: [
+              // {
+              //   title: "Canlı Paket Sipariş Ekranı",
+              //   domain: "munchico.com.tr",
+              //   url: "https://munchico.com.tr",
+              //   caption:
+              //     "Komisyonsuz, doğrudan dükkanınıza düşen canlı paket servis deneyimi.",
+              // },
+            ],
+            deliverables: [
+              "Adisyon ve mutfak fiş yazıcısıyla doğrudan uyum",
+              "Kapıda nakit/pos veya online kredi kartı tahsilatı",
+              "Kurye ve bölge bazlı minimum sepet tutarı ayarı",
+            ],
+            faqs: [
+              {
+                q: "Sipariş mutfağa nasıl düşüyor?",
+                a: "Mutfaktaki fiş yazıcısından otomatik çıkar veya ekranda anında sesli çalar.",
               },
             ],
             comparison: [
               {
                 feature: "Komisyon",
-                others: "Pazaryerlerine her satışta %20-%30 kesinti ödersiniz",
-                hexa: "Kendi sitenizde satışlar komisyonsuz, kârınız cebinizde kalır",
+                others: "Her pakette %30'a varan kesinti",
+                hexa: "Sıfır komisyon, tüm para kasada",
               },
             ],
           },
           {
-            name: "Toptan ve Bayi Satış Sistemi (B2B)",
-            slug: "toptan-ve-bayi-satis-sistemi",
-            seoTitle: "Bursa Toptan ve Bayi Satış B2B Yazılımı | Hexa",
+            name: "WhatsApp Sipariş Sistemi",
+            slug: "whatsapp-siparis-sistemi",
+            seoTitle: "WhatsApp Otomatik Sipariş ve Menü Sistemi | Hexa",
             seoKeywords: [
-              "Bursa B2B sistemi",
-              "bayi sipariş programı",
-              "toptan satış yazılımı bursa",
+              "whatsapp sipariş botu",
+              "whatsapptan sipariş alma",
+              "otomatik adres alma",
             ],
-            image:
-              "/assets/servicess/subServicess/business_management_software.webp",
-            heroTitle1: "Toptan & Bayi Satış Sistemi (B2B)",
-            sloganMain: "WhatsApp'tan Liste Gönderme Çilesine Son,",
-            sloganHighlight: "Bayileriniz Kendi Şifresiyle Sipariş Versin.",
-            introText:
-              "Toptancıların, bayilerin ve düzenli müşterilerin kendilerine özel tanımlanmış iskonto ve vadelerle 7/24 toplu sipariş verebildiği kapalı sistem.",
+            image: "/assets/servicess/subServicess/mobile_development.webp",
+            heroTitle1: "WhatsApp Sipariş Sistemi",
+            sloganMain: "Mesaj Yazarak Vakit Kaybetmeyin,",
+            sloganHighlight:
+              "Mesaj Atan Müşteriden Otomatik Adres ve Sipariş Alma.",
+            introText: "Mesaj atan müşteriden otomatik adres ve sipariş alma.",
             painPointText:
-              "Sürekli değişen fiyat listelerini WhatsApp'tan tek tek bayilere atmak, eksik veya hatalı sipariş notlarıyla uğraşmak hem zamanınızı çalar hem de büyük sevkiyat hatalarına yol açar.",
+              "WhatsApp'tan gelen her müşteriye tek tek IBAN, menü ve adres sormak yoğun saatlerde siparişlerin kaçmasına yol açar.",
             description:
-              "Her bayinin kendi özel fiyatını, cari bakiye durumunu ve stokları görüp doğrudan sepet oluşturduğu hatasız toptan satış platformu.",
-            relatedProjects: ["hexa-finans"],
+              "Müşterinin menüden seçim yapıp konumunu tek tıkla ilettiği, hazır sipariş fişi oluşturan hızlı WhatsApp sistemi.",
+            relatedProjects: ["paninoteca", "hexa-finans"],
             deliverables: [
-              "Bayiye ve müşteri grubuna özel fiyat/iskonto tanımlama",
-              "Cari hesap bakiyesi, açık hesap limiti ve kredi kartıyla tahsilat",
-              "Toplu ürün ve koli bazlı hızlı sipariş ekranı",
-              "Muhasebe programlarıyla entegre çalışabilen sipariş aktarımı",
+              "Menüyü açan ve sepete ekleten WhatsApp akışı",
+              "Müşteriden otomatik net adres ve konum alma",
+              "Hazır sipariş fişinin anında ekrana düşmesi",
             ],
             faqs: [
               {
-                q: "Sıradan müşteriler toptan fiyatlarımızı görebilir mi?",
-                a: "Hayır. Sistem tamamen şifreli çalışır; onay vermediğiniz hiç kimse bayi fiyatlarını ve ürün stoklarını göremez.",
+                q: "Müşterinin ekstra bir şey yüklemesi gerekir mi?",
+                a: "Hayır, normal WhatsApp üzerinden linke tıklayarak seçer.",
               },
             ],
             comparison: [
               {
-                feature: "Sipariş Hatası",
-                others:
-                  "WhatsApp mesajları ve telefon notları arasında kaybolan siparişler",
-                hexa: "Bayinin bizzat kod ve adet seçerek hatasız girdiği net sipariş fişi",
+                feature: "Sipariş Hızı",
+                others: "10 dakika süren karşılıklı mesajlaşma",
+                hexa: "Müşterinin 30 saniyede hazır sepet göndermesi",
+              },
+            ],
+          },
+          {
+            name: "Yemek Sitelerinde Satış Artırma",
+            slug: "yemek-sitelerinde-satis-artirma",
+            seoTitle: "Yemeksepeti ve Trendyol Yemek Satış Artırma | Hexa",
+            seoKeywords: [
+              "yemeksepeti satış artırma",
+              "trendyol yemek ciro artırma",
+              "restoran platform yönetimi",
+            ],
+            image: "/assets/projects/omerUsta/image_1.webp",
+            heroTitle1: "Yemek Sitelerinde Satış Artırma",
+            sloganMain: "Platformlarda Geride Kalmayın,",
+            sloganHighlight:
+              "Yemeksepeti, Trendyol Yemek vb. Platformlarda Üst Sıraya Çıkma ve Ciro Artırma.",
+            introText:
+              "Yemeksepeti, Trendyol Yemek vb. platformlarda üst sıraya çıkma ve ciro artırma.",
+            painPointText:
+              "Yemek sitelerinde listenin altında kalan restoranlar sipariş alamaz, puanı ve cirosu günden güne düşer.",
+            description:
+              "Menü düzeni, doğru kampanya ayarları ve görsel optimizasyon ile platform algoritmasında dükkanınızı üst sıraya taşıyoruz.",
+            relatedProjects: ["paninoteca", "omer-usta"],
+            deliverables: [
+              "Platform algoritmasına uygun menü ve başlık düzeni",
+              "İştah açıcı kapak ve ürün görsel yüklemeleri",
+              "Ciro getiren doğru promosyon ve joker stratejisi",
+            ],
+            faqs: [
+              {
+                q: "Siparişler ne zaman artar?",
+                a: "Doğru düzenlemeler yapıldıktan sonra ilk haftadan itibaren sıralama ve sipariş yükselir.",
+              },
+            ],
+            comparison: [
+              {
+                feature: "Sıralama",
+                others: "Listenin en altında unutulan dükkan",
+                hexa: "Bölgede arama yapıldığında ilk karşıya çıkan restoran",
+              },
+            ],
+          },
+          {
+            name: "Alışveriş Sitelerinde Satış Artırma",
+            slug: "alisveris-sitelerinde-satis-artirma",
+            seoTitle: "Trendyol ve Hepsiburada Mağaza Satış Artırma | Hexa",
+            seoKeywords: [
+              "trendyol mağaza yönetimi",
+              "hepsiburada satış artırma",
+              "pazaryeri seo",
+            ],
+            image: "/assets/servicess/subServicess/e-commerce.webp",
+            heroTitle1: "Alışveriş Sitelerinde Satış Artırma",
+            sloganMain: "Binlerce Satıcı Arasından Sıyrılın,",
+            sloganHighlight:
+              "Trendyol, Hepsiburada ve N11 Mağazalarınızı Öne Çıkarma ve Ciro Artırma.",
+            introText:
+              "Trendyol, Hepsiburada ve N11 mağazalarınızı öne çıkarma ve ciro artırma.",
+            painPointText:
+              "Ürünleriniz aramalarda çıkmıyorsa, doğru anahtar kelimeler ve fotoğraflar kullanılmadıysa satış yapamazsınız.",
+            description:
+              "Ürün başlıkları, SEO açıklamaları ve görsellerini düzenleyerek pazaryerlerinde buybox ve arama sıralamanızı yükseltiyoruz.",
+            relatedProjects: ["paninoteca"],
+            deliverables: [
+              "Arama sonuçlarında öne çıkaran ürün başlık optimizasyonu",
+              "Satış kapatan net ürün açıklamaları ve görsel standartlar",
+              "Doğru reklam ve kampanya kurguları",
+            ],
+            faqs: [
+              {
+                q: "Mevcut mağazamızı mı düzenliyorsunuz?",
+                a: "Evet, mevcut mağazanızı analiz edip satış yapmayan ürünleri optimize ediyoruz.",
+              },
+            ],
+            comparison: [
+              {
+                feature: "Görünürlük",
+                others: "Sayfalar arkasında kalan görünmez ürünler",
+                hexa: "Kategorisinde ilk sıralara tırmanan çok satanlar",
               },
             ],
           },
@@ -319,224 +530,248 @@ export const servicesData = [
     ],
   },
   {
-    id: "isletme-yazilimlari-otomasyon",
-    title: "İşletme Yazılımları & Otomasyon",
+    id: "dukkan-ici-programlar-kolayliklar",
+    title: "Dükkan İçi Programlar & Kolaylıklar",
     index: "03",
     description:
-      "Restoran komisyonlarını kuruşu kuruşuna hesaplayan, randevuları otomatiğe bağlayan ve Excel karmaşasını bitiren akıllı yazılımlar.",
+      "Adisyon, kasa, randevu ve stok takibini kafa karıştırmadan tek ekranda toplayan dükkan yazılımları.",
     bgImage: "/assets/servicess/subServicess/business_management_software.webp",
     subCategories: [
       {
-        title: "İşletme Otomasyonu & Yazılım",
+        title: "Dükkan İçi Programlar & Kolaylıklar",
         image:
           "/assets/servicess/subServicess/business_management_software.webp",
-        sloganMain: "İşinizi Excel Notlarıyla Değil,",
-        sloganHighlight: "Tek Dokunuşla Ekrandan Yönetin.",
+        sloganMain: "Defter ve Excel Notlarına Son,",
+        sloganHighlight: "İşinizi Tek Dokunuşla Ekrandan Yönetin.",
         introText:
-          "Masaları, kuryeleri, personel görevlerini ve randevuları hatasız yöneten sistemler.",
-        descriptionTitle: "İşletmeler Neden Zaman Kaybeder?",
+          "Masaları, randevuları, kasa hesabını ve stokları hatasız takip eden pratik dükkan yazılımları.",
+        descriptionTitle: "Neden Basit Bir Program?",
         description:
-          "Geleneksel kağıt-kalem veya karmaşık Excel tabloları yüzünden randevular çakışır, adisyonlar kaybolur, platform komisyonları kontrol edilemez. Akıllı yazılımlarımız tüm bu süreci otopilota alır.",
+          "Karışık yazılımları personel öğrenemez, hatalar artar. 5 dakikada kavranan, hatayı sıfırlayan sade sistemler kuruyoruz.",
         blockquote:
-          "Zamanını operasyonel karmaşaya harcamayan esnaf, işini büyütmeye odaklanır.",
-        processTitle: "Kurulum Adımları",
-        process:
-          "İşletmenizin işleyişini inceliyor, sistemi tablet ve telefonlarınıza kurup personelinize 10 dakikada öğretiyoruz.",
+          "İşini ekrandan kontrol eden esnafın hem kafası rahat olur hem de kasası açık vermez.",
+        processTitle: "Kurulum",
         processSteps: [
           {
-            title: "Akış Analizi",
-            text: "Mevcut randevu, masa veya evrak düzeninizin yerinde incelenmesi.",
+            title: "Cihaz Kurulumu",
+            text: "Tablet, telefon veya bilgisayarınıza anında bağlantı.",
           },
           {
-            title: "Hızlı Kurulum",
-            text: "Cihazlarınıza ve yazıcılarınıza sistemin bağlanması.",
+            title: "Veri Yükleme",
+            text: "Menü, fiyat veya hizmet listenizin girilmesi.",
           },
           {
-            title: "Eğitim & Destek",
-            text: "Personelinize kolay arayüzün anlatılması ve kesintisiz telefon desteği.",
+            title: "5 Dk Eğitim",
+            text: "Personelin hemen kullanabileceği kolay anlatım.",
           },
         ],
         items: [
           {
-            name: "Restoran Adisyon ve Kasa Programı (Hexa Finans)",
-            slug: "restoran-adisyon-kasa-programi",
-            seoTitle: "Bursa Restoran Adisyon ve Kasa Yazılımı | Hexa Finans",
+            name: "Adisyon ve Kasa Programı",
+            slug: "adisyon-ve-kasa-programi",
+            seoTitle: "Bursa Restoran Adisyon ve Kasa Programı | Hexa Finans",
             seoKeywords: [
-              "Bursa restoran adisyon programı",
-              "cafe pos sistemi bursa",
-              "yemeksepeti komisyon hesaplama",
-              "restoran kasa yazılımı bursa",
+              "adisyon programı bursa",
+              "restoran kasa sistemi",
+              "dokunmatik pos programı",
             ],
-            image:
-              "/assets/servicess/subServicess/business_management_software.webp",
-            heroTitle1: "Hexa Finans Restoran & Kasa Programı",
-            sloganMain: "Masaları, Kuryeleri ve Yemek Platformu Komisyonlarını",
+            image: "/assets/projects/hexa_finans/image_3.webp",
+            heroTitle1: "Adisyon ve Kasa Programı",
+            sloganMain: "Kasa Açıklarına ve Hesap Karışıklığına Son,",
             sloganHighlight:
-              "Kuruşu Kuruşuna Otomatik Tutan Dokunmatik Sistem.",
+              "Masaları, Mutfağı, Hesabı ve Ciroyu Kafa Karıştırmadan Takip Etme.",
             introText:
-              "Yemeksepeti, Getir ve Trendyol'un kestiği komisyonları tek tıkla hesaplayan, masadaki adisyon kaçaklarını sıfırlayan kullanımı son derece kolay restoran sistemi.",
+              "Masaları, mutfağı, hesabı ve ciroyu kafa karıştırmadan takip etme.",
             painPointText:
-              "Ay sonunda hangi platformdan ne kadar net para kaldığını bilmemek, mutfakta adisyonların karışması ve kasanın açık vermesi restoranların en büyük derdidir. Bu hesapları elle tutmak imkansızdır.",
+              "Yoğun saatlerde masaların karışması, siparişin mutfağa geç gitmesi ve gün sonunda kasanın tutmaması dükkanın en büyük gelir kaçağıdır.",
             description:
-              "Masada ne yendi, kurye ne teslim etti, kasada ne kaldı cep telefonunuzdan anlık izleyin; hiçbir komisyon ve adisyon kaçağına izin vermeyin.",
+              "Masada ne yendiğini, mutfakta ne piştiğini ve kasada ne kaldığını anlık gösteren kullanımı çok kolay adisyon sistemi.",
             relatedProjects: ["hexa-finans", "omer-usta", "paninoteca"],
-            workGallery: [
-              {
-                title: "Hexa Finans Masa ve Adisyon Ekranı",
-                image: "/assets/projects/hexa_finans/image_3.webp",
-              },
-              {
-                title: "Paket Servis ve Komisyon Raporları",
-                image: "/assets/projects/hexa_finans/image_1.webp",
-              },
-              {
-                title: "Kasa ve Gün Sonu Otomasyonu",
-                image: "/assets/projects/hexa_finans/image_2.webp",
-              },
+            liveDemos: [
+              // {
+              //   title: "Hexa Finans Adisyon Arayüzü",
+              //   domain: "munchico.com.tr",
+              //   url: "https://munchico.com.tr",
+              //   caption:
+              //     "Masa, paket ve kurye takibini tek ekranda toplayan sade canlı arayüz.",
+              // },
             ],
             deliverables: [
-              "Tüm platformların komisyon ve net kazançlarını anlık hesaplama",
-              "Dokunmatik tablet ve bilgisayarlarla %100 uyumlu kolay adisyon ekranı",
-              "Mutfak fiş yazıcısı ve kurye takip entegrasyonu",
-              "Dükkanda yokken bile telefondan anlık ciro ve masa izleme",
+              "Dokunmatik ekran ve tabletle %100 uyumlu kolay masa arayüzü",
+              "Mutfak fiş yazıcısı ve kurye takip ekranı",
+              "Telefondan gün sonu cirosu ve hesap dökümü izleme",
             ],
             faqs: [
               {
-                q: "Mevcut tablet veya dokunmatik bilgisayarımızda çalışır mı?",
-                a: "Evet. Hexa Finans bulut tabanlı olduğu için elinizdeki mevcut dokunmatik ekran, tablet veya bilgisayarlarda ek cihaz masrafı olmadan hemen çalışır.",
+                q: "Özel pahalı bir cihaz almak şart mı?",
+                a: "Hayır, elinizdeki mevcut tablet, bilgisayar veya dokunmatik ekranda hemen çalışır.",
               },
             ],
             comparison: [
               {
-                feature: "Kullanım Kolaylığı",
-                others:
-                  "Personelin günlerce öğrenemediği karmaşık eski menüler",
-                hexa: "5 dakikada öğrenilen, hata yapmayı imkansız kılan sade ekranlar",
+                feature: "Kullanım",
+                others: "Personelin günlerce çözemediği karmaşık butonlar",
+                hexa: "5 dakikada öğrenilen, hatasız dokunmatik ekran",
               },
             ],
           },
           {
-            name: "Akıllı Randevu ve Rezervasyon Sistemi",
-            slug: "akilli-randevu-ve-rezervasyon",
-            seoTitle: "Bursa Online Randevu ve Rezervasyon Sistemi | Hexa",
+            name: "Otomatik Randevu Sistemi",
+            slug: "otomatik-randevu-sistemi",
+            seoTitle: "Bursa Otomatik Randevu Sistemi | Hexa Dijital",
             seoKeywords: [
-              "Bursa randevu sistemi",
+              "randevu sistemi bursa",
               "kuaför randevu programı",
-              "klinik randevu yazılımı",
+              "oto servis randevu yazılımı",
             ],
             image: "/assets/servicess/subServicess/mobile_development.webp",
-            heroTitle1: "Akıllı Randevu & Rezervasyon Sistemi",
-            sloganMain: "İşinizin Başındayken Çalan Telefonlara Son,",
-            sloganHighlight: "Müşterileriniz 7/24 Kendi Randevusunu Alsın.",
+            heroTitle1: "Otomatik Randevu Sistemi",
+            sloganMain: "İş Yaparken Telefonla Uğraşmayın,",
+            sloganHighlight:
+              "Berber, Kuaför ve Oto Servisler İçin SMS'li Randevu Alma.",
             introText:
-              "Güzellik merkezleri, klinikler, kuaförler ve danışmanlar için müşterinin gün ve saat seçip otomatik randevu aldığı, SMS/WhatsApp ile hatırlatma atan sistem.",
+              "Berber, kuaför ve oto servisler için SMS'li randevu alma.",
             painPointText:
-              "İşlem yaparken sürekli çalan telefonlara cevap vermek, randevuları deftere yazarken çakışma yaşamak ve gelmeyen müşteriler yüzünden boş kalan saatler cironuzu ciddi şekilde düşürür.",
+              "Müşteriyle ilgilenirken çalan telefonlar dikkatinizi dağıtır; deftere yazılan randevular çakışır ve müşteri mağdur olur.",
             description:
-              "Müşterileriniz boş saatleri görerek randevusunu alsın, randevu saati yaklaşınca otomatik hatırlatma mesajı gitsin; hiçbir saatiniz boş kalmasın.",
+              "Müşterinizin boş gün ve saati seçip randevu aldığı, saat yaklaşınca otomatik hatırlatma SMS'i atan akıllı takvim.",
             relatedProjects: ["paninoteca"],
             deliverables: [
-              "Personel ve hizmet bazlı akıllı online randevu takvimi",
-              "Otomatik WhatsApp ve SMS randevu hatırlatma mesajları",
-              "Çakışmaları ve mükerrer kayıtları önleyen rezervasyon kontrolü",
-              "Telefondan tek tıkla personelin randevu listesini görme imkanı",
+              "Personele ve hizmete özel online randevu sayfası",
+              "Otomatik randevu hatırlatma ve onay SMS'leri",
+              "Çakışmaları önleyen akıllı takvim yönetimi",
             ],
             faqs: [
               {
-                q: "Müşteriler randevu alırken zorlanır mı?",
-                a: "Hayır. Müşteri sadece hizmeti, uzmanı ve uygun saati seçerek 20 saniyede randevusunu oluşturur.",
+                q: "Gelmeyen müşterileri engeller mi?",
+                a: "Evet, hatırlatma SMS'leri sayesinde unutma kaynaklı boş saatler biter.",
               },
             ],
             comparison: [
               {
-                feature: "Gelmeyen Müşteri Kaybı",
-                others:
-                  "Unutulduğu için boş geçen işlem saatleri ve ciro kaybı",
-                hexa: "Otomatik hatırlatma mesajları sayesinde %90'a varan zamanında katılım",
+                feature: "Randevu Düzeni",
+                others: "Defterde karışan ve çakışan müşteri saatleri",
+                hexa: "Telefondan saniyesinde görülen hatasız takvim",
               },
             ],
           },
           {
-            name: "Yapay Zeka Destekli Asistan",
-            slug: "yapay-zeka-destekli-asistan",
-            seoTitle: "İşletmelere Özel Yapay Zeka Mesaj & Sipariş Botu | Hexa",
+            name: "Yapay Zeka Müşteri Asistanı",
+            slug: "yapay-zeka-musteri-asistani",
+            seoTitle: "İşletmelere Özel Yapay Zeka Yanıt Asistanı | Hexa",
             seoKeywords: [
               "yapay zeka müşteri asistanı",
-              "whatsapp sipariş botu",
-              "otomatik yanıt asistanı",
+              "whatsapp otomatik yanıt",
+              "instagram botu",
             ],
             image: "/assets/servicess/subServicess/mobile_development.webp",
-            heroTitle1: "Yapay Zeka Destekli Müşteri Asistanı",
-            sloganMain: "Gece Gelen Mesajları Kaçırmayın,",
+            heroTitle1: "Yapay Zeka Müşteri Asistanı",
+            sloganMain: "Gece Gelen Müşteriyi Kaçırmayın,",
             sloganHighlight:
-              "Müşterilerinize 7/24 Anında Cevap Veren Akıllı Asistan.",
+              "Müşteri Sorularına Siteden ve Mesajdan 7/24 Anında Yanıt.",
             introText:
-              "WhatsApp, Instagram veya web sitenizden gelen fiyat, adres, menü ve randevu sorularını insan gibi akıcı biçimde yanıtlayan yapay zeka asistanı.",
+              "Müşteri sorularına siteden ve mesajdan 7/24 anında yanıt.",
             painPointText:
-              "Gece veya yoğun saatlerde müşterilerinizin mesajlarına geç cevap verdiğinizde, müşteri beklemez ve hemen başka bir işletmeye yazar. Geç dönülen her mesaj kaybedilmiş bir satıştır.",
+              "Mesajlara 15-20 dakika geç dönüldüğünde müşteri çoktan başka bir dükkana yazıp işini çözmüş olur.",
             description:
-              "İşletmenizin tüm ürünlerini, fiyatlarını ve kurallarını öğrenen akıllı bot; gelen soruları anında yanıtlar, sipariş ve randevu toplar.",
+              "Fiyat, adres, menü ve çalışma saatleri gibi soruları 7/24 insan gibi nazik ve akıcı Türkçe ile anında yanıtlayan asistan.",
             relatedProjects: ["hexa-finans"],
             deliverables: [
-              "WhatsApp ve Instagram Direct Message yapay zeka entegrasyonu",
-              "İşletmenizin menü, fiyat ve hizmet bilgilerine özel eğitilmiş sistem",
-              "Gerektiğinde görüşmeyi anında personele devreden akıllı mekanizma",
+              "WhatsApp, Instagram ve Web sitesine entegre akıllı bot",
+              "İşletmenizin menü, fiyat ve kurallarına özel eğitim",
+              "Gerektiğinde görüşmeyi personele devreden akıllı yapı",
             ],
             faqs: [
               {
-                q: "Robot gibi ezbere cevaplar mı verir?",
-                a: "Hayır. Yeni nesil yapay zeka teknolojimiz bir insan müşteri temsilcisi gibi doğal, saygılı ve akıcı Türkçe konuşur.",
+                q: "Robot gibi ezber cevaplar mı verir?",
+                a: "Hayır, müşteri temsilcisi gibi doğal ve akıcı konuşur.",
               },
             ],
             comparison: [
               {
-                feature: "Yanıt Hızı",
-                others:
-                  "Saatler sonra dönülen ve çoktan rakibe gitmiş müşteriler",
-                hexa: "Gecenin 3'ünde bile 3 saniyede profesyonelce verilen net yanıt",
+                feature: "Hız",
+                others: "Saatler sonra dönülen ve kaçan müşteriler",
+                hexa: "Gecenin bir yarısı bile 3 saniyede verilen net yanıt",
               },
             ],
           },
           {
-            name: "Şirket İçi İş ve Evrak Takip Sistemi",
-            slug: "sirket-ici-is-ve-evrak-takip-sistemi",
-            seoTitle: "Bursa Şirket İçi İş ve Evrak Takip Yazılımı | Hexa",
+            name: "İş ve Evrak Takip Programı",
+            slug: "is-ve-evrak-takip-programi",
+            seoTitle: "Bursa İş ve Evrak Takip Yazılımı | Hexa Dijital",
             seoKeywords: [
-              "Bursa iş takip programı",
-              "şirket evrak takip sistemi",
-              "özel şirket yazılımı bursa",
+              "iş takip programı",
+              "evrak takip sistemi bursa",
+              "şirket takip yazılımı",
             ],
             image:
               "/assets/servicess/subServicess/business_management_software.webp",
-            heroTitle1: "Şirket İçi İş & Evrak Takip Sistemi",
-            sloganMain: "Excel Tablolarının Silinme Korkusuna Son,",
-            sloganHighlight:
-              "Kasa, Teklif ve İş Takibiniz Tek Güvenli Ekranda.",
-            introText:
-              "Kasa, gelir-gider, personel görevleri ve verilen fiyat tekliflerinin takibini Excel karmaşasından kurtaran sade şirket paneli.",
+            heroTitle1: "İş ve Evrak Takip Programı",
+            sloganMain: "Kayıp Evraklara ve Unutulan İşlere Son,",
+            sloganHighlight: "Hangi İş Kimde, Hangi Ödeme Ne Zaman Takibi.",
+            introText: "Hangi iş kimde, hangi ödeme ne zaman takibi.",
             painPointText:
-              "Hangi müşteriye ne fiyat verildi, hangi iş hangi personelde kaldı, kimden ne kadar alacak var gibi konular defterlerde veya karışık Excel dosyalarında kaybolur; ciddi para ve iş kaybı yaşanır.",
+              "Müşteriye verilen tekliflerin, bekleyen ödemelerin ve personele verilen işlerin unutulması ciddi para kaybettirir.",
             description:
-              "Firmanızın tüm iş akışını, personel görevlerini ve cari hesaplarını internetin olduğu her yerden tek tıkla kontrol edin.",
+              "Alacakları, verilen teklifleri ve personelde bekleyen işleri tek ekranda gösteren, günü gelince uyaran şirket paneli.",
             relatedProjects: ["hexa-finans"],
             deliverables: [
-              "Müşteri teklif ve sözleşme durumlarının tek ekranda izlenmesi",
-              "Personel görev atama ve iş teslim takip modülü",
-              "Gelir, gider, kasa ve temel cari hesap takip arayüzü",
-              "Bulut altyapısıyla hiçbir verinin kaybolmadığı güvenli veritabanı",
+              "Verilen teklif ve sözleşme durum takip ekranı",
+              "Personele iş atama ve tamamlanma kontrolü",
+              "Günü gelen ödeme ve tahsilat hatırlatıcıları",
             ],
             faqs: [
               {
-                q: "Verilerimiz güvende mi?",
-                a: "Tüm şirket verileriniz günlük olarak yedeklenir ve en yüksek güvenlik standartlarında şifreli olarak korunur.",
+                q: "Telefondan takip edebilir miyim?",
+                a: "Evet, nerede olursanız olun telefondan dükkanın iş durumunu görebilirsiniz.",
               },
             ],
             comparison: [
               {
-                feature: "Düzen & Kontrol",
-                others:
-                  "Yanlışlıkla silinen Excel tabloları ve unutulan teklifler",
-                hexa: "Her personelin yetkisine göre görebildiği hatasız ve düzenli şirket paneli",
+                feature: "Kontrol",
+                others: "Unutulan işler ve geciken tahsilatlar",
+                hexa: "Zamanında uyaran, her işin durumunu gösteren net liste",
+              },
+            ],
+          },
+          {
+            name: "Barkod & Stok Takip Sistemi",
+            slug: "barkod-stok-takip-sistemi",
+            seoTitle: "Bursa Barkod ve Stok Takip Programı | Hexa Dijital",
+            seoKeywords: [
+              "stok takip programı",
+              "barkodlu satış sistemi",
+              "ürün etiketleme yazılımı",
+            ],
+            image:
+              "/assets/servicess/subServicess/business_management_software.webp",
+            heroTitle1: "Barkod & Stok Takip Sistemi",
+            sloganMain: "Dükkanda Ne Bittiğini Anında Bilin,",
+            sloganHighlight:
+              "Ürün Giriş-Çıkışı, Kritik Stok Uyarısı ve Hızlı Etiketleme.",
+            introText:
+              "Ürün giriş-çıkışı, kritik stok uyarısı ve hızlı etiketleme.",
+            painPointText:
+              "Müşteri ürün sorduğunda rafta aramak veya ürünün bittiğini son anda fark etmek satışı kaçırır.",
+            description:
+              "Barkod okutarak saniyede satış yapan, azalan ürün için telefonunuza uyarı gönderen pratik stok programı.",
+            relatedProjects: ["hexa-finans"],
+            deliverables: [
+              "Barkod okuyucu ve etiket yazıcı tam entegrasyonu",
+              "Kritik stok seviyesi düştüğünde anlık uyarı bildirimi",
+              "Ürün alış-satış kâr raporu ve sayım ekranı",
+            ],
+            faqs: [
+              {
+                q: "Barkodsuz ürünler için de çalışır mı?",
+                a: "Evet, barkodsuz ürünlere sistemden tek tıkla otomatik etiket basabilirsiniz.",
+              },
+            ],
+            comparison: [
+              {
+                feature: "Sayım Hızı",
+                others: "Günler süren zahmetli manuel dükkan sayımları",
+                hexa: "Barkodla saniyeler içinde güncellenen net stok",
               },
             ],
           },
@@ -545,63 +780,301 @@ export const servicesData = [
     ],
   },
   {
-    id: "marka-tasarim",
-    title: "Marka & Tasarım",
+    id: "musteri-cekme-reklam-itibar",
+    title: "Müşteri Çekme, Reklam & İtibar",
     index: "04",
     description:
-      "Tabelanızdan kartvizitinize kadar işletmenizin kalitesini ortaya koyan özgün logo çizimleri, evrak tasarımları ve profesyonel çekimler.",
-    bgImage: "/assets/servicess/brand_identity.webp",
+      "Google Haritalar'da 1. sıraya çıkaran, çevrenizdeki mahallelere reklamla müşteri çeken büyüme çözümleri.",
+    bgImage: "/assets/servicess/subServicess/local_seo.webp",
     subCategories: [
       {
-        title: "Marka & Grafik Tasarım",
-        image: "/assets/servicess/brand_identity.webp",
-        sloganMain: "Müşteriniz Fiyatı Değil,",
-        sloganHighlight: "Kalitenizi Konuşsun.",
+        title: "Müşteri Çekme, Reklam & İtibar",
+        image: "/assets/servicess/subServicess/local_seo.webp",
+        sloganMain: "Dükkanınızı Çevrenize Tanıtın,",
+        sloganHighlight: "Google'da ve Sosyal Medyada İlk Sizi Bulsunlar.",
         introText:
-          "İnternetten kopyalanmış logolar işletmenizi sıradan gösterir. Sizi sektörünüzde 1 numara gibi gösterecek özgün marka yüzü hazırlıyoruz.",
-        descriptionTitle: "Tasarım Neden Satış Yaptırır?",
+          "Çevrenizdeki hazır müşterileri dükkanınıza çeken hedefli reklam ve Google harita yönetimi.",
+        descriptionTitle: "Neden Doğru Reklam?",
         description:
-          "Bir dükkanın tabelası veya kartviziti özensizse, müşteri sunduğu hizmetin de özensiz olacağını düşünür. Profesyonel bir kurumsal kimlik, müşterinin pazarlık etmeden size güvenmesini sağlar.",
-        blockquote: "Gözün güvendiğine akıl daha kolay onay verir.",
-        processTitle: "Tasarım Adımları",
-        process:
-          "Sektördeki rakiplerinizi inceliyoruz. Size özgün konseptler çiziyor, en içinize sineni seçtiğinizde tabelacı ve matbaaya hazır teslim ediyoruz.",
+          "Boşa harcanan reklam bütçelerine son. Sadece sizin hizmet verdiğiniz semtteki insanlara gösterilen akıllı reklamlar telefon çaldırır.",
+        blockquote:
+          "En iyi hizmeti de verseniz, dükkanınızın önünden geçmeyen müşteri sizi bilemez.",
+        processTitle: "Yol Haritası",
         processSteps: [
           {
-            title: "Sektör İncelemesi",
-            text: "Rakiplerinizin yapmadığı, dikkat çeken renk ve formların tespiti.",
+            title: "Harita & Profil",
+            text: "Google Haritalar profilinizin eksiksiz onaylatılması.",
           },
           {
-            title: "Özgün Çizimler",
-            text: "Tamamen şirketinize özel alternatif konseptlerin sunulması.",
+            title: "Bölgesel Reklam",
+            text: "Dükkanın etrafındaki mahallelere nokta atışı reklam.",
           },
           {
-            title: "Baskıya Hazır Teslim",
-            text: "Bozulmadan devasa tabelalara basılabilecek netlikte dosya teslimi.",
+            title: "Telefon & Müşteri",
+            text: "Gelen arama ve yol tarifi sayısının artırılması.",
           },
         ],
         items: [
           {
-            name: "Özgün Logo Tasarımı",
-            slug: "ozgun-logo-tasarimi",
-            seoTitle: "Bursa Profesyonel Logo Tasarım | Hexa Dijital",
+            name: "Instagram & Facebook Reklamları",
+            slug: "instagram-facebook-reklamlari",
+            seoTitle: "Bursa Instagram ve Facebook Reklam Yönetimi | Hexa",
             seoKeywords: [
-              "Bursa logo tasarımı",
-              "kurumsal logo bursa",
-              "vektörel logo çizimi",
-              "tabela logosu çizimi bursa",
+              "instagram reklamı verme bursa",
+              "hedefli esnaf reklamı",
+              "facebook reklam ajansı bursa",
+            ],
+            image: "/assets/servicess/subServicess/social_medya.webp",
+            heroTitle1: "Instagram & Facebook Reklamları",
+            sloganMain: "Boşa Para Harcamadan Müşteri Çekin,",
+            sloganHighlight:
+              "Dükkanınızın Etrafındaki Mahallelere Doğrudan Sipariş Getiren Hedefli Reklamlar.",
+            introText:
+              "Dükkanınızın etrafındaki mahallelere ve potansiyel müşterilere doğrudan sipariş getiren hedefli reklamlar.",
+            painPointText:
+              "Gelişigüzel 'Gönderiyi Öne Çıkar' butonuna basarak harcanan paralar alakasız insanlara gider, bütçe çöpe uçar.",
+            description:
+              "Sadece dükkanınıza gelebilecek veya paket servis alanınızdaki kişilere gösterilen, doğrudan WhatsApp veya telefon çaldıran reklamlar.",
+            relatedProjects: ["paninoteca", "omer-usta"],
+            deliverables: [
+              "Konum ve mahalle bazlı nokta atışı hedef kitle ayarı",
+              "Dikkat çeken kampanya afiş ve video kurguları",
+              "Doğrudan WhatsApp'a veya telefon aramasına yönlendirme",
+            ],
+            faqs: [
+              {
+                q: "Ne kadar bütçe gerekir?",
+                a: "Günlük küçük bütçelerle bile dükkanınızın çevresine binlerce kez reklam gösterebiliriz.",
+              },
+            ],
+            comparison: [
+              {
+                feature: "Bütçe Verimi",
+                others: "Tüm şehre gösterilip boşa giden reklam parası",
+                hexa: "Sadece dükkanınızın çevresine gösterilen net müşteri",
+              },
+            ],
+          },
+          {
+            name: "Sosyal Medya Yönetimi",
+            slug: "sosyal-medya-yonetimi",
+            seoTitle: "Bursa Sosyal Medya Yönetimi ve İçerik Tasarımı | Hexa",
+            seoKeywords: [
+              "sosyal medya yönetimi bursa",
+              "instagram sayfa yönetimi",
+              "reels video çekimi",
+            ],
+            image: "/assets/servicess/subServicess/social_medya.webp",
+            heroTitle1: "Sosyal Medya Yönetimi",
+            sloganMain: "Terk Edilmiş Sayfalara Son,",
+            sloganHighlight:
+              "Düzenli Video, Fotoğraf ve Kampanya Paylaşımlarıyla Dükkanın Sayfasını Hareketlendirme.",
+            introText:
+              "Düzenli video, fotoğraf ve kampanya paylaşımlarıyla dükkanın sayfasını hareketlendirme.",
+            painPointText:
+              "Aylardır paylaşım yapılmayan bir Instagram hesabı müşteride 'Acaba dükkan kapandı mı?' şüphesi doğurur.",
+            description:
+              "Haftalık profesyonel görsel ve videolarla sayfanızı canlı tutuyor, kampanyalarınızı duyuruyoruz.",
+            relatedProjects: ["paninoteca", "omer-usta"],
+            deliverables: [
+              "Haftalık düzenli gönderi ve hikaye tasarımları",
+              "Dükkanın kurumsal renklerine uygun kapak ve şablonlar",
+              "Gelen mesaj ve yorumların yönlendirilmesi",
+            ],
+            faqs: [
+              {
+                q: "Görselleri siz mi hazırlıyorsunuz?",
+                a: "Evet, tüm tasarım ve video düzenlemelerini ekibimiz hazırlar.",
+              },
+            ],
+            comparison: [
+              {
+                feature: "Güven",
+                others: "Aylardır boş duran ölü sosyal medya sayfası",
+                hexa: "Her hafta hareketli, güven veren canlı profil",
+              },
+            ],
+          },
+          {
+            name: "Google Reklamları",
+            slug: "google-reklamlari",
+            seoTitle: "Bursa Google Reklamları Yönetimi | Hexa Dijital",
+            seoKeywords: [
+              "google reklam verme bursa",
+              "google adwords ajansı bursa",
+              "google ilk sıra reklam",
+            ],
+            image: "/assets/servicess/subServicess/local_seo.webp",
+            heroTitle1: "Google Reklamları",
+            sloganMain: "Hizmetinizi Arayan Müşteriyi Kaçırmayın,",
+            sloganHighlight:
+              "Google'da Hizmetinizi Arayanların Karşısına İlk Sırada Çıkıp Hemen Telefon Alma.",
+            introText:
+              "Google'da hizmetinizi arayanların karşısına ilk sırada reklamla çıkıp hemen telefon veya sipariş alma.",
+            painPointText:
+              "Kombi ustası, halı yıkamacı veya restoran arayan müşteri Google'a yazar ve ilk çıkan 1-2 numarayı arar.",
+            description:
+              "Bursa'da hizmetinizi arayan müşterilerin karşısına en tepede 'Hemen Ara' butonuyla çıkmanızı sağlayan reklam sistemi.",
+            relatedProjects: ["hira-koltuk-yikama", "omer-usta"],
+            deliverables: [
+              "Doğru anahtar kelime ve arama terimi kurulumu",
+              "Doğrudan telefon aratan 'Tıkla ve Ara' butonlu reklamlar",
+              "Gereksiz tıklamaları engelleyen negatif kelime filtresi",
+            ],
+            faqs: [
+              {
+                q: "Sadece telefon arayınca mı para kesilir?",
+                a: "Evet, Google sadece ilanınıza tıklanıp arandığında bütçenizden küçük bir ücret düşer.",
+              },
+            ],
+            comparison: [
+              {
+                feature: "Müşteri Niyeti",
+                others: "Aramayan insanlara zorla gösterilen reklamlar",
+                hexa: "Tam o an hizmete ihtiyacı olup arama yapan hazır müşteri",
+              },
+            ],
+          },
+          {
+            name: "Google Haritalar & 1. Sıra",
+            slug: "google-haritalar-1-sira",
+            seoTitle: "Bursa Google Haritalarda 1. Sıraya Çıkma | Hexa",
+            seoKeywords: [
+              "google harita kaydı bursa",
+              "google haritada ilk sıra",
+              "bölgesel seo bursa",
+            ],
+            image: "/assets/servicess/subServicess/local_seo.webp",
+            heroTitle1: "Google Haritalar & 1. Sıra",
+            sloganMain: "Çevredeki Herkes Sizi Bulsun,",
+            sloganHighlight:
+              "Civarda Arama Yapan Müşterilerin Sizi Haritada En Üstte Bulmasını Sağlama.",
+            introText:
+              "Civarda arama yapan müşterilerin sizi haritada en üstte bulmasını sağlama.",
+            painPointText:
+              "Haritada geride kalan veya adresi yanlış olan dükkan, her gün mahallesindeki onlarca müşteriyi rakibe kaptırır.",
+            description:
+              "Google Haritalar profilinizi eksiksiz optimize ediyor, semtinizdeki aramalarda en üstte çıkmanızı sağlıyoruz.",
+            relatedProjects: ["hira-koltuk-yikama", "omer-usta"],
+            deliverables: [
+              "Google İşletme Profili doğrulaması ve tam kurulumu",
+              "Bölgesel arama kelimelerinde harita ilk 3 sıraya yükselme",
+              "Doğru adres, telefon ve yol tarifi butonları",
+            ],
+            faqs: [
+              {
+                q: "Haritada çıkmak müşteri sayısını etkiler mi?",
+                a: "Evet, yerel aramaların %70'i doğrudan ilk 3 haritadan dükkanı seçer.",
+              },
+            ],
+            comparison: [
+              {
+                feature: "Konum Gücü",
+                others: "Haritada çıkmadığı için bulunamayan dükkan",
+                hexa: "Arama yapanın 'Yol Tarifi Al' diyerek doğrudan geldiği işletme",
+              },
+            ],
+          },
+          {
+            name: "Google Yorum & Puan Artırma",
+            slug: "google-yorum-puan-artirma",
+            seoTitle: "Bursa Google Yorum ve Puan Yükseltme | Hexa Dijital",
+            seoKeywords: [
+              "google yorum artırma",
+              "google 5 yıldız alma",
+              "haksız yorum silme desteği",
+            ],
+            image: "/assets/servicess/subServicess/local_seo.webp",
+            heroTitle1: "Google Yorum & Puan Artırma",
+            sloganMain: "İtibarınızı Kötü Niyete Bırakmayın,",
+            sloganHighlight:
+              "5 Yıldızlı Yorum Toplama ve Haksız Kötü Yorumları Kaldırma Desteği.",
+            introText:
+              "5 yıldızlı yorum toplama ve haksız kötü yorumları kaldırma desteği.",
+            painPointText:
+              "1-2 haksız kötü yorum puanınızı düşürür ve yeni müşterilerin kapıdan dönmesine sebep olur.",
+            description:
+              "Memnun müşterilerinizden kolayca 5 yıldız toplama sistemi kuruyor, sahte ve haksız yorumları temizliyoruz.",
+            relatedProjects: ["omer-usta", "hira-koltuk-yikama"],
+            deliverables: [
+              "Müşteriye tek dokunuşla 5 yıldız verdiren QR kart tasarımı",
+              "Google politikalarına aykırı haksız yorumlara itiraz ve kaldırma süreci",
+              "Ortalama puanı 4.8 ve üzerine çıkarma stratejisi",
+            ],
+            faqs: [
+              {
+                q: "Haksız sahte yorumlar silinebilir mi?",
+                a: "Google kurallarını ihlal eden sahte ve karalama amaçlı yorumlar resmi itirazla kaldırtılabilir.",
+              },
+            ],
+            comparison: [
+              {
+                feature: "Dükkan Puanı",
+                others: "Düşük puan yüzünden müşterinin tercih etmediği profil",
+                hexa: "Yüksek yıldız puanıyla müşterinin tereddütsüz güvendiği işletme",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "tasarim-baski-isleri",
+    title: "Tasarım & Baskı İşleri",
+    index: "05",
+    description:
+      "Tabeladan kartvizite, poşetten profesyonel ürün fotoğrafına kadar dükkanınızın kalitesini gösteren baskı ve tasarım işleri.",
+    bgImage: "/assets/servicess/brand_identity.webp",
+    subCategories: [
+      {
+        title: "Tasarım & Baskı İşleri",
+        image: "/assets/servicess/brand_identity.webp",
+        sloganMain: "Özensiz Görünmeyin,",
+        sloganHighlight:
+          "Tabelada ve Poşette Net Duran Akılda Kalıcı Çizimler.",
+        introText:
+          "İşletmenizin kalitesini ortaya koyan özgün logo, matbaa baskıları ve profesyonel çekimler.",
+        descriptionTitle: "Neden Profesyonel Tasarım?",
+        description:
+          "Bulanık logolar ve kalitesiz fotoğraflar iyi yapılan işi bile ucuz gösterir. Tabelada da kartvizitte de pırıl pırıl duran tasarımlar yapıyoruz.",
+        blockquote:
+          "Müşteri önce gözüyle tartar, güvendiği yerden alışveriş yapar.",
+        processTitle: "Teslimat",
+        processSteps: [
+          {
+            title: "Özgün Çizim",
+            text: "Dükkanınıza özel akılda kalıcı logo ve grafik tasarımı.",
+          },
+          {
+            title: "Onay",
+            text: "Tam içinize sinene kadar düzenleme garantisi.",
+          },
+          {
+            title: "Baskıya Hazır",
+            text: "Tabelacıya ve matbaaya doğrudan verilecek net dosyalar.",
+          },
+        ],
+        items: [
+          {
+            name: "Dükkana Özel Logo Tasarımı",
+            slug: "dukkana-ozel-logo-tasarimi",
+            seoTitle: "Bursa Dükkana Özel Logo Tasarımı | Hexa Dijital",
+            seoKeywords: [
+              "logo tasarımı bursa",
+              "tabela logosu çizimi",
+              "vektörel logo bursa",
             ],
             image: "/assets/servicess/logo.webp",
-            heroTitle1: "Özgün Logo Tasarımı",
+            heroTitle1: "Dükkana Özel Logo Tasarımı",
             sloganMain: "İnternetten Kopyalanmış Değil,",
             sloganHighlight:
-              "Tabelada da Kartvizitte de Net Duran Sıfırdan Çizim.",
-            introText:
-              "Kartvizitte de, binanın çatısındaki dev tabelada da jilet gibi net duran, tescil edilebilir profesyonel logo tasarımları.",
+              "Tabelaya, Karta, Poşete Basmalık Akılda Kalıcı Logo.",
+            introText: "Tabelaya, karta, poşete basmalık akılda kalıcı logo.",
             painPointText:
-              "Canva veya hazır sitelerden alınan logolar yarın bir gün rakibiniz tarafından da kullanılır. Tabelacıya gittiğinizde dosya bozulur, bulanık çıkar. İşletmenizin değerini düşürmeyen orijinal bir çizim şarttır.",
+              "İnternetten hazır alınan logolar tabelacıda büyütüldüğünde bozulur, bulanık çıkar ve ciddiyetsiz durur.",
             description:
-              "İşletmenizin değerini yukarı çeken, matbaada ve tabelada asla bozulmayan, marka tesciline uygun orijinal logolar çiziyoruz.",
+              "Tabelada, kartvizitte ve ambalajda asla bozulmayan, markanızı akılda tutan özgün logo çizimi.",
             relatedProjects: [
               "paninoteca",
               "omer-usta",
@@ -631,234 +1104,139 @@ export const servicesData = [
               },
             ],
             deliverables: [
-              "Tabelacı ve matbaaya doğrudan iletilecek vektörel formatlar (AI, PDF, SVG)",
-              "Sosyal medya profil ve kapaklarına hazır şeffaf PNG formatları",
-              "Açık ve koyu zeminlerde kullanılacak renk çeşitleri",
-              "Kurumsal renk kodları ve yazı tipi rehberi",
+              "Tabelacı ve matbaaya verilecek net vektörel formatlar (AI, PDF, SVG)",
+              "Sosyal medya profil ve kapakları için hazır şeffaf PNG'ler",
+              "Açık ve koyu zemin alternatifleri",
             ],
             faqs: [
               {
-                q: "Logoyu beğenmezsem ne olacak?",
-                a: "Size sunduğumuz tasarımlar üzerinden tamamen içinize sinene kadar gerekli düzenlemeleri ve revizeleri yapıyoruz.",
+                q: "Logoyu beğenmezsem revize yapılıyor mu?",
+                a: "Evet, tamamen içinize sinene kadar düzenleme yapıyoruz.",
               },
             ],
             comparison: [
               {
-                feature: "Özgünlük",
-                others: "İnternetten herkesin kullandığı hazır hazır ikonlar",
-                hexa: "Sıfırdan işletmenize özel çizilen, marka tesciline uygun logo",
+                feature: "Baskı Kalitesi",
+                others: "Tabelada pikselleri sayılan bulanık kopyalar",
+                hexa: "Dev tabelada bile jilet gibi net duran vektörel çizim",
               },
             ],
           },
           {
-            name: "Kurumsal Evrak ve Kartvizit",
-            slug: "kurumsal-evrak-ve-kartvizit",
-            seoTitle: "Bursa Kurumsal Evrak ve Kartvizit Tasarımı | Hexa",
+            name: "Kartvizit, Magnet & Ambalaj Baskıları",
+            slug: "kartvizit-magnet-ambalaj-baskilari",
+            seoTitle: "Bursa Kartvizit, Magnet ve Kutu Baskı Tasarımı | Hexa",
             seoKeywords: [
-              "Bursa kurumsal kimlik",
               "kartvizit tasarımı bursa",
-              "fatura antetli kağıt tasarımı",
+              "magnet baskı",
+              "kutu poşet ambalaj tasarımı",
             ],
             image: "/assets/servicess/kartvizit.webp",
-            heroTitle1: "Kurumsal Evrak & Kartvizit Tasarımı",
-            sloganMain: "Müşterinize Verdiğiniz Her Fiyat Teklifinde",
-            sloganHighlight: "Aynı Kurumsal Ciddiyet ve Güven.",
-            introText:
-              "Fiyat teklifi dosyaları, fatura, kartvizit, ambalaj ve tabela tasarımlarınız tek bir kurumsal standartta konuşsun.",
+            heroTitle1: "Kartvizit, Magnet & Ambalaj Baskıları",
+            sloganMain: "Müşterinin Dolabında ve Masasında Kalın,",
+            sloganHighlight: "Kutu, Poşet, Fatura ve Matbaa Tasarımları.",
+            introText: "Kutu, poşet, fatura ve matbaa tasarımları.",
             painPointText:
-              "Müşteriye teklif verirken düz bir A4 kağıdı veya özensiz bir Word dosyası gönderdiğinizde fiyatınız yüksek bulunur. Kurumsal bir dosya sunduğunuzda ise kaliteniz doğrudan onaylanır.",
+              "Rastgele basılan kalitesiz kartvizit ve magnetler hemen çöpe atılır, dükkanın telefonunu kimse bulamaz.",
             description:
-              "Büyük işler almak için kurumsal duruş şarttır. Fiyat teklifinizi firmanızın logosuna özel hazırlanmış prestijli dosyalarda sunun.",
+              "Müşterinin atmaya kıyamayacağı şık kartvizitler, dolaba yapışan magnetler ve markalı ambalaj tasarımları.",
             relatedProjects: ["paninoteca", "omer-usta"],
             deliverables: [
-              "Kartvizit ve Cepli Teklif Dosyası Tasarımı",
-              "Antetli Kağıt, Fatura ve Zarf Şablonları",
-              "Dijital Teklif ve Sözleşme Şablonu (PDF & Word)",
-              "Doğrudan Matbaaya Teslim Edilecek Baskı Dosyaları",
+              "Kartvizit, magnet ve cepli dosya tasarımları",
+              "Kutu, ambalaj, poşet ve etiket baskı çizimleri",
+              "Matbaaya doğrudan teslim edilecek hatasız baskı kalıpları",
             ],
             faqs: [
               {
-                q: "Baskı işlerini de siz mi yapıyorsunuz?",
-                a: "Tasarım dosyalarını Türkiye'deki tüm matbaalara uygun formatta veriyoruz. İsterseniz anlaşmalı matbaalarımız üzerinden baskısını da yaptırıp kapınıza teslim edebiliyoruz.",
+                q: "Baskısını da yapıyor musunuz?",
+                a: "İster dosyayı veririz kendi matbaanıza bastırırsınız, ister basıp dükkanınıza teslim ederiz.",
               },
             ],
             comparison: [
               {
-                feature: "Kurumsal Bütünlük",
-                others:
-                  "Her matbaadan farklı renk ve tasarımda çıkan dağınık evraklar",
-                hexa: "Tek bir kurumsal standartta hazırlanmış prestijli şirket kimliği",
+                feature: "Etki",
+                others: "Hemen buruşturulup atılan özensiz kağıtlar",
+                hexa: "Müşterinin masasında ve dolabında saklanan kaliteli baskı",
               },
             ],
           },
           {
-            name: "Profesyonel Fotoğraf Çekimi",
-            slug: "profesyonel-fotograf-cekimi",
-            seoTitle: "Bursa Profesyonel Ürün ve Mekan Fotoğrafçısı | Hexa",
+            name: "Ürün ve Dükkan Fotoğraf Çekimi",
+            slug: "urun-ve-dukkan-fotograf-cekimi",
+            seoTitle:
+              "Bursa Profesyonel Ürün ve Restoran Fotoğraf Çekimi | Hexa",
             seoKeywords: [
-              "Bursa ürün fotoğrafçısı",
-              "restoran yemek çekimi bursa",
-              "mekan fotoğraf çekimi bursa",
+              "ürün fotoğrafçısı bursa",
+              "yemek çekimi bursa",
+              "dükkan fotoğraf çekimi",
             ],
             image: "/assets/servicess/product_photo.webp",
-            heroTitle1: "Profesyonel Ürün & Mekan Fotoğraf Çekimi",
-            sloganMain: "Telefonla Çekilen Soluk Fotoğraflarla",
-            sloganHighlight: "Müşterilerinizi Kaçırmayın.",
+            heroTitle1: "Ürün ve Dükkan Fotoğraf Çekimi",
+            sloganMain: "Telefonla Çekilen Karanlık Fotoğraflara Son,",
+            sloganHighlight:
+              "Menüye ve Sayfaya Koymalık İştah Açıcı Net Fotoğraflar.",
             introText:
-              "Yemeklerinizi, ürünlerinizi ve mekanınızı kaliteli stüdyo ışıklarıyla sergileyen profesyonel fotoğraf çekimleri.",
+              "Menüye ve sayfaya koymalık iştah açıcı net fotoğraflar.",
             painPointText:
-              "İnternetten yemek veya ürün sipariş eden hiç kimse karanlık, telefonla alelacele çekilmiş görsellere para ödemez. Kötü fotoğraf iyi ürünü bile ucuz gösterir.",
+              "Karanlık ve telefonla acele çekilmiş fotoğraflar en lezzetli yemeği veya en kaliteli ürünü bile kötü gösterir.",
             description:
-              "İştah kabartan, stüdyo ışıklarıyla çekilmiş net fotoğraflarla Yemeksepeti, Trendyol ve sosyal medyadaki siparişlerinizi anında katlayın.",
+              "Stüdyo ışıklarıyla dükkanınıza gelip ürünlerinizi en iştah açıcı ve kaliteli açılardan fotoğraflıyoruz.",
             relatedProjects: ["paninoteca", "omer-usta"],
             deliverables: [
-              "Yüksek çözünürlüklü ve renkleri ayarlanmış net fotoğraflar",
-              "Yemeksepeti, Getir, Trendyol ve Web Sitesi boyutlarına özel teslim",
-              "Sosyal medyada hemen paylaşılabilecek hazır şablonlar",
+              "Yüksek çözünürlüklü düzenlenmiş stüdyo kalitesinde kareler",
+              "Yemeksepeti, Trendyol, Instagram ve Menü boyutlarına uygun teslim",
             ],
             faqs: [
               {
-                q: "Çekimleri nerede yapıyorsunuz?",
-                a: "Işık ve kamera ekipmanlarımızla doğrudan işletmenize gelip kendi mutfağınızda/dükkanınızda çekimleri gerçekleştiriyoruz.",
+                q: "Çekim nerede yapılıyor?",
+                a: "Işık ve kamera ekipmanlarımızla doğrudan sizin dükkanınıza gelip çekiyoruz.",
               },
             ],
             comparison: [
               {
-                feature: "Görsel Etki",
-                others:
-                  "Işığı bozuk, sararmış ve iştah kaçıran telefon kareleri",
-                hexa: "Stüdyo ışığıyla çekilmiş, detayları net ve albenisi yüksek kareler",
+                feature: "Albeni",
+                others: "Soluk, iştah kaçıran amatör telefon çekimleri",
+                hexa: "Siparişi anında verdiren pırıl pırıl profesyonel kareler",
               },
             ],
           },
-        ],
-      },
-    ],
-  },
-  {
-    id: "sosyal-medya-google-buyume",
-    title: "Sosyal Medya & Google'da Büyüme",
-    index: "05",
-    description:
-      "Çevrenizdeki müşterilerin Google Haritalar'da doğrudan sizi bulmasını sağlayan arama optimizasyonu ve düzenli sosyal medya yönetimi.",
-    bgImage: "/assets/servicess/subServicess/local_seo.webp",
-    subCategories: [
-      {
-        title: "Sosyal Medya & Google",
-        image: "/assets/servicess/subServicess/local_seo.webp",
-        sloganMain: "İnternette Görünür Olun,",
-        sloganHighlight: "Müşteri Sizi Aradığında İlk Karşısına Çıkın.",
-        introText:
-          "Google'da ve Instagram'da firmanızı arayan potansiyel müşterileri doğrudan dükkanınıza çeken büyüme çözümleri.",
-        descriptionTitle: "İşletmeler Neden Görünmez Kalır?",
-        description:
-          "Çoğu işletmenin Google Harita kaydı eksik veya yanlıştır. Sosyal medya hesapları ise haftalarca paylaşım yapılmadığı için terk edilmiş gibi durur. Bu durum müşteride güven kaybı yaratır.",
-        blockquote:
-          "İnternette bulunamayan işletme, kapalı dükkandan farksızdır.",
-        processTitle: "Büyüme Adımları",
-        process:
-          "Haritanızı ve sosyal medyanızı baştan düzenliyor, bölgesel anahtar kelimelerle hedef kitlenize ulaştırıyoruz.",
-        processSteps: [
           {
-            title: "Harita & Profil Denetimi",
-            text: "Google Haritalar profilinizin eksiksiz onaylatılması ve güncellenmesi.",
-          },
-          {
-            title: "Düzenli İçerik Üretimi",
-            text: "İşletmenizi canlı ve güvenilir gösteren profesyonel paylaşımlar.",
-          },
-          {
-            title: "Sıralama Takibi",
-            text: "Bölgenizdeki aramalarda rakiplerinizin önüne geçme çalışmaları.",
-          },
-        ],
-        items: [
-          {
-            name: "Google Harita ve 1. Sıra Yönetimi",
-            slug: "google-harita-ve-1-sira-yonetimi",
-            seoTitle: "Bursa Google Harita Kaydı ve İlk Sıra SEO | Hexa",
+            name: "Tabela & Cephe Giydirme Tasarımı",
+            slug: "tabela-cephe-giydirme-tasarimi",
+            seoTitle: "Bursa Dükkan Tabela ve Cam Giydirme Tasarımı | Hexa",
             seoKeywords: [
-              "Bursa Google harita kaydı",
-              "Google ilk sıra bursa",
-              "bölgesel seo bursa",
-              "Google haritalarda üst sıraya çıkma",
+              "tabela tasarımı bursa",
+              "dükkan cam giydirme",
+              "ışıklı pano çizimi",
             ],
-            image: "/assets/servicess/subServicess/local_seo.webp",
-            heroTitle1: "Google Harita & 1. Sıra Yönetimi",
-            sloganMain: "Çevrenizde Hizmetinizi Arayan Müşteriler",
-            sloganHighlight: "Doğrudan Sizi Bulsun ve Yol Tarifi Alsın.",
+            image: "/assets/servicess/brand_identity.webp",
+            heroTitle1: "Tabela & Cephe Giydirme Tasarımı",
+            sloganMain: "Dükkanınız Caddeden Farkedilsin,",
+            sloganHighlight:
+              "Dükkan Dışı Tabela, Cam Giydirme ve Işıklı Pano Çizimleri.",
             introText:
-              "Bulunduğunuz şehirde veya semtte işinizi arayan kişilerin doğrudan telefonunuza ve dükkanınıza ulaşmasını sağlayan arama optimizasyonu.",
+              "Dükkan dışı tabela, cam giydirme ve ışıklı pano çizimleri.",
             painPointText:
-              "Bursa'da hizmetinizi arayan bir müşteri Google'a yazdığında ilk 3 sıradaki işletmeleri arar. Eğer haritada gerideyseniz veya kaydınız yoksa, her gün onlarca hazır müşteri yan komşunuza gider.",
+              "Uzaktan okunmayan, rengi soluk ve karmaşık tabelalar dükkanın önünden geçen müşteriyi içeri çekemez.",
             description:
-              "Google Haritalar profilinizi onaylatıyor, aramalarda 1. sıraya yükselmeniz için işletmenizi bölgenizin en çok tıklanan işletmesi haline getiriyoruz.",
-            relatedProjects: ["hira-koltuk-yikama", "omer-usta"],
-            workGallery: [
-              {
-                title: "Hira Koltuk Yıkama - Google Bursa Aramalarında 1. Sıra",
-                image: "/assets/projects/hira/image_2.webp",
-              },
-            ],
-            deliverables: [
-              "Google İşletme Profili doğrulaması ve tam optimizasyonu",
-              "Bölgesel arama kelimelerinde (Örn: Bursa ... Ustası) ilk sayfa çalışması",
-              "Müşteri yorumlarını ve puanlarını yükseltme stratejisi",
-              "Telefon, adres ve yol tarifi butonlarının kusursuz bağlanması",
-            ],
-            faqs: [
-              {
-                q: "Haritada yükselmek telefon aramalarını artırır mı?",
-                a: "Evet. Yerel aramalarda ilk 3'e giren işletmelerin telefon trafiği ve yol tarifi alma oranı ortalama 3-4 kat artmaktadır.",
-              },
-            ],
-            comparison: [
-              {
-                feature: "Görünürlük",
-                others:
-                  "Haritalarda arkalarda kalan ve kimsenin bulamadığı işletme",
-                hexa: "Bölgesinde aratıldığında ilk sırada çıkan ve doğrudan aranan profil",
-              },
-            ],
-          },
-          {
-            name: "Sosyal Medya Yönetimi",
-            slug: "sosyal-medya-yonetimi",
-            seoTitle: "Bursa Sosyal Medya Yönetimi ve İçerik Tasarımı | Hexa",
-            seoKeywords: [
-              "Bursa sosyal medya yönetimi",
-              "instagram yönetimi bursa",
-              "sosyal medya ajansı bursa",
-            ],
-            image: "/assets/servicess/subServicess/social_medya.webp",
-            heroTitle1: "Sosyal Medya Yönetimi",
-            sloganMain: "Terk Edilmiş Gibi Duran Hesaplara Son,",
-            sloganHighlight: "İşletmenizi Her Gün Canlı ve Güvenilir Gösterin.",
-            introText:
-              "Düzenli gönderi paylaşımları, profesyonel kampanya tasarımları, gelen mesaj ve yorumların takibiyle sosyal medyanızı satış kanalına çeviriyoruz.",
-            painPointText:
-              "Aylardır hiçbir şey paylaşılmamış bir Instagram hesabı müşteride 'Acaba bu işletme kapandı mı?' şüphesi doğurur. Kalitesiz paylaşımlar güveni zedeler.",
-            description:
-              "Sizin yerinize haftalık gönderilerinizi tasarlıyor, kampanyalarınızı duyuruyor ve profilinizi her zaman aktif tutuyoruz.",
+              "Caddeden geçen herkesin ilk bakışta fark edeceği ışıklı tabela, cam folyo ve cephe giydirme çizimleri.",
             relatedProjects: ["paninoteca", "omer-usta"],
             deliverables: [
-              "Aylık düzenli görsel ve video (Reels) içerik planlaması",
-              "Markanızın kurumsal renklerine uygun özel şablon tasarımları",
-              "Müşteri mesaj ve yorumlarına hızlı geri dönüş yönlendirmesi",
-              "Profil biyografisi ve öne çıkan hikayelerin düzenlenmesi",
+              "Tabelacının birebir üreteceği ölçülü vektörel teknik çizim",
+              "Cam folyo giydirme ve menü panosu tasarımları",
+              "Dükkanınız üzerinde 3 boyutlu önizleme",
             ],
             faqs: [
               {
-                q: "Paylaşımlar için fotoğrafları nasıl temin edeceğiz?",
-                a: "İster kendi çektiğiniz ürün görsellerini kurumsal tasarımlara dönüştürebiliriz, isterseniz profesyonel çekim hizmetimizle içerik havuzu oluşturabiliriz.",
+                q: "Tabelacı bu dosyayla doğrudan üretim yapabilir mi?",
+                a: "Evet, tüm tabela ve folyocuların istediği standart ölçülü kalıplarda verilir.",
               },
             ],
             comparison: [
               {
-                feature: "Profil Düzeni",
-                others:
-                  "Aylardır paylaşım yapılmayan, karanlık ve düzensiz hesap",
-                hexa: "Her hafta düzenli paylaşılan, kurumsal ve güven veren profesyonel profil",
+                feature: "Fark Edilirlik",
+                others: "Karmaşık, uzaktan okunmayan sönük tabela",
+                hexa: "Caddeden geçen herkesin hemen fark ettiği net kurumsal cephe",
               },
             ],
           },

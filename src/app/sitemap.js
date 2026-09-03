@@ -14,11 +14,12 @@ export default async function sitemap() {
     "/projeler",
     "/iletisim",
     "/sektorel-cozumler",
+    "/baglantilar",
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: route === "" ? "weekly" : "monthly",
-    priority: route === "" ? 1.0 : 0.8,
+    priority: route === "" ? 1.0 : route === "/baglantilar" ? 0.9 : 0.8,
   }));
 
   const serviceRoutes = [];

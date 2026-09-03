@@ -1,5 +1,9 @@
-/* 1. KÜRESEL DEĞİŞKENLER (CSS Variables) */
-:root {
+/* ==========================================================================
+   1. KÜRESEL DEĞİŞKENLER & LÜKS TİPOGRAFİ MİMARİSİ (globals.css)
+   ========================================================================== */
+:root,
+html,
+body {
   /* --- 1. PERDE: SİBER VE TEKNOLOJİK (Premium Midnight Blue) --- */
   --hexa-bg: #0A0E17;
   --hexa-card-bg: rgba(255, 255, 255, 0.02);
@@ -63,7 +67,10 @@ html.lenis body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', var(--font-space), -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -72,15 +79,41 @@ body {
   width: 100%;
   max-width: 100vw;
   overflow-x: hidden;
+  background-color: var(--hexa-bg);
+  color: var(--hexa-font-main);
 }
 
 body {
-  background-color: var(--hexa-bg);
-  color: var(--hexa-font-main);
   transition: background-color var(--transition-theme), color var(--transition-theme);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
-/* 2. GLOBAL YARDIMCI SINIFLAR (Utility Classes) */
+/* Başlıklar İçin Apple Tarzı Sıkı ve Net Harf Aralıkları */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: -0.025em;
+  font-weight: 600;
+  color: var(--hexa-font-main);
+}
+
+p,
+span,
+a,
+li,
+input,
+textarea,
+button {
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ==========================================================================
+   2. GLOBAL YARDIMCI SINIFLAR (Utility Classes)
+   ========================================================================== */
 .container {
   width: 100%;
   max-width: 1400px;
@@ -122,18 +155,18 @@ body {
 }
 
 .text-gradient-flow {
-  font-size: clamp(1.25rem, 2.5vw, 2rem);
-  letter-spacing: 1px;
-  margin-bottom: 1.5rem;
+  font-size: clamp(1.15rem, 2.2vw, 1.8rem);
+  letter-spacing: 0.5px;
+  margin-bottom: 1.25rem;
   display: block;
-  font-weight: 500;
+  font-weight: 600;
   background: linear-gradient(to right, var(--hexa-accent) 20%, var(--hexa-gradient-mid) 50%, var(--hexa-accent) 80%);
   background-size: 200% auto;
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: textShineFlow 3s linear infinite;
+  animation: textShineFlow 3.5s linear infinite;
   transition: all var(--transition-theme);
 }
 
@@ -171,7 +204,10 @@ body {
 }
 
 @media (max-width: 768px) {
-  :root {
+
+  :root,
+  html,
+  body {
     --section-padding: 60px 16px;
     --radius-card: 18px;
   }
