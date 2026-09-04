@@ -47,7 +47,7 @@ export const parsePrice = (priceStr) => {
 };
 
 /**
- * Statik görsel ve SVG yollarını GitHub Pages alt dizinine (basePath) otomatik uyarlar.
+ * Özel domain (hexadijital.com) ile %100 uyumlu kök dizin görsel yolu yardımcısı
  * @param {string} path
  * @returns {string}
  */
@@ -60,7 +60,7 @@ export const assetUrl = (path) => {
   ) {
     return path;
   }
-  const basePath = process.env.NODE_ENV === "production" ? "/hexa-dijital" : "";
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const cleanPath = path.startsWith("/") ? path : `/${path}`;
   return `${basePath}${cleanPath}`;
 };

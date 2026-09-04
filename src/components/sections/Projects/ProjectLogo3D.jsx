@@ -1,17 +1,19 @@
 "use client";
 
-import React, { useMemo, useRef } from "react";
+import React, { useMemo, useRef, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Center, Environment, Float } from "@react-three/drei";
 import { useLoader } from "@react-three/fiber";
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader";
 import * as THREE from "three";
+import { assetUrl } from "@/utils/formatters";
 
 const SvgModel = ({ url }) => {
   const svg = useLoader(SVGLoader, url);
   const groupRef = useRef();
 
   const pathData = useMemo(() => {
+    if (!svg || !svg.paths) return [];
     return svg.paths.map((path) => ({
       shapes: path.toShapes(true),
       color: path.color,
@@ -31,6 +33,8 @@ const SvgModel = ({ url }) => {
       groupRef.current.rotation.y += delta * 0.5;
     }
   });
+
+  if (!pathData.length) return null;
 
   return (
     <group ref={groupRef}>
@@ -54,7 +58,7 @@ const SvgModel = ({ url }) => {
                   args={[shape, { ...baseExtrudeSettings, depth: layerDepth }]}
                 />
                 <meshStandardMaterial
-                  color={data.color}
+                  color={data.color || "#02FCCF"}
                   metalness={0.5}
                   roughness={0.4}
                   envMapIntensity={0.8}
@@ -72,6 +76,7 @@ const SvgModel = ({ url }) => {
 
 export default function ProjectLogo3D({ logoUrl }) {
   if (!logoUrl) return null;
+  const finalUrl = assetUrl(logoUrl);
 
   return (
     <div className="project-logo-canvas-container">
@@ -86,7 +91,9 @@ export default function ProjectLogo3D({ logoUrl }) {
         <Environment preset="studio" />
 
         <Float speed={2} rotationIntensity={0} floatIntensity={1.2}>
-          <SvgModel url={logoUrl} />
+          <Suspense fallback={null}>
+            <SvgModel url={finalUrl} />
+          </Suspense>
         </Float>
       </Canvas>
     </div>

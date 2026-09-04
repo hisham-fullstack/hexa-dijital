@@ -11,6 +11,7 @@ const StaticLogoMesh = ({ url }) => {
   const svg = useLoader(SVGLoader, url);
 
   const pathData = useMemo(() => {
+    if (!svg || !svg.paths) return [];
     return svg.paths.map((path) => ({
       shapes: path.toShapes(true),
       color: path.color,
@@ -29,6 +30,8 @@ const StaticLogoMesh = ({ url }) => {
     [],
   );
 
+  if (!pathData.length) return null;
+
   return (
     <group rotation={[0, 0, 0]}>
       <Center>
@@ -38,7 +41,7 @@ const StaticLogoMesh = ({ url }) => {
               <mesh key={`${index}-${i}`}>
                 <extrudeGeometry args={[shape, extrudeSettings]} />
                 <meshStandardMaterial
-                  color={data.color}
+                  color={data.color || "#02FCCF"}
                   metalness={0.9}
                   roughness={0.2}
                   envMapIntensity={1.8}
@@ -58,7 +61,6 @@ export default function LinksLogo3D() {
 
   return (
     <div className="hx-links-3d-canvas-container">
-      {/* 0ms Anında Görünen Net Vektörel Katman (Gecikmeyi Sıfırlar) */}
       <div className="hx-instant-logo-fallback">
         <img src={finalUrl} alt="Hexa Dijital" className="instant-logo-img" />
       </div>

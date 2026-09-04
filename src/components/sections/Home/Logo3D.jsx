@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useRef, useState, useEffect } from "react";
+import React, { useMemo, useRef, useState, useEffect, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Center, Environment, Float } from "@react-three/drei";
 import { useLoader } from "@react-three/fiber";
@@ -11,7 +11,6 @@ import { assetUrl } from "@/utils/formatters";
 const SvgModel = ({ url }) => {
   const svg = useLoader(SVGLoader, url);
   const groupRef = useRef();
-
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -22,6 +21,7 @@ const SvgModel = ({ url }) => {
   }, []);
 
   const pathData = useMemo(() => {
+    if (!svg || !svg.paths) return [];
     return svg.paths.map((path) => ({
       shapes: path.toShapes(true),
       color: path.color,
@@ -62,6 +62,8 @@ const SvgModel = ({ url }) => {
     }
   });
 
+  if (!pathData.length) return null;
+
   return (
     <group ref={groupRef}>
       <Center>
@@ -71,7 +73,7 @@ const SvgModel = ({ url }) => {
               <mesh key={`${index}-${i}`}>
                 <extrudeGeometry args={[shape, extrudeSettings]} />
                 <meshStandardMaterial
-                  color={data.color}
+                  color={data.color || "#02FCCF"}
                   metalness={0.8}
                   roughness={0.3}
                   envMapIntensity={0.8}
@@ -109,7 +111,9 @@ export default function Logo3D({ logoUrl }) {
         <Environment preset="studio" />
 
         <Float speed={2} rotationIntensity={0.1} floatIntensity={1.2}>
-          <SvgModel url={finalUrl} />
+          <Suspense fallback={null}>
+            <SvgModel url={finalUrl} />
+          </Suspense>
         </Float>
       </Canvas>
     </div>
