@@ -1,16 +1,9 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === "production";
-const repoName = "hexa-dijital";
-
 const nextConfig = {
   output: "export",
   trailingSlash: true,
-  basePath:
-    process.env.NEXT_PUBLIC_BASE_PATH !== undefined
-      ? process.env.NEXT_PUBLIC_BASE_PATH
-      : isProd
-        ? `/${repoName}`
-        : "",
+  // Özel domain bağlandığında kök dizinden çalışması için basePath temizlendi
+  basePath: "",
   images: {
     unoptimized: true,
   },

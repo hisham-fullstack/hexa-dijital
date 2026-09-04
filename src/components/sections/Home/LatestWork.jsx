@@ -6,10 +6,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Cpu } from "lucide-react";
 import { projectsData } from "@/data/projectsData";
 import { assetUrl } from "@/utils/formatters";
+import { useLanguage } from "@/context/LanguageContext";
 import "./LatestWork.css";
 
 const LatestWork = () => {
   const [hoveredWork, setHoveredWork] = useState(null);
+  const { t } = useLanguage();
   const featuredWorks = projectsData.filter((project) => project.isFeatured);
 
   useEffect(() => {
@@ -23,15 +25,16 @@ const LatestWork = () => {
       <div className="container">
         <div className="lw-header-compact">
           <div className="text-gradient-flow lw-header-tag">
-            Son Çalışmalarımız
+            {t("latestWork.tag")}
           </div>
           <div className="lw-header-content-flex">
             <h2>
-              Vizyonu gerçeğe dönüştürdüğümüz <br />{" "}
-              <span className="text-glow">premium</span> projeler.
+              {t("latestWork.titleMain")} <br />{" "}
+              <span className="text-glow">{t("latestWork.titleGlow")}</span>{" "}
+              {t("latestWork.titleEnd")}
             </h2>
             <Link href="/projeler" className="hx-btn-outline">
-              Tüm Portfolyoyu İncele
+              {t("latestWork.viewAllBtn")}
             </Link>
           </div>
         </div>
@@ -91,7 +94,7 @@ const LatestWork = () => {
                     />
                     <div className="lw-overlay-info">
                       <span className="lw-client-text">
-                        {hoveredWork.meta[0].label}: {hoveredWork.meta[0].value}
+                        {t("latestWork.clientLabel")}: {hoveredWork.client}
                       </span>
                     </div>
                   </motion.div>
@@ -103,7 +106,7 @@ const LatestWork = () => {
 
         <div className="lw-mobile-action">
           <Link href="/projeler" className="hx-btn-outline lw-mobile-full-btn">
-            Tüm Portfolyoyu İncele
+            {t("latestWork.viewAllBtn")}
           </Link>
         </div>
       </div>

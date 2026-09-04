@@ -5,17 +5,19 @@ import Link from "next/link";
 import { ArrowUpRight, Check, ArrowRight } from "lucide-react";
 import { sectoralData } from "@/data/sectoralData";
 import { assetUrl } from "@/utils/formatters";
+import { useLanguage } from "@/context/LanguageContext";
 import "./SectoralPanel.css";
 
 const SectoralPanel = () => {
   const [hoveredId, setHoveredId] = useState(null);
+  const { t } = useLanguage();
 
   return (
     <section className="global-section hx-bento-section">
       <div className="container">
         <div className="hx-bento-editorial-layout">
           <div className="hx-bento-left-column">
-            <h2 className="text-gradient-flow">SEKTÖREL ÇÖZÜMLER</h2>
+            <h2 className="text-gradient-flow">{t("sectoralPanel.tag")}</h2>
 
             <div
               className="hx-bento-grid-wrapper"
@@ -69,14 +71,16 @@ const SectoralPanel = () => {
           <div className="hx-bento-right-column">
             <div className="hx-bento-sticky-content">
               <h3 className="hx-bento-side-typography">
-                <span className="text-dark">Standart şablonlar değil; </span>
+                <span className="text-dark">
+                  {t("sectoralPanel.headlineDark")}
+                </span>
                 <span className="text-light">
-                  sektörünüzün darboğazlarını yıkan otonom dönüşüm mimarileri.
+                  {t("sectoralPanel.headlineLight")}
                 </span>
               </h3>
 
               <Link href="/sektorel-cozumler" className="hx-bento-explore-btn">
-                Tüm Mimarileri İncele <ArrowRight size={18} />
+                {t("sectoralPanel.exploreBtn")} <ArrowRight size={18} />
               </Link>
             </div>
           </div>
