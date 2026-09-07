@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { ViewTransitions } from "next-view-transitions";
 import Script from "next/script";
 import { Plus_Jakarta_Sans, Inter } from "next/font/google";
@@ -7,6 +8,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Preloader from "@/components/layout/Preloader";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
+import MetaPixelTracker from "@/components/MetaPixelTracker";
 
 // Apple ve lüks kurumsal markaların tercih ettiği ana tipografi
 const plusJakarta = Plus_Jakarta_Sans({
@@ -89,7 +91,7 @@ export default function RootLayout({ children }) {
             `}
           </Script>
 
-          {/* Meta (Facebook) Pixel */}
+          {/* Meta (Facebook) Pixel Temel Kodu */}
           <Script id="meta-pixel" strategy="afterInteractive">
             {`
               !function(f,b,e,v,n,t,s)
@@ -101,7 +103,6 @@ export default function RootLayout({ children }) {
               s.parentNode.insertBefore(t,s)}(window, document,'script',
               'https://connect.facebook.net/en_US/fbevents.js');
               fbq('init', '1082357000959860');
-              fbq('track', 'PageView');
             `}
           </Script>
           <noscript>
@@ -113,6 +114,11 @@ export default function RootLayout({ children }) {
               alt=""
             />
           </noscript>
+
+          {/* Sayfa Geçişlerini (SPA Navigation) Dinleyen İzleyici */}
+          <Suspense fallback={null}>
+            <MetaPixelTracker />
+          </Suspense>
 
           <Providers>
             <Preloader />
